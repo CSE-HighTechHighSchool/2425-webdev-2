@@ -6,3 +6,45 @@ light brown/pink - #f9d4b7
 reddish brown - #b77457
 */
 
+/* ----------------- Class CSS ----------------- */
+
+
+.nb-background-color{   /* navbar background color */
+    background-color: #023E8A;
+}
+
+.nbMenuItem{               /* navbar link text properties */
+    font-size:25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
+
+
+/* ----------------- ID CSS ----------------- */
+
+/* -----------------Underline Animation CSS -----------------*/
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    /*color: #0087ca;*/
+  }
+  
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #eae6e6;
+    /*transform-origin: bottom right;*/
+    transition: transform 0.35s ease-out;
+}
+  
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    /*transform-origin: bottom left;*/
+}

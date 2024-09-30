@@ -1,0 +1,56 @@
+.showcase {
+    background-image: url(index-imgs/first-img.jpeg.webp);
+}
+
+.navigation-bar {                        /* navigation bar  */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+
+.nb-background-color {   /* navbar background color */
+    background-color: white;
+    opacity: 90%;
+}
+
+.nbMenuItem {               /* navbar link text properties */
+    font-size:25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: black;
+}
+
+#logo-img {
+    width: 100px !important;
+}
+
+
+/* ----------------- ID CSS ----------------- */
+
+/* -----------------Underline Animation CSS -----------------*/
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    /*color: #0087ca;*/
+  }
+  
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    color: black;
+    /*transform-origin: bottom right;*/
+    transition: transform 0.35s ease-out;
+}
+  
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    /*transform-origin: bottom left;*/
+}
