@@ -9,7 +9,11 @@ reddish brown - #b77457
 
 @font-face {
     font-family: 'SF Pro';
+<<<<<<< Updated upstream
     src: url('fonts/SF-Pro-Display-Regular.otf') format('opentype');
+=======
+    src: url('fonts/SF-Pro.otf') format('opentype');
+>>>>>>> Stashed changes
 }
 
 body {
@@ -21,7 +25,11 @@ body {
 }
 
 .bg-image-container {
+<<<<<<< Updated upstream
     background-image: url('index-imgs/venice-sunset.jpg');
+=======
+    background-image: url('toursimg/venice-sunset.jpg');
+>>>>>>> Stashed changes
     background-size: cover;
     background-position: center;
     height: 100vh; /* Full viewport height */
@@ -38,11 +46,16 @@ body {
     background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
     z-index: 1;
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 .text-overlay {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+<<<<<<< Updated upstream
     text-align: center; /* Center the text */
     z-index: 2; /* Ensure the text is above the overlay */
 }
@@ -199,4 +212,21 @@ body {
 .hover-underline-animation:hover:after {
     transform: scaleX(1);
     /*transform-origin: bottom left;*/
+=======
+    text-align: center;
+    z-index: 2; /* Ensure the text is above the overlay */
+}
+
+.text-overlay h1 {
+    font-size: 3em; /* Adjust the font size as needed */
+}
+
+.text-overlay p {
+    font-size: 1.5em; /* Adjust the font size as needed */
+}
+
+.content-container {
+    padding: 20px;
+    background-color: #fff; /* Background color for the content below */
+>>>>>>> Stashed changes
 }
