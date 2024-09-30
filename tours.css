@@ -9,11 +9,7 @@ reddish brown - #b77457
 
 @font-face {
     font-family: 'SF Pro';
-<<<<<<< Updated upstream
     src: url('fonts/SF-Pro-Display-Regular.otf') format('opentype');
-=======
-    src: url('fonts/SF-Pro.otf') format('opentype');
->>>>>>> Stashed changes
 }
 
 body {
@@ -25,11 +21,7 @@ body {
 }
 
 .bg-image-container {
-<<<<<<< Updated upstream
     background-image: url('index-imgs/venice-sunset.jpg');
-=======
-    background-image: url('toursimg/venice-sunset.jpg');
->>>>>>> Stashed changes
     background-size: cover;
     background-position: center;
     height: 100vh; /* Full viewport height */
