@@ -1,5 +1,5 @@
-.showcase {
-    background-image: url(index-imgs/first-img.jpeg.webp);
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .navigation-bar {                        /* navigation bar  */
@@ -7,6 +7,8 @@
     top: 0;
     width: 100%;
     z-index: 10;
+    margin: 0px;
+    padding: 0px;
 }
 
 
@@ -53,4 +55,48 @@
 .hover-underline-animation:hover:after {
     transform: scaleX(1);
     /*transform-origin: bottom left;*/
+}
+
+.overlay {
+    background-color: black;
+    z-index: 5;
+    opacity: 60%;
+    height: 100%;
+    width: 100%;
+}
+
+.showcase {
+    padding: 0px;
+    margin: 0px;
+    background: url(index-imgs/first-img.jpeg.webp);
+    background-size: cover;
+    height: 800px;
+}
+
+
+.bigDestination {
+    position: relative;
+        top: 35%;
+        left: 35%;
+}
+
+.bigText {
+    font-weight: bold;
+    color: white;
+    font-size: 80px;
+    opacity: 100%;
+}
+
+.potDestination {
+    padding-top: 15px;
+    font-weight: bold;
+    color: white;
+    font-size: 50px;
+    justify-self: center;
+    opacity: 100%;
+}
+
+.potRow {
+    position: relative;
+        top: 40%;
 }
