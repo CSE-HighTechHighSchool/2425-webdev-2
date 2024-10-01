@@ -48,30 +48,59 @@
         </div>
     </nav>
     <!-- Background image container -->
-    <div class="bg-image-container">
-        <div class="dark-overlay"></div>
-        <div class="text-overlay">
-            <h1>Welcome to Venice</h1>
-            <p>Your Venetian Journey Starts Here</p>
+        <div class="bg-image-container">
+            <div class="dark-overlay"></div>
+            <div class="text-overlay">
+                <h1>Welcome to Venice</h1>
+                <p>Your Venetian Journey Starts Here</p>
+            </div>
+            <div class="scroll-down">
+                <a href="#tour-offering">
+                    <i class="bi bi-arrow-down-circle"></i>
+                </a>
+            </div>
         </div>
-        <div class="scroll-down">
-            <a href="#next-container">
-                <i class="bi bi-arrow-down-circle"></i>
-            </a>
+        <!-- Content below the background image container -->
+ <!-- Content below the background image container -->
+        <div id="tour-offering" class="tour-offering">
+            <h1>Our tour offerings:</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card bg-image-card" style="background-image: url('index-imgs/gondola-tour.jpg');">
+                        <div class="card-body">
+                            <p class="card-text">Basilica San Marco, Doges Palace & Gondola ride</p>
+                            <h3 class="card-title">Venice in a day.</h3>
+                            <a href="#" class="plus-icon"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-image-card" style="background-image: url('path/to/image1.jpg');">
+                        <div class="card-body">
+                            <h5 class="card-title">Tour 1</h5>
+                            <p class="card-text">Description of Tour 1.</p>
+                            <a href="#" class="plus-icon"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-image-card" style="background-image: url('path/to/image3.jpg');">
+                        <div class="card-body">
+                            <h5 class="card-title">Tour 3</h5>
+                            <p class="card-text">Description of Tour 3.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <!-- Content below the background image container -->
-    <div id="next-container" class="content-container">
-        <p>More content goes here...</p>
-    </div>
-    <script>
-        document.querySelector('.scroll-down a').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+        <script>
+            document.querySelector('.scroll-down a').addEventListener('click', function(event) {
+                event.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
-        });
-    </script>
+        </script>
   </body>
 </html>
