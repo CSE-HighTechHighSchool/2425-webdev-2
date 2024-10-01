@@ -38,16 +38,11 @@ body {
     background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
     z-index: 1;
 }
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 .text-overlay {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-<<<<<<< Updated upstream
     text-align: center; /* Center the text */
     z-index: 2; /* Ensure the text is above the overlay */
 }
@@ -204,21 +199,4 @@ body {
 .hover-underline-animation:hover:after {
     transform: scaleX(1);
     /*transform-origin: bottom left;*/
-=======
-    text-align: center;
-    z-index: 2; /* Ensure the text is above the overlay */
-}
-
-.text-overlay h1 {
-    font-size: 3em; /* Adjust the font size as needed */
-}
-
-.text-overlay p {
-    font-size: 1.5em; /* Adjust the font size as needed */
-}
-
-.content-container {
-    padding: 20px;
-    background-color: #fff; /* Background color for the content below */
->>>>>>> Stashed changes
 }
