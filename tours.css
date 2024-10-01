@@ -150,17 +150,20 @@ body {
     background-image: url(index-imgs/first-img.jpeg.webp);
 }
 
+
 .navigation-bar {                        /* navigation bar  */
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 10;
+    margin: 0px;
+    padding: 0px;
 }
 
 
 .nb-background-color {   /* navbar background color */
     background-color: white;
-    opacity: 60%;
+    opacity: 70%;
 }
 
 .nbMenuItem {               /* navbar link text properties */
@@ -169,6 +172,7 @@ body {
     margin-right: 10px;
     color: black;
 }
+
 
 #logo-img {
     width: 100px !important;
