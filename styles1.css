@@ -1,6 +1,11 @@
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+@font-face {
+    font-family: "SF Pro";
+    src: url("fonts/SF-Pro-Display-Regular.otf") format("opentype");
+  }
+  
+  body {
+    font-family: "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
 
 .navigation-bar {                        /* navigation bar  */
     position: fixed;
@@ -14,7 +19,7 @@ body {
 
 .nb-background-color {   /* navbar background color */
     background-color: white;
-    opacity: 90%;
+    opacity: 70%;
 }
 
 .nbMenuItem {               /* navbar link text properties */
@@ -66,21 +71,14 @@ body {
 }
 
 .showcase {
-    padding: 0px;
-    margin: 0px;
-    background: url(index-imgs/first-img.jpeg.webp);
+    background: url(index-imgs/first-img.png);
     background-size: cover;
     height: 800px;
 }
 
-
-.bigDestination {
-    position: relative;
-        top: 35%;
-        left: 35%;
-}
-
 .bigText {
+    padding-top: 140px;
+    padding-left: 6%;
     font-weight: bold;
     color: white;
     font-size: 80px;
@@ -88,15 +86,54 @@ body {
 }
 
 .potDestination {
-    padding-top: 15px;
+    padding-top: 35px;
+    padding-left: 6%;
     font-weight: bold;
     color: white;
-    font-size: 50px;
+    font-size: 30px;
     justify-self: center;
     opacity: 100%;
 }
 
-.potRow {
-    position: relative;
-        top: 40%;
+.book-now {
+    position: absolute;
+        bottom: 0px;
+        right: 2%;
+    border: solid white 5px;
+    border-radius: 5px;
+    background: #143c46;
+    width: 60%;
+    text-align: center;
+    color: white;
+}
+
+.link-button {
+    background-color: gray;
+    border: 5px solid gray;
+    border-radius: 10px;
+    color: white;
+    font-size: 30px;
+    margin: 3px 0px 10px 0px;
+}
+
+.text-button {
+    padding-top: 5px;
+}
+
+.experiences {
+    background: #fff1d7;
+    padding: 0px 20px;
+}
+
+.experience-tab {
+    background: #143c46;
+    color: #f9d4b7;
+    border: solid #f9d4b7 5px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.exp-title {
+    font-size: 60px;
+    color: #143c46;
 }
