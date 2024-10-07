@@ -6,7 +6,6 @@ light brown/pink - #f9d4b7
 reddish brown - #b77457
 */
 
-
 @font-face {
     font-family: 'SF Pro';
     src: url('fonts/SF-Pro-Display-Regular.otf') format('opentype');
@@ -38,6 +37,7 @@ body {
     background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
     z-index: 1;
 }
+
 .text-overlay {
     position: absolute;
     top: 50%;
@@ -46,6 +46,7 @@ body {
     text-align: center; /* Center the text */
     z-index: 2; /* Ensure the text is above the overlay */
 }
+
 @keyframes slideUp {
     0% {
         opacity: 0;
@@ -71,6 +72,7 @@ body {
     opacity: 0; /* Ensure the initial state is hidden */
     transform: translateY(100%); /* Ensure the initial state is below */
 }
+
 .scroll-down {
     position: absolute;
     bottom: 20px;
@@ -84,110 +86,42 @@ body {
     font-size: 2em; /* Adjust the size as needed */
     text-decoration: none;
 }
+
 .content-container {
     padding: 20px;
     background-color: #fff; /* Background color for the content below */
 }
 
-/* .showcase {
-    background-image: url(index-imgs/first-img.jpeg.webp);
-}
-*/
-.navigation-bar {                        /* navigation bar  */
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-}
-
-
-.nb-background-color {   /* navbar background color */
-    background-color: #fff1d7;
-    opacity: 90%;
-}
-
-.nbMenuItem {               /* navbar link text properties */
-    font-size:25px;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: black;
-}
-
-#logo-img {
-    width: 100px !important;
-}
-
-
-/* ----------------- ID CSS ----------------- */
-
-/* -----------------Underline Animation CSS -----------------*/
-.hover-underline-animation {
-    display: inline-block;
-    position: relative;
-    /*color: #0087ca;*/
-  }
-  
-.hover-underline-animation:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: black;
-    color: black;
-    /*transform-origin: bottom right;*/
-    transition: transform 0.35s ease-out;
-}
-  
-.hover-underline-animation:hover:after {
-    transform: scaleX(1);
-    /*transform-origin: bottom left;*/
-}
-
-.showcase {
-    background-image: url(index-imgs/first-img.jpeg.webp);
-}
-
-
-.navigation-bar {                        /* navigation bar  */
+.navigation-bar { /* navigation bar */
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 10;
     margin: 0px;
     padding: 0px;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Apply the blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Optional: Add a border for better separation */
 }
 
-
-.nb-background-color {   /* navbar background color */
-    background-color: white;
-    opacity: 70%;
-}
-
-.nbMenuItem {               /* navbar link text properties */
-    font-size:25px;
+.nbMenuItem { /* navbar link text properties */
+    font-size: 25px;
     margin-left: 10px;
     margin-right: 10px;
     color: black;
 }
 
-
 #logo-img {
     width: 100px !important;
 }
-
-
-/* ----------------- ID CSS ----------------- */
 
 /* -----------------Underline Animation CSS -----------------*/
 .hover-underline-animation {
     display: inline-block;
     position: relative;
-    /*color: #0087ca;*/
-  }
-  
+}
+
 .hover-underline-animation:after {
     content: '';
     position: absolute;
@@ -197,15 +131,13 @@ body {
     bottom: 0;
     left: 0;
     background-color: black;
-    color: black;
-    /*transform-origin: bottom right;*/
     transition: transform 0.35s ease-out;
 }
-  
+
 .hover-underline-animation:hover:after {
     transform: scaleX(1);
-    /*transform-origin: bottom left;*/
 }
+
 .tour-offering {
     padding-top: 20px;
     padding-left: 7.5%;
@@ -253,11 +185,12 @@ body {
     background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text readability */
     border-radius: 25px;
     padding: 20px;
-    
 }
-.card-body h3{
+
+.card-body h3 {
     font-weight: bolder;
 }
+
 .plus-icon {
     position: absolute;
     bottom: 20px;
@@ -265,7 +198,6 @@ body {
     width: 40px; /* Adjust the size as needed */
     height: 40px; /* Adjust the size as needed */
     background-color: #333; /* Dark grey background */
-
     border-radius: 50%; /* Make it a circle */
     display: flex;
     align-items: center;
