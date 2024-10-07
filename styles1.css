@@ -124,6 +124,7 @@
     width: 23.5%;
     margin-left: 1%;
     height: 500px;
+    text-align: center;
 }
 
 .exp-title {
@@ -155,7 +156,6 @@
 
 .exp-text {
     line-height: 45px;
-    text-align: justify;
 }
 
 .why-us {
@@ -177,4 +177,25 @@
 
 .icon {
     font-size: 50px;
+}
+
+.testimonials {
+    background: #fff1d7;
+}
+
+.testimonial-title {
+    font-size: 50px;
+    color: black;
+    margin: 1.5% 5%;
+    font-weight: bold;
+}
+
+.testimonial-tab {
+    color: black;
+    padding: 1% 1.5%;
+    text-align: center;
+}
+
+.stars {
+    width: 70%;
 }
