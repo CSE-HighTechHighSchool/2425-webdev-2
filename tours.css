@@ -103,6 +103,7 @@ body {
     backdrop-filter: blur(10px); /* Apply the blur effect */
     -webkit-backdrop-filter: blur(10px); /* For Safari support */
     border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Optional: Add a border for better separation */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a small shadow at the bottom edge */
 }
 
 .nbMenuItem { /* navbar link text properties */
@@ -148,10 +149,10 @@ body {
 
 .tour-offering h1 {
     padding-top: 5%;
-    padding-left: 5%;
+    padding-left: 2.5%;
     font-size: 48px;
     font-weight: bold;
-    padding-bottom: 7.5%;
+    padding-bottom: 5%;
 }
 
 .card {
@@ -185,13 +186,14 @@ body {
     background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text readability */
     border-radius: 25px;
     padding: 20px;
+    
 }
 
 .card-body h3 {
-    font-weight: bolder;
-}
-
-.plus-icon {
+    font-size: 2em; /* Adjust the font size as needed */
+    font-weight: bolder; /* Increased font weight */
+    animation: slideUp 1s ease-out forwards; /* Apply the animation and retain the final state */
+}.plus-icon {
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -205,28 +207,35 @@ body {
     z-index: 3; /* Ensure the icon is above other elements */
     text-decoration: none; /* Remove underline from the link */
     transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
-    font-weight: bold;
 }
 
-.plus-icon::before,
-.plus-icon::after {
-    content: '';
-    position: absolute;
-    background-color: #b0b0b0; /* Lighter grey for the plus sign */
-    transition: background-color 0.3s ease; /* Smooth transition */
+.plus-icon svg {
+    width: 20px; /* Adjust the size as needed */
+    height: 20px; /* Adjust the size as needed */
+    fill: #b0b0b0; /* Lighter grey for the plus sign */
+    transition: fill 0.3s ease; /* Smooth transition */
 }
 
-.plus-icon::before {
-    width: 60%; /* Adjust the size as needed */
-    height: 2px; /* Adjust the thickness as needed */
+.plus-icon:hover {
+    background-color: #007bff; /* Change background color on hover */
 }
 
-.plus-icon::after {
-    height: 60%; /* Adjust the size as needed */
-    width: 2px; /* Adjust the thickness as needed */
+.plus-icon:hover svg {
+    fill: white; /* Change color on hover */
+}
+.bg-light-blue {
+    background-color: #74aebc; /* Light blue background color */
+    padding: 20px; /* Add some padding */
+    color: white; /* Ensure text is readable */
+    overflow: hidden; /* Ensure the container contains its child elements */
 }
 
-.plus-icon:hover::before,
-.plus-icon:hover::after {
-    background-color: white; /* Change color on hover */
+.no-padding {
+    padding: 0 !important;
+    padding-right: 0;
+}
+
+.no-margin {
+    margin: 0 !important;
+    margin-right: 0;
 }
