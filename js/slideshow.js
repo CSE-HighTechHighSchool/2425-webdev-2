@@ -1,49 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Select all potDestination elements and the showcase div
-  const destinations = document.querySelectorAll(".potDestination");
-  const showcase = document.querySelector(".showcase");
-
-  // Array of background images for each destination
-  const backgroundImages = [
-    "url('index-imgs/first-img.png')", // Piazza San Marco
-    "url('/Users/niyel/Projects/2425-webdev-2/index-imgs/gondola-tour.jpg')", // Saint Mark's Basilica
-    "url('index-imgs/logo.png')", // Ponte de Rialto
-    "url('https://placehold.co/300')", // Rialto Market
-    "url('path/to/doge-palace.jpg')", // Doge's Palace
-    "url('path/to/grand-canal.jpg')", // Grand Canal
-  ];
-
-  let currentIndex = 0;
-  let interval;
-
-  // Function to change the background image and underline the active destination
-  function changeBackgroundByIndex(index) {
-    // Remove active class from all destinations
-    destinations.forEach((dest) => dest.classList.remove("active"));
-
-    // Add active class to the current destination
-    destinations[index].classList.add("active");
-
-    // Change the showcase background image
-    showcase.style.backgroundImage = backgroundImages[index];
-  }
-
-  // Auto-cycle through the destinations every 2 seconds
-  function startAutoCycle() {
-    interval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % destinations.length;
-      changeBackgroundByIndex(currentIndex);
-    }, 2000);
-  }
-
-  // Add click event listeners to each destination for manual control
-  destinations.forEach((destination, index) => {
-    destination.addEventListener("click", function () {
-      clearInterval(interval); // Stop auto-cycling when clicked
-      changeBackgroundByIndex(index); // Show clicked background
-    });
+  // Initialize Bootstrap Carousel
+  var veniceCarousel = document.getElementById("veniceCarousel");
+  var carousel = new bootstrap.Carousel(veniceCarousel, {
+    interval: 3000,
+    ride: "carousel",
+    fade: true,
   });
 
-  // Start the auto cycle
-  startAutoCycle();
+  // Function to update destination names
+  function updateDestinationNames(activeDestination) {
+    // Select all destination elements
+    var destinations = document.querySelectorAll(".potDestination");
+
+    destinations.forEach(function (destination) {
+      if (destination.getAttribute("data-destination") === activeDestination) {
+        destination.classList.add("active-destination");
+      } else {
+        destination.classList.remove("active-destination");
+      }
+    });
+  }
+
+  // Initial update based on the first active slide
+  var initialSlide = veniceCarousel.querySelector(".carousel-item.active");
+  if (initialSlide) {
+    var initialDestination = initialSlide.getAttribute("data-destination");
+    updateDestinationNames(initialDestination);
+  }
+
+  // Listen to carousel slide event (fires when the transition starts)
+  veniceCarousel.addEventListener("slide.bs.carousel", function (event) {
+    var activeSlide = event.relatedTarget;
+    var activeDestination = activeSlide.getAttribute("data-destination");
+    updateDestinationNames(activeDestination);
+  });
 });

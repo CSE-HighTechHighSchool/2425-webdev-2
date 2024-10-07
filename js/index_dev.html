@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD"
+      crossorigin="anonymous"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles1.css" />
+
+    <!-- Bootstrap JS Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <title>TourVenice</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navigation-bar navbar-expand-lg nb-background-color">
+      <a href="#" class="navbar-brand">
+        <img
+          src="index-imgs/logo.png"
+          alt="Site Logo"
+          class="d-inline-block align-text-top w-50"
+          id="logo-img"
+        />
+      </a>
+
+      <!-- Hamburger Menu Button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navmenu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible Navbar Menu -->
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a
+              href="venice.html"
+              class="nav-link hover-underline-animation nbMenuItem"
+              >About Venice</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="tours.html"
+              class="nav-link hover-underline-animation nbMenuItem"
+              >Tours</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="about.html"
+              class="nav-link hover-underline-animation nbMenuItem"
+              >About Us</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Showcase with Carousel -->
+    <div class="showcase">
+      <!-- Bootstrap Carousel -->
+      <div
+        id="veniceCarousel"
+        class="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+        data-bs-interval="3000"
+      >
+        <!-- Carousel Items -->
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-destination="piazza-san-marco">
+            <img
+              src="/Users/niyel/Projects/2425-webdev-2/index-imgs/Grand-Canal-Venice.jpg.webp"
+              class="d-block w-100"
+              alt="Venice Slide 1"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Piazza San Marco</h5>
+              <p>Experience the heart of Venice.</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-destination="saint-marks-basilica">
+            <img
+              src="/Users/niyel/Projects/2425-webdev-2/index-imgs/logo.png"
+              class="d-block w-100"
+              alt="Venice Slide 2"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Saint Mark's Basilica</h5>
+              <p>Marvel at the stunning architecture.</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-destination="grand-canal">
+            <img
+              src="/Users/niyel/Projects/2425-webdev-2/index-imgs/marktour.png"
+              class="d-block w-100"
+              alt="Venice Slide 3"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Grand Canal</h5>
+              <p>Sail through the picturesque waterways.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+      </div>
+
+      <!-- Overlay Content -->
+      <div class="carousel-overlay text-left">
+        <h1 class="bigText">Venice Tours</h1>
+        <div class="potDestinations row">
+          <h3
+            class="col-sm-4 potDestination"
+            data-destination="piazza-san-marco"
+          >
+            Piazza San Marco
+          </h3>
+          <h3
+            class="col-sm-4 potDestination"
+            data-destination="saint-marks-basilica"
+          >
+            Saint Mark's Basilica
+          </h3>
+          <h3
+            class="col-sm-4 potDestination"
+            data-destination="ponte-de-rialto"
+          >
+            Ponte de Rialto
+          </h3>
+          <h3 class="col-sm-4 potDestination" data-destination="rialto-market">
+            Rialto Market
+          </h3>
+          <h3 class="col-sm-4 potDestination" data-destination="doges-palace">
+            Doge's Palace
+          </h3>
+          <h3 class="col-sm-4 potDestination" data-destination="grand-canal">
+            Grand Canal
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experiences Section -->
+    <div class="row experiences">
+      <h1 class="exp-title">Experiences we Offer:</h1>
+      <div class="col-sm-3 experience-tab tab1">
+        <h1>Tour of Saint Mark's</h1>
+        <h3 class="exp-text">
+          Explore the beautiful and grand St. Mark's Cathedral in a span of a
+          few hours. Our tour guides take you to all the best parts and make
+          sure to cover the rich history of the landmark.
+        </h3>
+      </div>
+      <div class="col-sm-3 experience-tab tab2">
+        <h1>Doge's Palace Tour</h1>
+        <h3 class="exp-text">
+          In our Doge's Palace experience, you will explore the lengthy hallways
+          and grand rooms of the palace of Venice's esteemed and vastly wealthy
+          royal family.
+        </h3>
+      </div>
+      <div class="col-sm-3 experience-tab tab3">
+        <h1>Walking Ancient Streets</h1>
+        <h3 class="exp-text">
+          Venice is filled with narrow alleys and cobblestone streets, all rich
+          with history and secrets. In this experience, follow a guide in the
+          streets and observe new findings along the way.
+        </h3>
+      </div>
+      <div class="col-sm-3 experience-tab tab4">
+        <h1>Evening Gondola Ride</h1>
+        <h3 class="exp-text">
+          The gondola is perhaps the most quintessential symbol of Venice. In
+          our evening gondola ride, experience this beautiful and romantic magic
+          for yourself.
+        </h3>
+      </div>
+    </div>
+
+    <!-- Additional Sections (e.g., Why Us, Testimonials) -->
+    <!-- Add your additional sections here -->
+
+    <!-- JavaScript for Bold Destination Names -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Bootstrap Carousel
+        var veniceCarousel = document.getElementById("veniceCarousel");
+        var carousel = new bootstrap.Carousel(veniceCarousel, {
+          interval: 3000,
+          ride: "carousel",
+          fade: true,
+        });
+
+        // Function to update destination names
+        function updateDestinationNames(activeDestination) {
+          // Select all destination elements
+          var destinations = document.querySelectorAll(".potDestination");
+
+          destinations.forEach(function (destination) {
+            if (
+              destination.getAttribute("data-destination") === activeDestination
+            ) {
+              destination.classList.add("active-destination");
+            } else {
+              destination.classList.remove("active-destination");
+            }
+          });
+        }
+
+        // Initial update based on the first active slide
+        var initialSlide = veniceCarousel.querySelector(
+          ".carousel-item.active"
+        );
+        if (initialSlide) {
+          var initialDestination =
+            initialSlide.getAttribute("data-destination");
+          updateDestinationNames(initialDestination);
+        }
+
+        // Listen to carousel slide event
+        veniceCarousel.addEventListener("slid.bs.carousel", function (event) {
+          var activeSlide = event.relatedTarget;
+          var activeDestination = activeSlide.getAttribute("data-destination");
+          updateDestinationNames(activeDestination);
+        });
+      });
+    </script>
+  </body>
+</html>
