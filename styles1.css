@@ -199,3 +199,23 @@
 .stars {
     width: 70%;
 }
+
+
+.footer {
+    background-color: #143c46;
+    color: white;
+    text-align: center;
+    height: 150px;
+    align-items: center;
+}
+
+.foot-text {
+    padding-top: 15px;
+}
+
+.foot-icon {
+    position: absolute;
+        right: 15px;
+    margin-top: 50px;
+    color: white;
+}
