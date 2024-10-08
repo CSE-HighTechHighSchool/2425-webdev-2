@@ -1,0 +1,90 @@
+@font-face {
+    font-family: "SF Pro";
+    src: url("fonts/SF-Pro-Display-Regular.otf") format("opentype");
+  }
+  
+  body {
+    font-family: "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+.navigation-bar {                        /* navigation bar  */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.nb-background-color {   /* navbar background color */
+    background-color: white;
+    opacity: 70%;
+}
+
+.nbMenuItem {               /* navbar link text properties */
+    font-size:25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: black;
+}
+
+#logo-img {
+    width: 100px !important;
+}
+
+
+/* ----------------- ID CSS ----------------- */
+
+/* -----------------Underline Animation CSS -----------------*/
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    /*color: #0087ca;*/
+  }
+  
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    color: black;
+    /*transform-origin: bottom right;*/
+    transition: transform 0.35s ease-out;
+}
+  
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    /*transform-origin: bottom left;*/
+}
+
+.timeline {
+    background-image: url('index-imgs/timeline-bg.png');
+    background-size: cover;
+    color: white;
+}
+
+.line {
+    width: 1px;
+    height: 1000px;
+    background-color: white;
+}
+
+.tline {
+    position: relative;
+        top: 77px;
+    margin: 0px 2%;
+}
+
+.timeline-row {
+    height: 200px;
+    padding-top: 15px;
+}
+
+.inter-row {
+    height: 100px;
+}
