@@ -178,8 +178,8 @@ body {
 }
 
 .why-member {
-  padding: 1% 0.5%;
-  width: 32%;
+  padding: 1% 0.75%;
+  width: 33.25%;
   color: white;
   text-align: justify;
 }
@@ -263,7 +263,12 @@ body {
   }
 
   .why-reputation {
-    width: 95%;
+    width: 98%;
     padding: 0% 7.5%;
+  }
+
+  .testimonial-tab {
+    width: 49%;
+    padding-left: 5%;
   }
 }
