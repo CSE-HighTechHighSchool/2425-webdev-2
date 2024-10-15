@@ -193,7 +193,8 @@ body {
     font-size: 2em; /* Adjust the font size as needed */
     font-weight: bolder; /* Increased font weight */
     animation: slideUp 1s ease-out forwards; /* Apply the animation and retain the final state */
-}.plus-icon {
+}
+.plus-icon {
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -338,4 +339,69 @@ body {
 
 .custom-plus-icon:hover svg {
     fill: white; /* Change color on hover */
+}
+.custom-card-row {
+    margin-top: 20px;
+    margin-left: 5%; /* Add left margin */
+    margin-right: 5%; /* Add right margin */
+}
+
+.custom-card-separate {
+    background-color: #ffffff; /* White background color */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 25px; /* Match the border radius of the old cards */
+    padding: 20px; /* Padding inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 10px; /* Margin around each card */
+    height: 500px; /* Match the height of the old cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.custom-card-body-separate {
+    position: relative; /* Ensure the text is above the overlay */
+    z-index: 2; /* Ensure the text is above the overlay */
+    padding: 20px;
+    color: black; /* Ensure text is readable */
+}
+
+.custom-card-text-separate {
+    font-size: 1em; /* Adjust font size as needed */
+}
+
+.custom-card-title-separate {
+    font-size: 2em; /* Match the font size of the old cards */
+    font-weight: bolder; /* Match the font weight of the old cards */
+    animation: slideUp 1s ease-out forwards; /* Apply the animation and retain the final state */
+}
+
+.custom-checkmark-icon-separate {
+    width: 24px; /* Adjust the size as needed */
+    height: 24px; /* Adjust the size as needed */
+    fill: #28a745; /* Green color for the checkmark */
+    margin-top: 10px;
+    display: none; /* Initially hidden */
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+.footer {
+    background-color: #143c46;
+    color: white;
+    text-align: center;
+    height: 150px;
+    align-items: center;
+}
+
+.foot-text {
+    padding-top: 15px;
+}
+
+.foot-icon {
+    position: absolute;
+        right: 15px;
+    margin-top: 50px;
+    color: white;
 }
