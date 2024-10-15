@@ -245,6 +245,7 @@ body {
 @media (max-width: 800px) {
   .experience-tab {
     width: 46%;
+    padding-left: 2%;
   }
 
   .why-member {
