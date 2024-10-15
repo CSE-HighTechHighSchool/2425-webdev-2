@@ -121,21 +121,21 @@ body {
 }
 
 .experience-tab {
-    color: white;
-    border: solid black 5px;
-    border-radius: 10px;
-    width: 21.5%;
-    margin-left: 3%;
-    text-align: center;
-    margin-bottom: 2%;
-    min-height: 500px;
+  color: white;
+  border: solid black 5px;
+  border-radius: 10px;
+  width: 21.5%;
+  margin-left: 3%;
+  text-align: center;
+  margin-bottom: 2%;
+  min-height: 500px;
 }
 
 .exp-title {
   font-size: 50px;
   color: black;
   margin: 1.5% 0%;
-  margin-left 2%;
+  margin-left: 2%;
   font-weight: bold;
   width: 100%;
 }
@@ -179,21 +179,21 @@ body {
 
 .why-member {
   padding: 1% 0.5%;
-  width 32%;
+  width: 32%;
   color: white;
   text-align: justify;
 }
 
 .why-experience {
-    padding-left: 3.5%;
+  padding-left: 3.5%;
 }
 
 .why-cost {
-    padding: 0%;
+  padding: 3.5%;
 }
 
 .why-reputation {
-    padding-right: 3.5%;
+  padding-right: 3.5%;
 }
 
 .icon {
@@ -243,28 +243,27 @@ body {
 }
 
 @media (max-width: 800px) {
-    .experience-tab {
-        width: 46%;
-    }
+  .experience-tab {
+    width: 46%;
+  }
 
-    .why-member {
-        width: 45%;
-        text-align: left;
-    }
+  .why-member {
+    width: 45%;
+    text-align: left;
+  }
 
-    .why-experience {
-        margin-right: 0.5%;
-        margin-left: 4%;
-    }
+  .why-experience {
+    margin-right: 0.5%;
+    margin-left: 4%;
+  }
 
-    .why-cost {
-        margin-left: 0.5%;
-        margin-right: 4%;
-    }
+  .why-cost {
+    margin-left: 0.5%;
+    margin-right: 4%;
+  }
 
-    .why-reputation {
-        width: 95%;
-        padding: 0% 7.5%;
-    }
-    
+  .why-reputation {
+    width: 95%;
+    padding: 0% 7.5%;
+  }
 }
