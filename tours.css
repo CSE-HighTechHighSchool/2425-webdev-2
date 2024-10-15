@@ -339,7 +339,7 @@ body {
     fill: white; /* Change color on hover */
 }
 .custom-card-row {
-    margin-top: 20px;
+    margin-top: -2.5%;
     margin-left: 5%; /* Add left margin */
     margin-right: 5%; /* Add right margin */
 }
@@ -354,8 +354,9 @@ body {
     height: 500px; /* Match the height of the old cards */
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start; /* Align content to the top */
     position: relative;
+    margin-bottom: 30%;
 }
 
 .custom-card-body-separate {
@@ -385,6 +386,7 @@ body {
     bottom: 20px;
     right: 20px;
 }
+
 .footer {
     background-color: #143c46;
     color: white;
@@ -399,7 +401,23 @@ body {
 
 .foot-icon {
     position: absolute;
-        right: 15px;
+    right: 15px;
     margin-top: 50px;
     color: white;
+}
+
+.custom-card-box {
+    background: radial-gradient(140.76% 131.96% at 100% 100%, rgb(109, 59, 227) 0%, rgba(74, 42, 150, 0.5) 73.57%, rgba(74, 42, 150, 0) 100%), rgb(29, 82, 157); /* Apply the specified background */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px; /* Padding inside the box */
+    margin-bottom: 2%; /* Reduce margin below the box */
+    margin-top: -10px; /* Push the box higher up */
+
+    color: white; /* Make the text white */
+}
+
+.custom-card-box p,
+.custom-card-box h3 {
+    color: white; /* Ensure all text elements inside the box are white */
 }
