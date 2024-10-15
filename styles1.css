@@ -5,7 +5,7 @@
   
   body {
     font-family: "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
+}
 
 .navigation-bar {                        /* navigation bar  */
     position: fixed;
@@ -66,6 +66,7 @@
     background: url(index-imgs/first-img.png);
     background-size: cover;
     height: 800px;
+    width: 100%;
 }
 
 .bigText {
@@ -114,6 +115,7 @@
 
 .experiences {
     background: #fff1d7;
+    width: 100.8%;
 }
 
 .experience-tab {
@@ -130,8 +132,9 @@
 .exp-title {
     font-size: 50px;
     color: black;
-    margin: 1.5% 5%;
+    margin: 1.5% 0%;
     font-weight: bold;
+    width: 100%;
 }
 
 .tab1 {
@@ -160,13 +163,14 @@
 
 .why-us {
     background-color: #143c46;
+    width: 100.8%;
 }
 
 .why-title {
     color: white;
     font-weight: bold;
     font-size: 50px;
-    margin: 1.5% 5%;
+    margin: 1.5% 0%;
 }
 
 .why-member {
@@ -181,12 +185,13 @@
 
 .testimonials {
     background: #fff1d7;
+    width: 100.8%;
 }
 
 .testimonial-title {
     font-size: 50px;
     color: black;
-    margin: 1.5% 5%;
+    margin: 1.5% 0%;
     font-weight: bold;
 }
 
