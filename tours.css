@@ -7,335 +7,334 @@ reddish brown - #b77457
 */
 
 @font-face {
-    font-family: 'SF Pro';
-    src: url('fonts/SF-Pro-Display-Regular.otf') format('opentype');
+  font-family: "SF Pro";
+  src: url("fonts/SF-Pro-Display-Regular.otf") format("opentype");
 }
 
 body {
-    font-family: 'SF Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .bg-blue {
-    background-color: #007bff !important; /* Bootstrap primary blue color */
+  background-color: #007bff !important; /* Bootstrap primary blue color */
 }
 
 .bg-image-container {
-    background-image: url('index-imgs/venice-sunset.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Full viewport height */
-    position: relative;
-    color: white; /* Text color */
+  background-image: url("index-imgs/venice-sunset.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Full viewport height */
+  position: relative;
+  color: white; /* Text color */
 }
 
 .dark-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+  z-index: 1;
 }
 
 .text-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; /* Center the text */
-    z-index: 2; /* Ensure the text is above the overlay */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; /* Center the text */
+  z-index: 2; /* Ensure the text is above the overlay */
 }
 
 @keyframes slideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(40%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .text-overlay h1 {
-    font-size: 5em; /* Adjust the font size as needed */
-    font-weight: bold;
-    animation: slideUp 1s ease-out forwards; /* Apply the animation and retain the final state */
+  font-size: 5em; /* Adjust the font size as needed */
+  font-weight: bold;
+  animation: slideUp 1s ease-out forwards; /* Apply the animation and retain the final state */
 }
 
 .text-overlay p {
-    font-size: 1.5em; 
-    font-weight: bold;
-    padding-top: 50px;
-    animation: slideUp 1s ease-out 0.1s forwards; 
-    opacity: 0; /* Ensure the initial state is hidden */
-    transform: translateY(100%); /* Ensure the initial state is below */
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-top: 50px;
+  animation: slideUp 1s ease-out 0.1s forwards;
+  opacity: 0; /* Ensure the initial state is hidden */
+  transform: translateY(100%); /* Ensure the initial state is below */
 }
 
 .scroll-down {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2; /* Ensure the icon is above the overlay */
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2; /* Ensure the icon is above the overlay */
 }
 
 .scroll-down a {
-    color: white;
-    font-size: 2em; /* Adjust the size as needed */
-    text-decoration: none;
+  color: white;
+  font-size: 2em; /* Adjust the size as needed */
+  text-decoration: none;
 }
 
 .content-container {
-    padding: 20px;
-    background-color: #fff; /* Background color for the content below */
+  padding: 20px;
+  background-color: #fff; /* Background color for the content below */
 }
 
-.navigation-bar { /* navigation bar */
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-    margin: 0px;
-    padding: 0px;
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
-    backdrop-filter: blur(10px); /* Apply the blur effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Optional: Add a border for better separation */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a small shadow at the bottom edge */
+.navigation-bar {
+  /* navigation bar */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  margin: 0px;
+  padding: 0px;
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Apply the blur effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Optional: Add a border for better separation */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a small shadow at the bottom edge */
 }
 
-.nbMenuItem { /* navbar link text properties */
-    font-size: 25px;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: black;
+.nbMenuItem {
+  /* navbar link text properties */
+  font-size: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
 }
 
 #logo-img {
-    width: 100px !important;
+  width: 100px !important;
 }
 
 /* -----------------Underline Animation CSS -----------------*/
 .hover-underline-animation {
-    display: inline-block;
-    position: relative;
+  display: inline-block;
+  position: relative;
 }
 
 .hover-underline-animation:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: black;
-    transition: transform 0.35s ease-out;
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  transition: transform 0.35s ease-out;
 }
 
 .hover-underline-animation:hover:after {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .tour-offering {
-    padding-top: 20px;
-    padding-left: 7.5%;
-    padding-right: 7.5%;
-    background-color: #fff1d7;
-    overflow: hidden; /* Ensure the container contains its child elements */
+  padding-top: 20px;
+  padding-left: 7.5%;
+  padding-right: 7.5%;
+  background-color: #fff1d7;
+  overflow: hidden; /* Ensure the container contains its child elements */
 }
 
 .tour-offering h1 {
-    padding-top: 5%;
-    padding-left: 2.5%;
-    font-size: 48px;
-    font-weight: bold;
-    padding-bottom: 5%;
+  padding-top: 5%;
+  padding-left: 2.5%;
+  font-size: 48px;
+  font-weight: bold;
+  padding-bottom: 5%;
 }
 
 .card {
-    margin-bottom: 20px;
-    color: white; /* Ensure text is readable on background images */
-    background-size: cover;
-    background-position: center;
-    height: 500px; /* Increased height */
-    position: relative; /* Ensure the overlay is positioned correctly */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    border-radius: 25px;
+  margin-bottom: 20px;
+  color: white; /* Ensure text is readable on background images */
+  background-size: cover;
+  background-position: center;
+  height: 500px; /* Increased height */
+  position: relative; /* Ensure the overlay is positioned correctly */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 25px;
 }
 
 .card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-    z-index: 1; /* Ensure the overlay is above the background image */
-    border-radius: 25px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 1; /* Ensure the overlay is above the background image */
+  border-radius: 25px;
 }
 
 .card-body {
-    position: relative; /* Ensure the text is above the overlay */
-    z-index: 2; /* Ensure the text is above the overlay */
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text readability */
-    border-radius: 25px;
-    padding: 20px;
-    
+  position: relative; /* Ensure the text is above the overlay */
+  z-index: 2; /* Ensure the text is above the overlay */
+  border-radius: 25px;
+  padding: 20px;
 }
 
 .card-body h3 {
-    font-size: 2em; /* Adjust the font size as needed */
-    font-weight: bolder; /* Increased font weight */
-    animation: slideUp 1s ease-out forwards; /* Apply the animation and retain the final state */
-}.plus-icon {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 40px; /* Adjust the size as needed */
-    height: 40px; /* Adjust the size as needed */
-    background-color: #333; /* Dark grey background */
-    border-radius: 50%; /* Make it a circle */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3; /* Ensure the icon is above other elements */
-    text-decoration: none; /* Remove underline from the link */
-    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+  font-size: 2em; /* Adjust the font size as needed */
+  font-weight: bolder; /* Increased font weight */
+  animation: slideUp 1s ease-out forwards; /* Apply the animation and retain the final state */
+}
+.plus-icon {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 40px; /* Adjust the size as needed */
+  height: 40px; /* Adjust the size as needed */
+  background-color: #333; /* Dark grey background */
+  border-radius: 50%; /* Make it a circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3; /* Ensure the icon is above other elements */
+  text-decoration: none; /* Remove underline from the link */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
 }
 
 .plus-icon svg {
-    width: 20px; /* Adjust the size as needed */
-    height: 20px; /* Adjust the size as needed */
-    fill: #b0b0b0; /* Lighter grey for the plus sign */
-    transition: fill 0.3s ease; /* Smooth transition */
+  width: 20px; /* Adjust the size as needed */
+  height: 20px; /* Adjust the size as needed */
+  fill: #b0b0b0; /* Lighter grey for the plus sign */
+  transition: fill 0.3s ease; /* Smooth transition */
 }
 
 .plus-icon:hover {
-    background-color: #007bff; /* Change background color on hover */
+  background-color: #007bff; /* Change background color on hover */
 }
 
 .plus-icon:hover svg {
-    fill: white; /* Change color on hover */
+  fill: white; /* Change color on hover */
 }
 .bg-light-blue {
-    background-color: #c1e4f0; /* Light blue background color */
-    padding: 20px; /* Add some padding */
-    color: white; /* Ensure text is readable */
+  background-color: #c1e4f0; /* Light blue background color */
+  padding: 20px; /* Add some padding */
+  color: white; /* Ensure text is readable */
 }
 
-.bg-light-blue h2{
-    padding: 7.5%; /* Increase padding for h2 and p elements */
-    font-size: 42px;
-    font-weight: bold;
-    color: black;
+.bg-light-blue h2 {
+  padding: 7.5%; /* Increase padding for h2 and p elements */
+  font-size: 42px;
+  font-weight: bold;
+  color: black;
 }
 
 .bg-light-blue p {
-    padding-left: 7.5%;
-    color: black;
+  padding-left: 7.5%;
+  color: black;
 }
 .no-padding {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .no-margin {
-    margin: 0 !important;
+  margin: 0 !important;
 }
 
 .custom-list {
-    list-style-type: none; /* Remove default list styling */
-    padding-left: 7.5%; /* Remove default padding */
-    text-align: center; /* Center align the text */
+  list-style-type: none; /* Remove default list styling */
+  padding-left: 7.5%; /* Remove default padding */
+  text-align: center; /* Center align the text */
 }
 
 .custom-list li {
-    margin: 10px 0; /* Add some margin between list items */
+  margin: 10px 0; /* Add some margin between list items */
 }
 
 .custom-list a {
-    text-decoration: none; /* Remove underline from links */
-    color: white; /* Set link color to white */
-    font-weight: bold; /* Make the text bold */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+  text-decoration: none; /* Remove underline from links */
+  color: white; /* Set link color to white */
+  font-weight: bold; /* Make the text bold */
+  transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
 .custom-list a:hover {
-    color: #007bff; /* Change color on hover */
+  color: #007bff; /* Change color on hover */
 }
 
 .custom-list-image {
-    width: 75%; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: 10px; /* Add some space below the image */
+  width: 75%; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 10px; /* Add some space below the image */
 }
 
 .custom-card {
-    padding-left: 5%;
-    
+  padding-left: 5%;
 }
 .custom-bg-image-card {
-    background-size: cover;
-    background-position: center;
-    height: 500px; /* Adjust height as needed */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    border-radius: 25px;
-    background-color: #ffffff; /* Change background color to white */
-
+  background-size: cover;
+  background-position: center;
+  height: 500px; /* Adjust height as needed */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 25px;
+  background-color: #ffffff; /* Change background color to white */
 }
 
 .custom-card-body {
-    position: relative;
-    z-index: 2;
-    border-radius: 25px;
-    padding: 20px;
-    color: black; /* Ensure text is readable */
+  position: relative;
+  z-index: 2;
+  border-radius: 25px;
+  padding: 20px;
+  color: black; /* Ensure text is readable */
 }
 
 .custom-card-text {
-    font-size: 1em; /* Adjust font size as needed */
+  font-size: 1em; /* Adjust font size as needed */
 }
 
 .custom-card-title {
-    font-size: 1.5em; /* Adjust font size as needed */
-    font-weight: bold;
+  font-size: 1.5em; /* Adjust font size as needed */
+  font-weight: bold;
 }
 
 .custom-plus-icon {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 40px; /* Adjust the size as needed */
-    height: 40px; /* Adjust the size as needed */
-    background-color: #333; /* Dark grey background */
-    border-radius: 50%; /* Make it a circle */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3; /* Ensure the icon is above other elements */
-    text-decoration: none; /* Remove underline from the link */
-    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 40px; /* Adjust the size as needed */
+  height: 40px; /* Adjust the size as needed */
+  background-color: #333; /* Dark grey background */
+  border-radius: 50%; /* Make it a circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3; /* Ensure the icon is above other elements */
+  text-decoration: none; /* Remove underline from the link */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
 }
 
 .custom-plus-icon svg {
-    width: 20px; /* Adjust the size as needed */
-    height: 20px; /* Adjust the size as needed */
-    fill: #b0b0b0; /* Lighter grey for the plus sign */
-    transition: fill 0.3s ease; /* Smooth transition */
+  width: 20px; /* Adjust the size as needed */
+  height: 20px; /* Adjust the size as needed */
+  fill: #b0b0b0; /* Lighter grey for the plus sign */
+  transition: fill 0.3s ease; /* Smooth transition */
 }
 
 .custom-plus-icon:hover {
-    background-color: #007bff; /* Change background color on hover */
+  background-color: #007bff; /* Change background color on hover */
 }
 
 .custom-plus-icon:hover svg {
-    fill: white; /* Change color on hover */
+  fill: white; /* Change color on hover */
 }
