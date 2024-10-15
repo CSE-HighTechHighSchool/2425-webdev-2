@@ -1,121 +1,123 @@
 @font-face {
-    font-family: "SF Pro";
-    src: url("fonts/SF-Pro-Display-Regular.otf") format("opentype");
-  }
-  
-  body {
-    font-family: "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SF Pro";
+  src: url("fonts/SF-Pro-Display-Regular.otf") format("opentype");
 }
 
-.navigation-bar {                        /* navigation bar  */
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-    margin: 0px;
-    padding: 0px;
+body {
+  font-family: "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-
-.nb-background-color {   /* navbar background color */
-    background-color: white;
-    opacity: 70%;
+.navigation-bar {
+  /* navigation bar  */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  margin: 0px;
+  padding: 0px;
 }
 
-.nbMenuItem {               /* navbar link text properties */
-    font-size:25px;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: black;
+.nb-background-color {
+  /* navbar background color */
+  background-color: white;
+  opacity: 70%;
+}
+
+.nbMenuItem {
+  /* navbar link text properties */
+  font-size: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
 }
 
 #logo-img {
-    width: 100px !important;
+  width: 100px !important;
 }
-
 
 /* ----------------- ID CSS ----------------- */
 
 /* -----------------Underline Animation CSS -----------------*/
 .hover-underline-animation {
-    display: inline-block;
-    position: relative;
-    /*color: #0087ca;*/
-  }
-  
-.hover-underline-animation:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: black;
-    color: black;
-    /*transform-origin: bottom right;*/
-    transition: transform 0.35s ease-out;
+  display: inline-block;
+  position: relative;
+  /*color: #0087ca;*/
 }
-  
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  color: black;
+  /*transform-origin: bottom right;*/
+  transition: transform 0.35s ease-out;
+}
+
 .hover-underline-animation:hover:after {
-    transform: scaleX(1);
-    /*transform-origin: bottom left;*/
+  transform: scaleX(1);
+  /*transform-origin: bottom left;*/
 }
 
 .showcase {
-    background: url(index-imgs/first-img.png);
-    background-size: cover;
-    height: 800px;
-    width: 100%;
+  background: url(index-imgs/first-img.png);
+  background-size: cover;
+  height: 800px;
+  width: 100%;
 }
 
 .bigText {
-    padding-top: 140px;
-    padding-left: 6%;
-    font-weight: bold;
-    color: white;
-    font-size: 80px;
-    opacity: 100%;
+  padding-top: 140px;
+  padding-left: 6%;
+  font-weight: bold;
+  color: white;
+  font-size: 80px;
+  opacity: 100%;
 }
 
 .potDestination {
-    padding-top: 35px;
-    padding-left: 6%;
-    font-weight: bold;
-    color: white;
-    font-size: 30px;
-    justify-self: center;
-    opacity: 100%;
+  padding-top: 35px;
+  padding-left: 6%;
+  font-weight: bold;
+  color: white;
+  font-size: 30px;
+  justify-self: center;
+  opacity: 100%;
 }
 
 .book-now {
-    position: absolute;
-        bottom: 7%;
-        right: 2%;
-    border: solid white 5px;
-    border-radius: 5px;
-    background: #143c46;
-    width: 60%;
-    text-align: center;
-    color: white;
+  position: absolute;
+  bottom: 7%;
+  right: 2%;
+  border: solid white 5px;
+  border-radius: 5px;
+  background: #143c46;
+  width: 60%;
+  text-align: center;
+  color: white;
 }
 
 .link-button {
-    background-color: gray;
-    border: 5px solid gray;
-    border-radius: 10px;
-    color: white;
-    font-size: 30px;
-    margin: 3px 0px 10px 0px;
+  background-color: gray;
+  border: 5px solid gray;
+  border-radius: 10px;
+  color: white;
+  font-size: 30px;
+  margin: 3px 0px 10px 0px;
 }
 
 .text-button {
-    padding-top: 5px;
+  padding-top: 5px;
 }
 
 .experiences {
-    background: #fff1d7;
-    width: 100.8%;
+  background: #fff1d7;
+  width: 100.8%;
 }
 
 .experience-tab {
@@ -130,56 +132,56 @@
 }
 
 .exp-title {
-    font-size: 50px;
-    color: black;
-    margin: 1.5% 0%;
-    margin-left: 2%;
-    font-weight: bold;
-    width: 100%;
+  font-size: 50px;
+  color: black;
+  margin: 1.5% 0%;
+  margin-left 2%;
+  font-weight: bold;
+  width: 100%;
 }
 
 .tab1 {
-    background: url(index-imgs/marktour.png);
-    background-size: cover;
+  background: url(index-imgs/marktour.png);
+  background-size: cover;
 }
 
 .tab2 {
-    background: url(index-imgs/doge-tour.png);
-    background-size: cover;
+  background: url(index-imgs/doge-tour.png);
+  background-size: cover;
 }
 
 .tab3 {
-    background: url(index-imgs/streets-tour.png);
-    background-size: cover;
+  background: url(index-imgs/streets-tour.png);
+  background-size: cover;
 }
 
 .tab4 {
-    background: url(index-imgs/gondola-tour2.png);
-    background-size: cover;
+  background: url(index-imgs/gondola-tour2.png);
+  background-size: cover;
 }
 
 .exp-text {
-    line-height: 45px;
+  line-height: 45px;
 }
 
 .why-us {
-    background-color: #143c46;
-    width: 100.8%;
+  background-color: #143c46;
+  width: 100.8%;
 }
 
 .why-title {
-    color: white;
-    font-weight: bold;
-    font-size: 50px;
-    margin: 1.5% 0%;
-    margin-left: 2%;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  margin: 1.5% 0%;
+  margin-left: 2%;
 }
 
 .why-member {
-    margin: 1% 0.5%;
-    width: 32%;
-    color: white;
-    text-align: justify;
+  padding: 1% 0.5%;
+  width 32%;
+  color: white;
+  text-align: justify;
 }
 
 .why-experience {
@@ -195,50 +197,49 @@
 }
 
 .icon {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .testimonials {
-    background: #fff1d7;
-    width: 100.8%;
+  background: #fff1d7;
+  width: 100.8%;
 }
 
 .testimonial-title {
-    font-size: 50px;
-    color: black;
-    margin: 1.5% 0%;
-    margin-left: 2%;
-    font-weight: bold;
+  font-size: 50px;
+  color: black;
+  margin: 1.5% 0%;
+  margin-left: 2%;
+  font-weight: bold;
 }
 
 .testimonial-tab {
-    color: black;
-    padding: 1% 1.5%;
-    text-align: center;
+  color: black;
+  padding: 1% 1.5%;
+  text-align: center;
 }
 
 .stars {
-    width: 70%;
+  width: 70%;
 }
 
-
 .footer {
-    background-color: #143c46;
-    color: white;
-    text-align: center;
-    height: 150px;
-    align-items: center;
+  background-color: #143c46;
+  color: white;
+  text-align: center;
+  height: 150px;
+  align-items: center;
 }
 
 .foot-text {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 
 .foot-icon {
-    position: absolute;
-        right: 15px;
-    margin-top: 50px;
-    color: white;
+  position: absolute;
+  right: 15px;
+  margin-top: 50px;
+  color: white;
 }
 
 @media (max-width: 800px) {
