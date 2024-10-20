@@ -7,20 +7,29 @@
     font-family: "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
-.navigation-bar {                        /* navigation bar  */
+.navigation-bar {
+    /* navigation bar  */
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 10;
     margin: 0px;
     padding: 0px;
-}
-
-
-.nb-background-color {   /* navbar background color */
-    background-color: white;
-    opacity: 70%;
-}
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Apply the blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Optional: Add a border for better separation */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a small shadow at the bottom edge */
+  }
+  
+  .nb-background-color {
+    /* navbar background color */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Apply the blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Optional: Add a border for better separation */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a small shadow at the bottom edge */
+  }
 
 .nbMenuItem {               /* navbar link text properties */
     font-size:25px;
@@ -74,19 +83,29 @@
     background-color: white;
 }
 
-.tline {
+.card {
+    width: 100%;
+    color: black;
     position: relative;
-        top: 77px;
-    margin: 0px 2%;
+        top: 100px;
 }
 
-.timeline-row {
+.inter {
     height: 200px;
-    padding-top: 15px;
 }
 
-.inter-row {
-    height: 100px;
+.line-cont {
+    width: 2%;
+}
+
+.line {
+    width: 10px;
+    background-color: white;
+}
+
+.card-cont {
+    padding: 0% 2%;
+    width: 48.5%;
 }
 
 .footer {
