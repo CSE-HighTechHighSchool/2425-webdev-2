@@ -71,16 +71,24 @@
     /*transform-origin: bottom left;*/
 }
 
+.about-title{
+    height: 250px;
+    background-color: #143c46;
+}
+
+.about-title-text {
+    position: relative;
+        top: 50%;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 80px;
+}
+
 .timeline {
     background-image: url('index-imgs/timeline-bg.png');
     background-size: cover;
     color: white;
-}
-
-.line {
-    width: 1px;
-    height: 1000px;
-    background-color: white;
 }
 
 .card {
@@ -88,10 +96,11 @@
     color: black;
     position: relative;
         top: 100px;
+    border-radius: 10px;
 }
 
 .inter {
-    height: 200px;
+    height: 100px;
 }
 
 .line-cont {
@@ -101,6 +110,9 @@
 .line {
     width: 10px;
     background-color: white;
+    height: 2500px;
+    border: 1px solid white;
+    border-radius: 5px;
 }
 
 .card-cont {
@@ -125,4 +137,67 @@
         right: 15px;
     margin-top: 50px;
     color: white;
+}
+
+.card-img {
+    max-height: 500px;
+    align-self: center;
+}
+
+.orso {
+    max-width: 500px;
+}
+
+.top-card {
+    margin-top: 50%;
+}
+
+.card-text {
+    font-size: 30px;
+    text-align: center;
+}
+
+@media (max-width: 1300px) {
+    .line {
+        height: 2200px;
+    }
+    .inter {
+        height: 50px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .card-img {
+        max-height: 250px;
+    }
+    .orso {
+        max-width: 250px;
+    }
+    .line {
+        height: 1700px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .card-text {
+        font-size: 22px;
+    }
+    .card-cont {
+        width: 45%;
+    }
+    .card-img {
+        max-height: 200px;
+    }
+    .top-card {
+        margin-top: 70%;
+    }
+    .orso {
+        max-width: 200px;
+    }
+    .inter{
+        height: 30px;
+    }
+    .line {
+        height: 1450px;
+    }
 }
