@@ -368,12 +368,14 @@ body {
 
 .custom-card-text-separate {
   font-size: 1em; /* Adjust font size as needed */
+  margin-left: -2.5%;
 }
 
 .custom-card-title-separate {
-  font-size: 2em; /* Match the font size of the old cards */
+  font-size: 1.5em; /* Match the font size of the old cards */
   font-weight: bolder; /* Match the font weight of the old cards */
   animation: slideUp 1s ease-out forwards; /* Apply the animation and retain the final state */
+  margin: 5%;
 }
 
 .custom-checkmark-icon-separate {
@@ -437,4 +439,75 @@ body {
   position: relative; /* Ensure the text is above the overlay */
   z-index: 2; /* Ensure the text is above the overlay */
   color: white; /* Ensure all text elements inside the box are white */
+}
+
+.custom-card-box-second {
+  background: url('index-imgs/street-venice.jpg') no-repeat center center; /* Apply the background image */
+  background-size: cover; /* Ensure the image covers the entire box */
+}
+
+.custom-card-box-second::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1; /* Ensure the overlay is above the background image */
+}
+
+.custom-card-box-third {
+  background: url('index-imgs/venice-night.jpg') no-repeat center center; /* Apply the background image */
+  background-size: cover; /* Ensure the image covers the entire box */
+}
+
+.custom-card-box-third::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  border-radius: 10px; /* Match the border radius of the box */
+  z-index: 1; /* Ensure the overlay is above the background image */
+}
+
+.custom-card-box-third h3,
+.custom-card-box-third p {
+  position: relative; /* Ensure the text is above the overlay */
+  z-index: 2; /* Ensure the text is above the overlay */
+  color: white; /* Ensure all text elements inside the box are white */
+}
+.custom-card-price {
+  color: grey;
+  margin-top: 5%; /* Add some space above the price section */
+  text-align: left; /* Align text to the left */
+}
+
+.custom-card-price-label {
+  color: #143c46 !important; /* Grey color for the label */
+  font-size: 1.1em; /* Smaller font size */
+  font-weight: 900 !important; /* Make the text bold */
+  margin: 0; /* Remove default margin */
+  margin-left: -5%;
+}
+
+.custom-card-price-value {
+  color: black; /* Black color for the price */
+  font-size: 0.95em; /* Normal font size */
+  margin: 0; /* Remove default margin */
+  margin-left: -5%;
+  margin-bottom: 2%;
+}
+
+.custom-card-divider {
+  border: 0;
+  height: 1px;
+  background: grey; /* Grey color for the line */
+  margin: 10px 0; /* Margin relative to the left and right sides of the card */
+}
+.custom-card-price-icon {
+    margin-left: 10px; /* Add some space to the left of the icon */
 }
