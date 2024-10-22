@@ -115,8 +115,10 @@
 .card {
     width: 100%;
     color: black;
+    background-color: #c1e4f0;
     position: relative;
         top: 100px;
+    border: solid #c1e4f0 5px;
     border-radius: 10px;
 }
 
