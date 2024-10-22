@@ -71,18 +71,39 @@
     /*transform-origin: bottom left;*/
 }
 
-.about-title{
-    height: 250px;
-    background-color: #143c46;
-}
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; /* Ensure the icon is above the overlay */
+    font-size: 2em;
+  }
+
+  .scroll {
+    color: white;
+  }
+
+  .img-header {
+    background-image: url(index-imgs/old-venice.png);
+    height: 770px;
+  }
 
 .about-title-text {
     position: relative;
-        top: 50%;
+        top: 45%;
     text-align: center;
     font-weight: bold;
     color: white;
     font-size: 80px;
+}
+
+.about-under-text {
+    position: relative;
+    text-align: center;
+        top: 50%;
+    color: white;
+    font-size: 50px;
 }
 
 .timeline {
