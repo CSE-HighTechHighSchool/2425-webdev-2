@@ -158,7 +158,7 @@ body {
 }
 
 .card {
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* Increased margin-bottom to add more padding between each card */
   color: white; /* Ensure text is readable on background images */
   background-size: cover;
   background-position: center;
@@ -168,6 +168,11 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   border-radius: 25px;
+  transition: transform 0.3s ease; /* Smooth transition for the transform property */
+}
+
+.card:hover {
+  transform: scale(1.035); /* Slightly expand the card on hover */
 }
 
 .card::before {
@@ -190,9 +195,50 @@ body {
 }
 
 .card-body h3 {
-    font-size: 2em; /* Adjust the font size as needed */
-    font-weight: bolder; /* Increased font weight */
-    animation: slideUp 1s ease-out forwards; /* Apply the animation and retain the final state */
+  font-size: 2em; /* Adjust the font size as needed */
+  font-weight: bolder; /* Increased font weight */
+  animation: slideUp 1s ease-out forwards; /* Apply the animation and retain the final state */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .card {
+    height: 450px; /* Adjust height for smaller screens */
+  }
+
+  .card-body h3 {
+    font-size: 1.8em; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .card {
+    height: 400px; /* Adjust height for smaller screens */
+  }
+
+  .card-body h3 {
+    font-size: 1.6em; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: 350px; /* Adjust height for smaller screens */
+  }
+
+  .card-body h3 {
+    font-size: 1.4em; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    height: 300px; /* Adjust height for smaller screens */
+  }
+
+  .card-body h3 {
+    font-size: 1.2em; /* Adjust font size for smaller screens */
+  }
 }
 .plus-icon {
     position: absolute;
