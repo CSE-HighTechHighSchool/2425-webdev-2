@@ -270,6 +270,7 @@ body {
 .plus-icon:hover svg {
   fill: white; /* Change color on hover */
 }
+
 .bg-light-blue {
   background-color: #c1e4f0; /* Light blue background color */
   padding: 20px; /* Add some padding */
@@ -556,4 +557,48 @@ body {
 }
 .custom-card-price-icon {
     margin-left: 10px; /* Add some space to the left of the icon */
+}
+
+.custom-modal-dialog {
+  max-width: 80%; /* Make the modal wider */
+}
+
+.custom-close-button {
+  background: #333; /* Dark gray background */
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; /* Make it a circle */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+}
+
+.custom-close-icon {
+  width: 16px; /* Adjust the size as needed */
+  height: 16px; /* Adjust the size as needed */
+  fill: lightgrey; /* Light grey color for the X */
+  transition: fill 0.3s ease; /* Smooth transition */
+}
+
+.custom-close-button:hover {
+  background-color: #007bff; /* Change background color on hover */
+}
+
+.custom-close-button:hover .custom-close-icon {
+  fill: white; /* Change icon color on hover */
+}
+
+.modal-header {
+  border-bottom: none; /* Remove the bottom border */
+}
+
+.modal-footer {
+  border-top: none; /* Remove the top border */
 }
