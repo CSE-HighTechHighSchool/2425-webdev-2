@@ -3,208 +3,385 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venice Tours</title>
+    <!-- Bootstrap CSS -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
     />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Domine:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-      integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD"
-      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="styles1.css" />
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-    <title>TourVenice</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar navigation-bar navbar-expand-lg nb-background-color">
-      <a href="#" class="navbar-brand">
-        <img
-          src="index-imgs/logo.png"
-          alt="Site Logo"
-          class="d-inline-block align-text-top w-50"
-          id="logo-img"
-        />
-      </a>
+    <div class="loading-screen">
+      <div class="water">
+        <div class="wave"></div>
+      </div>
+    </div>
+    <div class="main-content">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#"><i class="bi bi-geo-alt-fill"></i>Tour Venice</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            data-bs-theme="light"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about-venice.html">About Venice</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tours.html">Tours</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about-us.html">About Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-      <!-- Hamburger Menu Button -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navmenu"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <!-- Hero Section -->
+      <section id="hero" class="hero">
+        <div class="hero-content">
+          <h1>Experience the Magic of Venice</h1>
+          <p>Join us for unforgettable tours through the heart of Venice.</p>
+          <a href="#cta" class="btn btn-primary btn-lg">Book Your Tour</a>
+        </div>
+      </section>
 
-      <!-- Callapsible navbar menu with custon hover underline CSS animation -->
-      <div class="collapse navbar-collapse" id="navmenu">
-        <!-- Links to hamburger menu button -->
-        <ul class="navbar-nav ms-auto">
-          <!-- ms-auto provides auto margin spacing -->
-          <li class="nav-item">
-            <a href="venice.html" class="nav-link hover-underline-animation nbMenuItem"
-              >About Venice</a
+      <!-- Call to Action -->
+      <section id="cta" class="cta">
+        <h2>Ready to Explore?</h2>
+        <p>Secure your spot now and dive into the magic of Venice with our exclusive tours.</p>
+        <a href="#" class="btn btn-secondary btn-lg">Get Started</a>
+      </section>
+
+      <!-- Experiences We Offer -->
+      <section id="experiences" class="experiences">
+        <div class="container">
+          <h2>Our Experiences</h2>
+          <div class="row mt-4">
+            <!-- Experience 1 -->
+            <div class="col-md-4 mb-4">
+              <div class="card experience-card">
+                <img
+                  src="https://cdn-imgix.headout.com/media/images/6e5fd345bb53c69fc841b8fac7a0c306-Layer1.jpg"
+                  class="card-img-top"
+                  alt="Gondola Ride"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Gondola Rides</h5>
+                  <p class="card-text">
+                    Glide through Venice's iconic canals and soak in the romantic atmosphere.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Experience 2 -->
+            <div class="col-md-4 mb-4">
+              <div class="card experience-card">
+                <img
+                  src="https://www.walksofitaly.com/blog/wp-content/uploads/2011/06/DSC_1086-scaled.jpg"
+                  class="card-img-top"
+                  alt="Venetian Cuisine"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Venetian Cuisine</h5>
+                  <p class="card-text">
+                    Taste authentic dishes at the finest local restaurants handpicked by our
+                    experts.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Experience 3 -->
+            <div class="col-md-4 mb-4">
+              <div class="card experience-card">
+                <img
+                  src="https://cdn.contexttravel.com/image/upload/c_fill,h_840,q_60/uaoeqjwormxg8pgernsc.jpg"
+                  class="card-img-top"
+                  alt="Art Tours"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Art Tours</h5>
+                  <p class="card-text">
+                    Explore Venice's rich art heritage with our knowledgeable guides.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Experience 4 -->
+            <div class="col-md-4 mb-4">
+              <div class="card experience-card">
+                <img
+                  src="https://parametric-architecture.com/wp-content/uploads/2023/10/Venetian-Architecture.jpg"
+                  class="card-img-top"
+                  alt="Architecture Walks"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Architecture Walks</h5>
+                  <p class="card-text">
+                    Admire the stunning architecture that defines Venice's unique skyline.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Experience 5 -->
+            <div class="col-md-4 mb-4">
+              <div class="card experience-card">
+                <img
+                  src="https://images.musement.com/cover/0159/53/thumb_15852264_cover_header.jpg"
+                  class="card-img-top"
+                  alt="Historical Tours"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Historical Tours</h5>
+                  <p class="card-text">
+                    Dive deep into Venice's fascinating history with our comprehensive tours.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Experience 6 -->
+            <div class="col-md-4 mb-4">
+              <div class="card experience-card">
+                <img
+                  src="https://www.vivovenetia.com/wp-content/uploads/2019/01/gondola-night.jpg"
+                  class="card-img-top"
+                  alt="Night Tours"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Night Tours</h5>
+                  <p class="card-text">
+                    Experience the magic of Venice after dark with our exclusive night tours.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Us -->
+      <section id="whyus" class="why-us">
+        <div class="container">
+          <h2>Why Choose Us</h2>
+          <div class="row mt-4">
+            <!-- Feature 1 -->
+            <div class="col-md-4 mb-4">
+              <div class="feature">
+                <i class="bi bi-people-fill"></i>
+                <h5>Expert Guides</h5>
+                <p>Our passionate and knowledgeable guides ensure an enriching experience.</p>
+              </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-md-4 mb-4">
+              <div class="feature">
+                <i class="bi bi-calendar-check-fill"></i>
+                <h5>Flexible Scheduling</h5>
+                <p>Choose from a variety of tour times that fit your travel plans.</p>
+              </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-md-4 mb-4">
+              <div class="feature">
+                <i class="bi bi-emoji-smile-fill"></i>
+                <h5>Personalized Service</h5>
+                <p>We cater to your preferences to make your Venice experience unique.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customer Testimonials -->
+      <section id="testimonials" class="testimonials">
+        <div class="container">
+          <h2>What Our Customers Say</h2>
+          <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#testimonialCarousel"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#testimonialCarousel"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#testimonialCarousel"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#testimonialCarousel"
+                data-bs-slide-to="3"
+                aria-label="Slide 4"
+              ></button>
+            </div>
+            <!-- Carousel Items -->
+            <div class="carousel-inner">
+              <!-- Testimonial 1 -->
+              <div class="carousel-item active">
+                <div class="testimonial-item">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/2.jpg"
+                    alt="Maria Rossi"
+                    class="testimonial-img"
+                  />
+                  <div class="testimonial-rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                  </div>
+                  <p class="testimonial-text">
+                    "An unforgettable experience! The gondola ride was magical and the guide was
+                    fantastic."
+                  </p>
+                  <h5 class="testimonial-name">Maria Rossi</h5>
+                  <i class="bi bi-quote quote-icon"></i>
+                </div>
+              </div>
+              <!-- Testimonial 2 -->
+              <div class="carousel-item">
+                <div class="testimonial-item">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/3.jpg"
+                    alt="John Smith"
+                    class="testimonial-img"
+                  />
+                  <div class="testimonial-rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-half text-warning"></i>
+                  </div>
+                  <p class="testimonial-text">
+                    "The tours were well-organized and the insights into Venetian history were
+                    incredible."
+                  </p>
+                  <h5 class="testimonial-name">John Smith</h5>
+                  <i class="bi bi-quote quote-icon"></i>
+                </div>
+              </div>
+              <!-- Testimonial 3 -->
+              <div class="carousel-item">
+                <div class="testimonial-item">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/4.jpg"
+                    alt="Luisa Bianchi"
+                    class="testimonial-img"
+                  />
+                  <div class="testimonial-rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star text-warning"></i>
+                  </div>
+                  <p class="testimonial-text">
+                    "Absolutely loved the Venetian cuisine tour. Delicious food and great company!"
+                  </p>
+                  <h5 class="testimonial-name">Luisa Bianchi</h5>
+                  <i class="bi bi-quote quote-icon"></i>
+                </div>
+              </div>
+              <!-- Testimonial 4 -->
+              <div class="carousel-item">
+                <div class="testimonial-item">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/5.jpg"
+                    alt="Alex Johnson"
+                    class="testimonial-img"
+                  />
+                  <div class="testimonial-rating">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star text-warning"></i>
+                  </div>
+                  <p class="testimonial-text">
+                    "The night tour was breathtaking. Venice looks stunning under the stars."
+                  </p>
+                  <h5 class="testimonial-name">Alex Johnson</h5>
+                  <i class="bi bi-quote quote-icon"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Controls -->
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide="prev"
+              aria-label="Previous"
             >
-          </li>
-          <li class="nav-item">
-            <a href="tours.html" class="nav-link hover-underline-animation nbMenuItem">Tours</a>
-          </li>
-          <li class="nav-item">
-            <a href="about.html" class="nav-link hover-underline-animation nbMenuItem">About Us</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!--showcase-->
-    <div class="showcase">
-      <h1 class="row bigText text-left">TourVenice</h1>
-      <h3 class="row text-left col-sm-4 potDestination">Piazza San Marco</h3>
-      <h3 class="row text-left col-sm-4 potDestination">Saint Mark's Basilica</h3>
-      <h3 class="row text-left col-sm-4 potDestination">Ponte de Rialto</h3>
-      <h3 class="row text-left col-sm-4 potDestination">Rialto Market</h3>
-      <h3 class="row text-left col-sm-4 potDestination">Doge's Palace</h3>
-      <h3 class="row text-left col-sm-4 potDestination">Grand Canal</h3>
-      <div class="container row book-now text-button">
-        <div class="col-sm-2 text-button">
-          <i class="bi bi-camera-fill display-4"></i>
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#testimonialCarousel"
+              data-bs-slide="next"
+              aria-label="Next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
         </div>
-        <div class="col-sm-7 align-self-center text-button">
-          <h3>Begin your Venice journey? Book Now</h3>
-        </div>
-        <a href="tours.html" class="text-light col-sm-3">
-          <div class="link-button button-text">Learn More</div>
-        </a>
-      </div>
-    </div>
-    <!--experiences-->
-    <div class="row experiences">
-      <h1 class="exp-title">Experiences we Offer:</h1>
-      <div class="col-sm-3 experience-tab tab1">
-        <h1>Tour of Saint Mark's</h1>
-        <h3 class="exp-text">
-          Explore the beautiful and grand St. Mark's Cathedral in a span of a few hours. Our tour
-          guides take you to all the best parts and make sure to cover the rich history of the
-          landmark.
-        </h3>
-      </div>
-      <div class="col-sm-3 experience-tab tab2">
-        <h1>Doge's Palace Tour</h1>
-        <h3 class="exp-text">
-          In our Doge's Palace experience, you will explore the lengthy hallways and grand rooms of
-          the palace of Venice's esteemed and vastly wealthy royal family.
-        </h3>
-      </div>
-      <div class="col-sm-3 experience-tab tab3">
-        <h1>Walking Ancient Streets</h1>
-        <h3 class="exp-text">
-          Venice is filled with narrow alleys and cobblestone streets, all rich with history and
-          secrets. In this experience, follow a guide in the streets and observe new findings along
-          the way.
-        </h3>
-      </div>
-      <div class="col-sm-3 experience-tab tab4">
-        <h1>Evening Gondola Ride</h1>
-        <h3 class="exp-text">
-          The gondola is perhaps the most quintissential symbol of Venice. In our evening gondola
-          ride, experience this beautiful and romantic magic for yourself.
-        </h3>
-      </div>
-    </div>
-    <!--why us-->
-    <div class="row why-us">
-      <h1 class="why-title">Why Us?</h1>
-      <div class="col-sm-4 why-member why-experience">
-        <i class="bi bi-emoji-smile icon"></i>
-        <h1>Experience</h1>
-        <h3>
-          When you book with TourVenice, you are guaranteed an experience you will never forget. The
-          features we offer ensure that you learn the most, experience, the most, and are the
-          happiest as possible.
-        </h3>
-      </div>
-      <div class="col-sm-4 why-member why-cost">
-        <i class="bi bi-currency-dollar icon"></i>
-        <h1>Cost</h1>
-        <h3>
-          TourVenice is affordable. For many families, it makes exploring Venice fun and also easy.
-          Touring is no longer a financial burden.
-        </h3>
-      </div>
-      <div class="col-sm-4 why-member why-reputation">
-        <i class="bi bi-star icon"></i>
-        <h1>Reputation</h1>
-        <h3>
-          TourVenice has been rated by websites and customers. Almost all reviews have been
-          extremely positive, proving the love of the public for our tours and what we have to
-          offer.
-        </h3>
-      </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2024 Venice Tours. All rights reserved.</p>
+        <p>
+          Contact us: <a href="mailto:info@venicetours.com">info@venicetours.com</a> | +39 123 456
+          7890
+        </p>
+      </footer>
     </div>
 
-    <!--testimonials-->
-    <div class="row testimonials">
-      <h1 class="testimonial-title">Customer Testimonials:</h1>
-      <div class="col-sm-3 testimonial-tab">
-        <img src="index-imgs/5stars.png" class="stars" />
-        <h1>Trip Advisor</h1>
-        <h3>
-          <em
-            >One of the best Italian tour webistes connected to Trip Advisor. With knowledgable
-            guides that know the best spot, this company is great for any kind of tour in
-            Venice.</em
-          >
-        </h3>
-      </div>
-      <div class="col-sm-3 testimonial-tab">
-        <img src="index-imgs/5stars.png" class="stars" />
-        <h1>Rohan Arni, Marlboro, NJ</h1>
-        <h3>
-          <em
-            >I do not go on vacation often, but this past summer I decided to visit Vence and used
-            TourVenice. With their easy-to-use website and friendly employees, the experience was
-            certainly memmorable.</em
-          >
-        </h3>
-      </div>
-      <div class="col-sm-3 testimonial-tab">
-        <img src="index-imgs/5stars.png" class="stars" />
-        <h1>Suvit Asnani,<br />Paris, France</h1>
-        <h3>
-          <em
-            >I took my family on vacation to Italy last month and used TourVenice. The experience
-            was absolutely amazing. We loved the gondola rides and especially seeing the wonderful
-            architecture with a knoweldgable guide.</em
-          >
-        </h3>
-      </div>
-      <div class="col-sm-3 testimonial-tab">
-        <img src="index-imgs/5stars.png" class="stars" />
-        <h1>New York Times</h1>
-        <h3 class="testimonial-text">
-          <em
-            >An excellent touring company. Perfect for seeing the popular sights in Venice and
-            getting a memorable experience, all for an affordable price.</em
-          >
-        </h3>
-      </div>
-    </div>
-
-    <div class="footer">
-      <a href="#" class="foot-icon">
-        <i class="bi bi-arrow-up-circle h2 icon-white"></i>
-      </a>
-      <h1 class="foot-text">Copyright &copy; SE 2024 TourVenice Webiste</h1>
-      <h3 class="foot-text">stock images credit to Canva and found online non-copyright</h3>
-    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
   </body>
 </html>
