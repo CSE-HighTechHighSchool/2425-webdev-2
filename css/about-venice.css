@@ -94,8 +94,7 @@ body {
 /* Hero Section */
 .hero {
   height: 60vh; /* Set height relative to viewport */
-  background: url("https://media.cntraveller.com/photos/665ee92a9421aab48dea082c/16:9/w_2560%2Cc_limit/venice-GettyImages-941234062.jpeg")
-    center center/cover no-repeat; /* Background image settings */
+  background: url("../img/hero-image.webp") center center/cover no-repeat; /* Background image settings */
   position: relative; /* Positioning for overlay */
   display: flex;
   align-items: center; /* Center content vertically */

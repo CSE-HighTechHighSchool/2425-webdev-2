@@ -83,8 +83,7 @@ body {
 /* Hero Section */
 .hero {
   height: 60vh; /* Set hero section height */
-  background: url("https://media.cntraveller.com/photos/665ee92a9421aab48dea082c/16:9/w_2560%2Cc_limit/venice-GettyImages-941234062.jpeg")
-    center center/cover no-repeat; /* Background image settings */
+  background: url("../img/hero-image.webp") center center/cover no-repeat; /* Background image settings */
   position: relative; /* Position for overlay */
   display: flex;
   align-items: center; /* Center content vertically */
@@ -589,27 +588,5 @@ footer a:hover {
 
   .contact-location h5 {
     font-size: 1.5rem; /* Smaller subheading */
-  }
-}
-
-/* Prefers-Reduced-Motion for Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  /* Disable transitions and animations for users who prefer reduced motion */
-  .hero-content,
-  .hero h1,
-  .hero p,
-  .meet-the-team h2,
-  .meet-the-team .intro,
-  .team-member-card,
-  .faq h2,
-  .contact-location h2,
-  .contact-location h5,
-  .contact-location .contact-info,
-  .map-responsive,
-  .contact-location form,
-  footer {
-    transition: none; /* Remove transitions */
-    transform: none; /* Remove transforms */
-    opacity: 1; /* Ensure elements are visible */
   }
 }
