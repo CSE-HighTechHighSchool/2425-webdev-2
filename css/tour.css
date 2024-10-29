@@ -2,95 +2,97 @@
 :root {
   --primary-blue: #0056b3; /* Darker blue for better contrast */
   --primary-orange: #e64a19; /* Darker orange for better contrast */
-  --secondary-light: #f8f9fa;
-  --secondary-dark: #343a40;
+  --secondary-light: #f8f9fa; /* Light background color */
+  --secondary-dark: #343a40; /* Dark background color */
   --text-color: #2b2b2b; /* Darker text color for better readability */
-  --heading-font: "Domine", serif;
-  --body-font: "Raleway", sans-serif;
-  --modal-overlay-bg: rgba(0, 0, 0, 0.8);
-  --modal-bg: #ffffff;
-  --modal-border-radius: 15px;
-  --modal-padding: 2rem;
-  --modal-header-bg: var(--primary-blue);
-  --modal-header-color: #fff;
-  --modal-close-color: #fff;
+  --heading-font: "Domine", serif; /* Font for headings */
+  --body-font: "Raleway", sans-serif; /* Font for body text */
+  --modal-overlay-bg: rgba(0, 0, 0, 0.8); /* Background for modal overlay */
+  --modal-bg: #ffffff; /* Background color for modals */
+  --modal-border-radius: 15px; /* Rounded corners for modals */
+  --modal-padding: 2rem; /* Padding inside modals */
+  --modal-header-bg: var(--primary-blue); /* Modal header background color */
+  --modal-header-color: #fff; /* Modal header text color */
+  --modal-close-color: #fff; /* Modal close button color */
 }
 
+/* Global Styles */
 body {
   font-family: var(--body-font);
   color: var(--text-color);
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
   background-color: var(--secondary-light);
 }
 
-/* Navbar */
+/* Navbar Styles */
 .navbar {
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s, box-shadow 0.3s;
-  z-index: 1000;
+  background: rgba(255, 255, 255, 1); /* Solid white background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: background 0.3s, box-shadow 0.3s; /* Smooth transition for background and shadow */
+  z-index: 1000; /* Ensure navbar stays on top */
 }
 
 .navbar.scrolled {
-  background: var(--primary-blue);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: var(--primary-blue); /* Change background when scrolled */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on scroll */
 }
 
 .navbar-brand {
   font-family: var(--heading-font);
   font-size: 1.8rem;
-  color: var(--primary-blue) !important;
-  transition: color 0.3s;
+  color: var(--primary-blue) !important; /* Primary color for brand */
+  transition: color 0.3s; /* Smooth color transition */
   display: flex;
   align-items: center;
 }
 
 .navbar.scrolled .navbar-brand {
-  color: #fff !important;
+  color: #fff !important; /* White color when navbar is scrolled */
 }
 
 .navbar-brand .bi {
   margin-right: 0.5rem;
   font-size: 1.5rem;
-  color: var(--primary-orange);
+  color: var(--primary-orange); /* Icon color */
   transition: color 0.3s;
 }
 
 .navbar.scrolled .navbar-brand .bi {
-  color: #fff;
+  color: #fff; /* Icon color on scroll */
 }
 
 .navbar-toggler.scrolled {
-  filter: invert(1) !important;
+  filter: invert(1) !important; /* Invert colors for toggler on scroll */
 }
+
 .nav-link {
-  color: var(--text-color) !important;
+  color: var(--text-color) !important; /* Link color */
   font-weight: 500;
   transition: color 0s;
   font-size: 1.1em;
 }
 
 .navbar.scrolled .nav-link {
-  color: #fff !important;
+  color: #fff !important; /* Link color on scroll */
 }
 
 .navbar.scrolled .nav-link:hover {
-  color: #ff794d !important;
-  text-decoration: solid underline #ff794d !important;
+  color: #ff794d !important; /* Hover color on scroll */
+  text-decoration: solid underline #ff794d !important; /* Underline on hover */
 }
 
 .nav-link:hover {
-  color: var(--primary-orange) !important;
-  text-decoration: solid underline var(--primary-orange) !important;
-  text-underline-offset: 3px !important;
-  font-weight: bold !important;
+  color: var(--primary-orange) !important; /* Hover color */
+  text-decoration: solid underline var(--primary-orange) !important; /* Underline on hover */
+  text-underline-offset: 3px !important; /* Offset for underline */
+  font-weight: bold !important; /* Bold text on hover */
 }
 
-/* Hero Section */
+/* Hero Section Styles */
 .hero {
-  height: 60vh;
+  height: 60vh; /* Height of hero section */
   background: url("https://media.cntraveller.com/photos/665ee92a9421aab48dea082c/16:9/w_2560%2Cc_limit/venice-GettyImages-941234062.jpeg")
-    center center/cover no-repeat;
+    center center/cover no-repeat; /* Background image settings */
   position: relative;
   display: flex;
   align-items: center;
@@ -106,54 +108,54 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5); /* Overlay for better text visibility */
   z-index: 0;
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  opacity: 0; /* Hidden by default for animation */
+  transform: translateY(20px); /* Initial position for animation */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transition for visibility */
 }
 
 .hero-content.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Final position */
 }
 
 .hero h1 {
   font-family: var(--heading-font);
   font-size: 3rem;
   margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  opacity: 0; /* Hidden by default for animation */
+  transform: translateX(-50px); /* Initial position for animation */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transition for visibility */
 }
 
 .hero h1.visible {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 1; /* Visible state */
+  transform: translateX(0); /* Final position */
 }
 
 .hero p {
   font-size: 1.3rem;
   margin-bottom: 2rem;
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  opacity: 0; /* Hidden by default for animation */
+  transform: translateX(50px); /* Initial position for animation */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transition for visibility */
 }
 
 .hero p.visible {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 1; /* Visible state */
+  transform: translateX(0); /* Final position */
 }
 
 /* Tour Destinations Section */
 .destinations {
   padding: 4rem 2rem;
-  background: #fff;
+  background: #fff; /* White background for section */
 }
 
 .destinations h2 {
@@ -164,53 +166,53 @@ body {
   margin-bottom: 3rem;
   position: relative;
   display: inline-block;
-  text-decoration: underline var(--primary-orange);
+  text-decoration: underline var(--primary-orange); /* Underline with primary orange */
   text-underline-offset: 10px;
   text-decoration-style: solid;
   line-height: 4rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  opacity: 0; /* Hidden by default for animation */
+  transform: translateY(20px); /* Initial position for animation */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transition for visibility */
 }
 
 .destinations h2.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Final position */
 }
 
 .destination-card {
   cursor: pointer;
-  transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
+  transition: transform 0.6s ease-out, box-shadow 0.6s ease-out; /* Smooth hover transitions */
   border: none;
-  border-radius: 15px;
+  border-radius: 15px; /* Rounded corners */
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   background-color: #fff;
   height: 100%;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  opacity: 0; /* Hidden by default for animation */
+  transform: translateY(20px); /* Initial position for animation */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transition for visibility */
 }
 
 .destination-card.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Final position */
 }
 
 .destination-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px); /* Lift card on hover */
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .destination-card img {
   width: 100%;
   height: 200px;
-  object-fit: cover;
-  transition: transform 0.3s;
+  object-fit: cover; /* Ensure image covers the area */
+  transition: transform 0.3s; /* Smooth image zoom on hover */
 }
 
 .destination-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .destination-card .card-body {
@@ -231,17 +233,17 @@ body {
 
 /* Modal Styles */
 .modal-title {
-  font-weight: bold !important;
+  font-weight: bold !important; /* Bold modal titles */
 }
 
 .modal-body p {
-  margin-bottom: 0;
+  margin-bottom: 0; /* Remove bottom margin for paragraphs in modal */
 }
 
 /* Tour Plans Section */
 .plans {
   padding: 4rem 2rem;
-  background: var(--secondary-light);
+  background: var(--secondary-light); /* Light background for section */
 }
 
 .plans h2 {
@@ -252,26 +254,26 @@ body {
   margin-bottom: 3rem;
   position: relative;
   display: inline-block;
-  text-decoration: underline var(--primary-orange);
+  text-decoration: underline var(--primary-orange); /* Underline with primary orange */
   text-underline-offset: 10px;
   text-decoration-style: solid;
   line-height: 4rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  opacity: 0; /* Hidden by default for animation */
+  transform: translateY(20px); /* Initial position for animation */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transition for visibility */
 }
 
 .plans h2.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Final position */
 }
 
 .plan-card {
-  transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
+  transition: transform 0.6s ease-out, box-shadow 0.6s ease-out; /* Smooth transitions */
   border: none;
-  border-radius: 15px;
+  border-radius: 15px; /* Rounded corners */
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   background-color: #fff;
   height: 100%;
   display: flex;
@@ -279,28 +281,28 @@ body {
   position: relative;
   padding: 1.5rem;
   text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  opacity: 0; /* Hidden by default for animation */
+  transform: translateY(20px); /* Initial position for animation */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transition for visibility */
 }
 
 .plan-card.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Final position */
 }
 
-/* Highlighted Card */
+/* Highlighted Plan Card */
 .plan-card.highlighted {
-  border: 2px solid var(--primary-orange);
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  background-color: #fff8f2;
-  transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
+  border: 2px solid var(--primary-orange); /* Highlight border */
+  transform: scale(1.05); /* Slightly larger */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  background-color: #fff8f2; /* Light background for highlight */
+  transition: transform 0.6s ease-out, box-shadow 0.6s ease-out; /* Smooth transitions */
 }
 
 .plan-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px); /* Lift card on hover */
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .plan-card .card-title {
@@ -313,7 +315,7 @@ body {
 .plan-card .card-text {
   color: var(--text-color);
   margin-bottom: 1.5rem;
-  flex-grow: 1;
+  flex-grow: 1; /* Allow text to expand */
 }
 
 .plan-card .price {
@@ -329,19 +331,19 @@ body {
   border: none;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  border-radius: 50px;
-  transition: transform 0.3s, background-color 0.3s;
+  border-radius: 50px; /* Pill-shaped button */
+  transition: transform 0.3s, background-color 0.3s; /* Smooth hover effects */
   text-decoration: none;
 }
 
 .plan-card .btn:hover {
-  background-color: var(--primary-orange);
-  transform: scale(1.05);
+  background-color: var(--primary-orange); /* Change color on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
-/* Feature List */
+/* Feature List Styles */
 .plan-features {
-  list-style: none;
+  list-style: none; /* Remove default list styling */
   padding: 0;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -349,40 +351,40 @@ body {
 
 .plan-features li {
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 1.5rem; /* Space for checkmark */
   margin-bottom: 0.5rem;
 }
 
 .plan-features li::before {
-  content: "✔️";
+  content: "✔️"; /* Checkmark icon */
   position: absolute;
   left: 0;
-  color: var(--primary-orange);
+  color: var(--primary-orange); /* Checkmark color */
 }
 
-/* Footer */
+/* Footer Styles */
 footer {
   padding: 2rem;
   background: var(--primary-blue);
   color: #fff;
   text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  opacity: 0; /* Hidden by default for animation */
+  transform: translateY(20px); /* Initial position for animation */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transition for visibility */
 }
 
 footer.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Final position */
 }
 
 footer a {
   color: white;
-  text-decoration: none;
+  text-decoration: none; /* Remove underline */
 }
 
 footer a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Underline on hover */
 }
 
 /* Animations */
@@ -431,57 +433,41 @@ footer a:hover {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .hero {
-    height: 40vh;
+    height: 40vh; /* Reduce hero height on smaller screens */
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Smaller heading */
   }
 
   .hero p {
-    font-size: 1rem;
+    font-size: 1rem; /* Smaller paragraph text */
   }
 
   .destinations .destination-card img,
   .plans .plan-card img {
-    height: 150px;
+    height: 150px; /* Smaller images */
   }
 
   .plans .plan-card {
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; /* Space between plan cards */
   }
 
   .modal-content {
-    width: 90%;
+    width: 90%; /* Adjust modal width for mobile */
     margin: auto;
   }
 
   .modal-header {
-    padding: 1rem;
+    padding: 1rem; /* Reduced padding in modal header */
   }
 
   .modal-title {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Smaller modal titles */
   }
 
   /* Adjust plan features for mobile */
   .plan-features {
     text-align: center;
-  }
-}
-
-/* Prefers-Reduced-Motion for Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .hero-content,
-  .hero h1,
-  .hero p,
-  .destinations h2,
-  .destination-card,
-  .plans h2,
-  .plan-card,
-  footer {
-    transition: none;
-    transform: none;
-    opacity: 1;
   }
 }

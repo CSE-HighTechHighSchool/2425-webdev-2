@@ -4,32 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Venice Tours</title>
+
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Domine:wght@700&display=swap"
       rel="stylesheet"
     />
+
     <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.svg" />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/index.css" />
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <!-- Custom JS -->
+    <script src="js/navbar.js" defer></script>
+    <script src="js/carousel.js" defer></script>
   </head>
   <body>
+    <!-- Main Content Wrapper -->
     <div class="main-content" style="display: block">
-      <!-- Navbar -->
+      <!-- Navigation Bar -->
       <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
+          <!-- Brand Logo -->
           <a class="navbar-brand" href="#"><i class="bi bi-geo-alt-fill"></i>Tour Venice</a>
+          <!-- Toggle Button for Mobile View -->
           <button
             class="navbar-toggler"
             type="button"
@@ -42,6 +59,7 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
+          <!-- Navigation Links -->
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -67,19 +85,20 @@
         </div>
       </section>
 
-      <!-- Call to Action -->
+      <!-- Call to Action Section -->
       <section id="cta" class="cta">
         <h2>Ready to Explore?</h2>
         <p>Secure your spot now and dive into the magic of Venice with our exclusive tours.</p>
         <a href="#" class="btn btn-secondary btn-lg">Get Started</a>
       </section>
 
-      <!-- Experiences We Offer -->
+      <!-- Experiences We Offer Section -->
       <section id="experiences" class="experiences">
         <div class="container">
           <h2>Our Experiences</h2>
           <div class="row mt-4">
-            <!-- Experience 1 -->
+            <!-- Experience Card Template -->
+            <!-- Repeat similar blocks for each experience -->
             <div class="col-md-4 mb-4">
               <div class="card experience-card">
                 <img
@@ -95,7 +114,7 @@
                 </div>
               </div>
             </div>
-            <!-- Experience 2 -->
+            <!-- Additional Experience Cards -->
             <div class="col-md-4 mb-4">
               <div class="card experience-card">
                 <img
@@ -112,7 +131,7 @@
                 </div>
               </div>
             </div>
-            <!-- Experience 3 -->
+            <!-- Repeat for other experiences... -->
             <div class="col-md-4 mb-4">
               <div class="card experience-card">
                 <img
@@ -128,7 +147,6 @@
                 </div>
               </div>
             </div>
-            <!-- Experience 4 -->
             <div class="col-md-4 mb-4">
               <div class="card experience-card">
                 <img
@@ -144,7 +162,6 @@
                 </div>
               </div>
             </div>
-            <!-- Experience 5 -->
             <div class="col-md-4 mb-4">
               <div class="card experience-card">
                 <img
@@ -160,7 +177,6 @@
                 </div>
               </div>
             </div>
-            <!-- Experience 6 -->
             <div class="col-md-4 mb-4">
               <div class="card experience-card">
                 <img
@@ -180,12 +196,13 @@
         </div>
       </section>
 
-      <!-- Why Us -->
+      <!-- Why Choose Us Section -->
       <section id="whyus" class="why-us">
         <div class="container">
           <h2>Why Choose Us</h2>
           <div class="row mt-4">
-            <!-- Feature 1 -->
+            <!-- Feature Item Template -->
+            <!-- Repeat similar blocks for each feature -->
             <div class="col-md-4 mb-4">
               <div class="feature">
                 <i class="bi bi-people-fill"></i>
@@ -193,7 +210,6 @@
                 <p>Our passionate and knowledgeable guides ensure an enriching experience.</p>
               </div>
             </div>
-            <!-- Feature 2 -->
             <div class="col-md-4 mb-4">
               <div class="feature">
                 <i class="bi bi-calendar-check-fill"></i>
@@ -201,7 +217,6 @@
                 <p>Choose from a variety of tour times that fit your travel plans.</p>
               </div>
             </div>
-            <!-- Feature 3 -->
             <div class="col-md-4 mb-4">
               <div class="feature">
                 <i class="bi bi-emoji-smile-fill"></i>
@@ -213,12 +228,13 @@
         </div>
       </section>
 
-      <!-- Customer Testimonials -->
+      <!-- Customer Testimonials Section -->
       <section id="testimonials" class="testimonials">
         <div class="container">
           <h2>What Our Customers Say</h2>
+          <!-- Carousel for Testimonials -->
           <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-            <!-- Indicators -->
+            <!-- Carousel Indicators -->
             <div class="carousel-indicators">
               <button
                 type="button"
@@ -247,6 +263,7 @@
                 aria-label="Slide 4"
               ></button>
             </div>
+
             <!-- Carousel Items -->
             <div class="carousel-inner">
               <!-- Testimonial 1 -->
@@ -272,6 +289,7 @@
                   <i class="bi bi-quote quote-icon"></i>
                 </div>
               </div>
+
               <!-- Testimonial 2 -->
               <div class="carousel-item">
                 <div class="testimonial-item">
@@ -295,6 +313,7 @@
                   <i class="bi bi-quote quote-icon"></i>
                 </div>
               </div>
+
               <!-- Testimonial 3 -->
               <div class="carousel-item">
                 <div class="testimonial-item">
@@ -317,6 +336,7 @@
                   <i class="bi bi-quote quote-icon"></i>
                 </div>
               </div>
+
               <!-- Testimonial 4 -->
               <div class="carousel-item">
                 <div class="testimonial-item">
@@ -340,7 +360,8 @@
                 </div>
               </div>
             </div>
-            <!-- Controls -->
+
+            <!-- Carousel Controls -->
             <button
               class="carousel-control-prev"
               type="button"
@@ -363,7 +384,7 @@
         </div>
       </section>
 
-      <!-- Footer -->
+      <!-- Footer Section -->
       <footer>
         <p>&copy; 2024 Venice Tours. All rights reserved.</p>
         <p>
@@ -372,11 +393,5 @@
         </p>
       </footer>
     </div>
-
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="js/navbar.js"></script>
-    <script src="js/carousel.js"></script>
   </body>
 </html>

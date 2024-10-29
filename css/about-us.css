@@ -2,95 +2,95 @@
 :root {
   --primary-blue: #0056b3; /* Darker blue for better contrast */
   --primary-orange: #e64a19; /* Darker orange for better contrast */
-  --secondary-light: #f8f9fa;
-  --secondary-dark: #343a40;
+  --secondary-light: #f8f9fa; /* Light background color */
+  --secondary-dark: #343a40; /* Dark background color */
   --text-color: #2b2b2b; /* Darker text color for better readability */
-  --heading-font: "Domine", serif;
-  --body-font: "Raleway", sans-serif;
+  --heading-font: "Domine", serif; /* Font for headings */
+  --body-font: "Raleway", sans-serif; /* Font for body text */
 }
 
 body {
-  font-family: var(--body-font);
-  color: var(--text-color);
-  scroll-behavior: smooth;
-  background-color: var(--secondary-light);
+  font-family: var(--body-font); /* Apply body font */
+  color: var(--text-color); /* Set text color */
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+  background-color: var(--secondary-light); /* Set background color */
 }
 
-/* Navbar */
+/* Navbar Styles */
 .navbar {
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s, box-shadow 0.3s;
-  z-index: 1000;
+  background: rgba(255, 255, 255, 1); /* Solid white background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: background 0.3s, box-shadow 0.3s; /* Smooth transition for background and shadow */
+  z-index: 1000; /* Ensure navbar stays on top */
 }
 
 .navbar.scrolled {
-  background: var(--primary-blue);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: var(--primary-blue); /* Change background when scrolled */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on scroll */
 }
 
 .navbar-brand {
-  font-family: var(--heading-font);
-  font-size: 1.8rem;
-  color: var(--primary-blue) !important;
-  transition: color 0.3s;
+  font-family: var(--heading-font); /* Apply heading font */
+  font-size: 1.8rem; /* Set brand font size */
+  color: var(--primary-blue) !important; /* Brand color with higher specificity */
+  transition: color 0.3s; /* Smooth color transition */
   display: flex;
-  align-items: center;
+  align-items: center; /* Center items vertically */
 }
 
 .navbar.scrolled .navbar-brand {
-  color: #fff !important;
+  color: #fff !important; /* Change brand color on scroll */
 }
 
 .navbar-toggler.scrolled {
-  filter: invert(1) !important;
+  filter: invert(1) !important; /* Invert toggler color for visibility */
 }
 
 .navbar-brand .bi {
-  margin-right: 0.5rem;
-  font-size: 1.5rem;
-  color: var(--primary-orange);
-  transition: color 0.3s;
+  margin-right: 0.5rem; /* Spacing between brand and icon */
+  font-size: 1.5rem; /* Icon size */
+  color: var(--primary-orange); /* Icon color */
+  transition: color 0.3s; /* Smooth color transition */
 }
 
 .navbar.scrolled .navbar-brand .bi {
-  color: #fff;
+  color: #fff; /* Icon color on scroll */
 }
 
 .nav-link {
-  color: var(--text-color) !important;
-  font-weight: 500;
-  transition: color 0s;
-  font-size: 1.1em;
+  color: var(--text-color) !important; /* Link color */
+  font-weight: 500; /* Semi-bold text */
+  transition: color 0s; /* No transition for immediate change */
+  font-size: 1.1em; /* Slightly larger font size */
 }
 
 .navbar.scrolled .nav-link {
-  color: #fff !important;
+  color: #fff !important; /* Link color on scroll */
 }
 
 .navbar.scrolled .nav-link:hover {
-  color: #ff794d !important;
-  text-decoration: solid underline #ff794d !important;
+  color: #ff794d !important; /* Hover color on scroll */
+  text-decoration: solid underline #ff794d !important; /* Underline on hover */
 }
 
 .nav-link:hover {
-  color: var(--primary-orange) !important;
-  text-decoration: solid underline var(--primary-orange) !important;
-  text-underline-offset: 3px !important;
-  font-weight: bold !important;
+  color: var(--primary-orange) !important; /* Hover color */
+  text-decoration: solid underline var(--primary-orange) !important; /* Underline on hover */
+  text-underline-offset: 3px !important; /* Offset for underline */
+  font-weight: bold !important; /* Bold text on hover */
 }
 
 /* Hero Section */
 .hero {
-  height: 60vh;
+  height: 60vh; /* Set hero section height */
   background: url("https://media.cntraveller.com/photos/665ee92a9421aab48dea082c/16:9/w_2560%2Cc_limit/venice-GettyImages-941234062.jpeg")
-    center center/cover no-repeat;
-  position: relative;
+    center center/cover no-repeat; /* Background image settings */
+  position: relative; /* Position for overlay */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-align: center;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  color: #fff; /* Text color */
+  text-align: center; /* Center text */
 }
 
 .hero::before {
@@ -100,125 +100,125 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  z-index: 0; /* Place behind hero content */
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  z-index: 1; /* Ensure content is above overlay */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .hero-content.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Original position */
 }
 
 .hero h1 {
-  font-family: var(--heading-font);
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  font-family: var(--heading-font); /* Apply heading font */
+  font-size: 3rem; /* Heading size */
+  margin-bottom: 1rem; /* Spacing below heading */
+  opacity: 0; /* Initial hidden state */
+  transform: translateX(-50px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .hero h1.visible {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 1; /* Visible state */
+  transform: translateX(0); /* Original position */
 }
 
 .hero p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  font-size: 1.3rem; /* Paragraph font size */
+  margin-bottom: 2rem; /* Spacing below paragraph */
+  opacity: 0; /* Initial hidden state */
+  transform: translateX(50px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .hero p.visible {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 1; /* Visible state */
+  transform: translateX(0); /* Original position */
 }
 
 /* Meet the Team Section */
 .meet-the-team {
-  padding: 4rem 2rem;
-  background: #fff;
+  padding: 4rem 2rem; /* Section padding */
+  background: #fff; /* Background color */
 }
 
 .meet-the-team h2 {
-  font-family: var(--heading-font);
-  font-size: 2.5rem;
-  color: var(--primary-blue);
-  text-align: center;
-  margin-bottom: 3rem;
+  font-family: var(--heading-font); /* Apply heading font */
+  font-size: 2.5rem; /* Heading size */
+  color: var(--primary-blue); /* Heading color */
+  text-align: center; /* Center text */
+  margin-bottom: 3rem; /* Spacing below heading */
   position: relative;
   display: inline-block;
-  text-decoration: underline var(--primary-orange);
-  text-underline-offset: 10px;
-  text-decoration-style: solid;
-  line-height: 4rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  text-decoration: underline var(--primary-orange); /* Underline with color */
+  text-underline-offset: 10px; /* Offset for underline */
+  text-decoration-style: solid; /* Solid underline */
+  line-height: 4rem; /* Line height */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .meet-the-team h2.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Original position */
 }
 
 .meet-the-team .intro {
-  font-size: 1.1rem;
-  color: var(--text-color);
-  max-width: 90%;
-  margin: 1rem auto 0 auto;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  font-size: 1.1rem; /* Intro text size */
+  color: var(--text-color); /* Intro text color */
+  max-width: 90%; /* Max width for readability */
+  margin: 1rem auto 0 auto; /* Center horizontally */
+  text-align: center; /* Center text */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .meet-the-team .intro.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Original position */
 }
 
 /* Team Member Card Styles */
 .team-member-card {
   position: relative;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  overflow: hidden; /* Hide overflow for hover effects */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition on hover */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transition duration */
 }
 
 .team-member-card.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Original position */
 }
 
 .team-member-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px); /* Lift card on hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .team-member-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s;
+  width: 100%; /* Full width image */
+  height: 100%; /* Full height image */
+  object-fit: cover; /* Maintain aspect ratio */
+  transition: transform 0.3s; /* Smooth zoom on hover */
 }
 
 .team-member-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .team-member-card .overlay {
@@ -226,181 +226,180 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 20px;
-  transition: all 0.2s ease;
-  max-height: 30%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+  color: #fff; /* Overlay text color */
+  padding: 20px; /* Padding inside overlay */
+  transition: all 0.2s ease; /* Smooth transition for overlay */
+  max-height: 30%; /* Initial max height */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Align content to bottom */
 }
 
 .team-member-card .overlay .name {
-  font-family: var(--heading-font);
-  font-size: 1.5rem;
-  transition: transform 0.2s ease;
+  font-family: var(--heading-font); /* Apply heading font */
+  font-size: 1.5rem; /* Name font size */
+  transition: transform 0.2s ease; /* Smooth transition */
 }
 
 .team-member-card .overlay .info {
-  opacity: 0;
-  max-height: 0;
+  opacity: 0; /* Hidden info initially */
+  max-height: 0; /* Hide overflow */
   overflow: hidden;
-  transition: opacity 0.2s ease, max-height 0.2s linear;
-  font-size: 1rem;
+  transition: opacity 0.2s ease, max-height 0.2s linear; /* Smooth transition */
+  font-size: 1rem; /* Info text size */
 }
 
 .team-member-card:hover .overlay {
-  max-height: 70%;
+  max-height: 70%; /* Expand overlay on hover */
 }
 
 .team-member-card:hover .overlay .info {
-  opacity: 1;
-  max-height: 100%;
+  opacity: 1; /* Show info on hover */
+  max-height: 100%; /* Full height for info */
 }
 
 .team-member-card .overlay a {
-  color: var(--primary-orange);
-  text-decoration: underline;
-  font-weight: 600;
-  margin-top: 10px;
+  color: var(--primary-orange); /* Link color in overlay */
+  text-decoration: underline; /* Underline links */
+  font-weight: 600; /* Bold links */
+  margin-top: 10px; /* Spacing above links */
 }
 
 /* FAQ Section */
 .faq {
-  padding: 4rem 2rem;
-  background: var(--secondary-light);
+  padding: 4rem 2rem; /* Section padding */
+  background: var(--secondary-light); /* Background color */
 }
 
 .faq h2 {
-  font-family: var(--heading-font);
-  font-size: 2.5rem;
-  color: var(--primary-blue);
-  text-align: left;
-  margin-bottom: 2rem;
+  font-family: var(--heading-font); /* Apply heading font */
+  font-size: 2.5rem; /* Heading size */
+  color: var(--primary-blue); /* Heading color */
+  text-align: left; /* Align text to left */
+  margin-bottom: 2rem; /* Spacing below heading */
   position: relative;
   display: inline-block;
-  width: 100%;
-  text-decoration: underline var(--primary-orange);
-  text-underline-offset: 10px;
-  text-decoration-style: solid;
-  line-height: 4rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  text-decoration: underline var(--primary-orange); /* Underline with color */
+  text-underline-offset: 10px; /* Offset for underline */
+  text-decoration-style: solid; /* Solid underline */
+  line-height: 4rem; /* Line height */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .faq h2.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Original position */
 }
 
 .accordion-button {
-  font-weight: 600 !important;
+  font-weight: 600 !important; /* Bold accordion buttons */
 }
 
 .accordion-button:not(.collapsed) {
-  color: var(--primary-orange);
-  background-color: #f8f9fa;
+  color: var(--primary-orange); /* Active accordion button color */
+  background-color: #f8f9fa; /* Active accordion background */
 }
 
 .accordion-button::after {
-  filter: invert(1);
+  filter: invert(1); /* Invert icon colors for visibility */
 }
 
 /* Contact & Location Section */
 .contact-location {
-  padding: 4rem 2rem;
-  background: #fff;
+  padding: 4rem 2rem; /* Section padding */
+  background: #fff; /* Background color */
 }
 
 .contact-location h2 {
-  font-family: var(--heading-font);
-  font-size: 2.5rem;
-  color: var(--primary-blue);
-  text-align: center;
-  margin-bottom: 3rem;
+  font-family: var(--heading-font); /* Apply heading font */
+  font-size: 2.5rem; /* Heading size */
+  color: var(--primary-blue); /* Heading color */
+  text-align: center; /* Center text */
+  margin-bottom: 3rem; /* Spacing below heading */
   position: relative;
   display: inline-block;
-  text-decoration: underline var(--primary-orange);
-  text-underline-offset: 10px;
-  text-decoration-style: solid;
-  line-height: 4rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  text-decoration: underline var(--primary-orange); /* Underline with color */
+  text-underline-offset: 10px; /* Offset for underline */
+  text-decoration-style: solid; /* Solid underline */
+  line-height: 4rem; /* Line height */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .contact-location h2.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Original position */
 }
 
 .contact-location h5 {
-  font-family: var(--heading-font);
-  font-size: 1.8rem;
-  color: var(--primary-blue);
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  font-family: var(--heading-font); /* Apply heading font */
+  font-size: 1.8rem; /* Subheading size */
+  color: var(--primary-blue); /* Subheading color */
+  margin-bottom: 1.5rem; /* Spacing below subheading */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .contact-location h5.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Original position */
 }
 
 .contact-location .contact-info {
-  font-size: 1.1rem;
-  color: var(--text-color);
-  list-style: none;
-  padding: 0;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  font-size: 1.1rem; /* Contact info text size */
+  color: var(--text-color); /* Contact info text color */
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .contact-location .contact-info.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Original position */
 }
 
 .contact-location .contact-info li {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; /* Spacing between list items */
   display: flex;
-  align-items: center;
+  align-items: center; /* Center icons and text vertically */
 }
 
 .contact-location .contact-info i {
-  font-size: 1.2rem;
-  color: var(--primary-orange);
-  margin-right: 0.5rem;
+  font-size: 1.2rem; /* Icon size */
+  color: var(--primary-orange); /* Icon color */
+  margin-right: 0.5rem; /* Spacing between icon and text */
 }
 
 .contact-location .contact-info a {
-  color: var(--primary-blue);
-  text-decoration: none;
+  color: var(--primary-blue); /* Link color */
+  text-decoration: none; /* Remove underline */
 }
 
 .contact-location .contact-info a:hover {
-  text-decoration: underline;
-  color: var(--primary-orange);
+  text-decoration: underline; /* Underline on hover */
+  color: var(--primary-orange); /* Change color on hover */
 }
 
 .map-responsive {
-  overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
-  height: 0;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  overflow: hidden; /* Hide overflow for responsive iframe */
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  position: relative; /* Position for iframe */
+  height: 0; /* Height set by padding */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .map-responsive.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Original position */
 }
 
 .map-responsive iframe {
@@ -408,86 +407,86 @@ body {
   top: 0;
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: absolute; /* Position iframe absolutely within container */
 }
 
 /* Contact Form Styles */
 .contact-location form {
-  background: var(--secondary-light);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  background: var(--secondary-light); /* Form background color */
+  padding: 20px; /* Form padding */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .contact-location form.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Original position */
 }
 
 .contact-location .form-label {
-  font-weight: 600;
+  font-weight: 600; /* Bold labels */
 }
 
 .contact-location .input-group-text {
-  background: var(--primary-blue);
-  color: #fff;
-  border: none;
+  background: var(--primary-blue); /* Input group text background */
+  color: #fff; /* Input group text color */
+  border: none; /* Remove border */
 }
 
 .contact-location .form-control {
-  border-left: none;
+  border-left: none; /* Remove left border */
 }
 
 .contact-location .form-control:focus {
-  border-color: var(--primary-blue);
-  box-shadow: none;
+  border-color: var(--primary-blue); /* Border color on focus */
+  box-shadow: none; /* Remove default focus shadow */
 }
 
 .contact-location .btn-primary {
-  background: var(--primary-blue);
-  border: none;
-  transition: background 0.3s, transform 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  background: var(--primary-blue); /* Button background color */
+  border: none; /* Remove border */
+  transition: background 0.3s, transform 0.3s; /* Smooth transition on hover */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 .contact-location .btn-primary.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Original position */
 }
 
 .contact-location .btn-primary:hover {
-  background: var(--primary-orange);
-  transform: scale(1.05);
+  background: var(--primary-orange); /* Change background on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
-/* Footer */
+/* Footer Styles */
 footer {
-  padding: 2rem;
-  background: var(--primary-blue);
-  color: #fff;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  padding: 2rem; /* Footer padding */
+  background: var(--primary-blue); /* Footer background color */
+  color: #fff; /* Footer text color */
+  text-align: center; /* Center text */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
 }
 
 footer.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Visible state */
+  transform: translateY(0); /* Original position */
 }
 
 footer a {
-  color: white;
-  text-decoration: none;
+  color: white; /* Link color in footer */
+  text-decoration: none; /* Remove underline */
 }
 
 footer a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Underline on hover */
 }
 
 /* Animations */
@@ -534,61 +533,68 @@ footer a:hover {
 }
 
 /* Responsive Adjustments */
+
+/* Large Devices (≤992px) */
 @media (max-width: 992px) {
   .map-responsive {
-    margin-top: 2rem;
+    margin-top: 2rem; /* Add spacing above map */
   }
 
   .contact-location form {
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; /* Add spacing below form */
   }
 
   .team-member-card .overlay .info {
-    font-size: 0.7rem;
+    font-size: 0.7rem; /* Smaller info text */
   }
 }
+
+/* Medium Devices (≤768px) */
 @media (max-width: 768px) {
   .hero {
-    height: 40vh;
+    height: 40vh; /* Reduce hero height */
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Smaller heading */
   }
 
   .hero p {
-    font-size: 1rem;
+    font-size: 1rem; /* Smaller paragraph */
   }
 
   .team-member-card {
-    height: 350px;
+    height: 350px; /* Set fixed height for cards */
   }
 
   .team-member-card img {
-    height: 100%;
-  }
-  .team-member-card .overlay .info {
-    font-size: 1rem;
+    height: 100%; /* Ensure image covers card */
   }
 
-  /* Adjusting Contact & Location Section */
+  .team-member-card .overlay .info {
+    font-size: 1rem; /* Adjust info text size */
+  }
+
+  /* Adjust Contact & Location Section */
   .contact-location .contact-info {
-    text-align: center;
+    text-align: center; /* Center contact info */
   }
 }
 
+/* Small Devices (≤576px) */
 @media (max-width: 576px) {
   .contact-location h2 {
-    font-size: 2rem;
+    font-size: 2rem; /* Smaller heading */
   }
 
   .contact-location h5 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Smaller subheading */
   }
 }
 
 /* Prefers-Reduced-Motion for Accessibility */
 @media (prefers-reduced-motion: reduce) {
+  /* Disable transitions and animations for users who prefer reduced motion */
   .hero-content,
   .hero h1,
   .hero p,
@@ -602,8 +608,8 @@ footer a:hover {
   .map-responsive,
   .contact-location form,
   footer {
-    transition: none;
-    transform: none;
-    opacity: 1;
+    transition: none; /* Remove transitions */
+    transform: none; /* Remove transforms */
+    opacity: 1; /* Ensure elements are visible */
   }
 }

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const footerSection = document.querySelector("footer");
 
   const observerOptions = {
-    threshold: 0.1,
+    threshold: 0.1, // Trigger when 10% of the element is visible
   };
 
   const observer = new IntersectionObserver((entries, observer) => {
@@ -15,26 +15,26 @@ document.addEventListener("DOMContentLoaded", function () {
         // Animate Timeline Heading
         if (entry.target === timelineHeading) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); // Stop observing once animated
         }
 
         // Animate Timeline Items
         if (entry.target.classList.contains("timeline-item")) {
           entry.target.style.opacity = "1";
           entry.target.style.transform = "translateY(0)";
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); // Stop observing once animated
         }
 
         // Animate Facts Section
         if (entry.target === factsSection) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); // Stop observing once animated
         }
 
         // Animate Footer
         if (entry.target === footerSection) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); // Stop observing once animated
         }
       }
     });

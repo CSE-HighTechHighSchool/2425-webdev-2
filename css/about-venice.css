@@ -2,97 +2,109 @@
 :root {
   --primary-blue: #0056b3; /* Darker blue for better contrast */
   --primary-orange: #e64a19; /* Darker orange for better contrast */
-  --secondary-light: #f8f9fa;
-  --secondary-dark: #343a40;
+  --secondary-light: #f8f9fa; /* Light background color */
+  --secondary-dark: #343a40; /* Dark background color */
   --text-color: #2b2b2b; /* Darker text color for better readability */
-  --heading-font: "Domine", serif;
-  --body-font: "Raleway", sans-serif;
+  --heading-font: "Domine", serif; /* Font for headings */
+  --body-font: "Raleway", sans-serif; /* Font for body text */
 }
 
+/* Base Styles for the Body */
 body {
-  font-family: var(--body-font);
-  color: var(--text-color);
-  scroll-behavior: smooth;
-  background-color: var(--secondary-light);
+  font-family: var(--body-font); /* Apply body font */
+  color: var(--text-color); /* Set text color */
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+  background-color: var(--secondary-light); /* Set background color */
 }
 
-/* Navbar */
+/* Navbar Styles */
 .navbar {
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s, box-shadow 0.3s;
-  z-index: 1000;
+  background: rgba(255, 255, 255, 1); /* White background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: background 0.3s, box-shadow 0.3s; /* Smooth transition on changes */
+  z-index: 1000; /* Ensure navbar stays on top */
 }
 
+/* Navbar Styles When Scrolled */
 .navbar.scrolled {
-  background: var(--primary-blue);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: var(--primary-blue); /* Change background to primary blue */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
 
+/* Navbar Brand (Logo) */
 .navbar-brand {
-  font-family: var(--heading-font);
-  font-size: 1.8rem;
-  color: var(--primary-blue) !important;
-  transition: color 0.3s;
+  font-family: var(--heading-font); /* Apply heading font */
+  font-size: 1.8rem; /* Increase font size */
+  color: var(--primary-blue) !important; /* Set brand color */
+  transition: color 0.3s; /* Smooth color transition */
   display: flex;
-  align-items: center;
+  align-items: center; /* Center align items vertically */
 }
 
+/* Navbar Brand Color When Scrolled */
 .navbar.scrolled .navbar-brand {
-  color: #fff !important;
+  color: #fff !important; /* Change brand color to white */
 }
 
+/* Icon within Navbar Brand */
 .navbar-brand .bi {
-  margin-right: 0.5rem;
-  font-size: 1.5rem;
-  color: var(--primary-orange);
-  transition: color 0.3s;
+  margin-right: 0.5rem; /* Space between icon and text */
+  font-size: 1.5rem; /* Icon size */
+  color: var(--primary-orange); /* Icon color */
+  transition: color 0.3s; /* Smooth color transition */
 }
 
+/* Icon Color When Navbar is Scrolled */
 .navbar.scrolled .navbar-brand .bi {
-  color: #fff;
+  color: #fff; /* Change icon color to white */
 }
 
+/* Navbar Toggler Icon When Scrolled */
 .navbar-toggler.scrolled {
-  filter: invert(1) !important;
+  filter: invert(1) !important; /* Invert colors for visibility */
 }
 
+/* Navigation Links */
 .nav-link {
-  color: var(--text-color) !important;
-  font-weight: 500;
-  transition: color 0s;
-  font-size: 1.1em;
+  color: var(--text-color) !important; /* Set link color */
+  font-weight: 500; /* Semi-bold text */
+  transition: color 0s; /* Immediate color change */
+  font-size: 1.1em; /* Slightly larger text */
 }
 
+/* Navigation Links When Navbar is Scrolled */
 .navbar.scrolled .nav-link {
-  color: #fff !important;
+  color: #fff !important; /* Change link color to white */
 }
 
+/* Navigation Link Hover Effect When Scrolled */
 .navbar.scrolled .nav-link:hover {
-  color: #ff794d !important;
-  text-decoration: solid underline #ff794d !important;
+  color: #ff794d !important; /* Highlight color on hover */
+  text-decoration: solid underline #ff794d !important; /* Underline with highlight color */
 }
 
+/* Navigation Link Hover Effect */
 .nav-link:hover {
-  color: var(--primary-orange) !important;
-  text-decoration: solid underline var(--primary-orange) !important;
-  text-underline-offset: 3px !important;
-  font-weight: bold !important;
+  color: var(--primary-orange) !important; /* Change color on hover */
+  text-decoration: solid underline var(--primary-orange) !important; /* Underline on hover */
+  text-underline-offset: 3px !important; /* Offset underline for better aesthetics */
+  font-weight: bold !important; /* Bold text on hover */
 }
 
 /* Hero Section */
 .hero {
-  height: 60vh;
+  height: 60vh; /* Set height relative to viewport */
   background: url("https://media.cntraveller.com/photos/665ee92a9421aab48dea082c/16:9/w_2560%2Cc_limit/venice-GettyImages-941234062.jpeg")
-    center center/cover no-repeat;
-  position: relative;
+    center center/cover no-repeat; /* Background image settings */
+  position: relative; /* Positioning for overlay */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-align: center;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  color: #fff; /* Text color */
+  text-align: center; /* Center text */
 }
 
+/* Overlay for Hero Section */
 .hero::before {
   content: "";
   position: absolute;
@@ -100,343 +112,373 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  z-index: 0; /* Ensure overlay is behind content */
 }
 
+/* Content within Hero Section */
 .hero-content {
   position: relative;
-  z-index: 1;
-  animation: fadeInUp 1s ease-out;
-  padding: 0 1rem;
+  z-index: 1; /* Ensure content is above overlay */
+  animation: fadeInUp 1s ease-out; /* Fade-in animation */
+  padding: 0 1rem; /* Padding for responsiveness */
 }
 
+/* Hero Heading */
 .hero h1 {
-  font-family: var(--heading-font);
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  animation: slideInLeft 1s ease-out;
+  font-family: var(--heading-font); /* Apply heading font */
+  font-size: 3rem; /* Large font size */
+  margin-bottom: 1rem; /* Space below heading */
+  animation: slideInLeft 1s ease-out; /* Slide-in animation */
 }
 
+/* Hero Paragraph */
 .hero p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  animation: slideInRight 1s ease-out;
+  font-size: 1.3rem; /* Medium font size */
+  margin-bottom: 2rem; /* Space below paragraph */
+  animation: slideInRight 1s ease-out; /* Slide-in animation */
 }
 
 /* Timeline Section */
 .timeline {
-  padding: 4rem 2rem;
-  position: relative;
-  background: #fff;
+  padding: 4rem 2rem; /* Vertical and horizontal padding */
+  position: relative; /* Positioning for central line */
+  background: #fff; /* White background */
 }
 
-/* Central Vertical Line */
+/* Central Vertical Line in Timeline */
 .timeline::before {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 50%; /* Center horizontally */
   top: 0;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 100%;
-  background: var(--primary-blue);
+  transform: translateX(-50%); /* Adjust for exact centering */
+  width: 4px; /* Line width */
+  height: 100%; /* Full height */
+  background: var(--primary-blue); /* Line color */
 }
 
+/* Timeline Heading */
 .timeline h2 {
-  font-family: var(--heading-font);
-  font-size: 2.5rem;
-  color: var(--primary-blue);
-  text-align: center;
-  margin-bottom: 3rem;
+  font-family: var(--heading-font); /* Apply heading font */
+  font-size: 2.5rem; /* Large font size */
+  color: var(--primary-blue); /* Text color */
+  text-align: center; /* Center text */
+  margin-bottom: 3rem; /* Space below heading */
   position: relative;
   display: inline-block;
-  text-decoration: underline var(--primary-orange);
-  text-underline-offset: 10px;
+  text-decoration: underline var(--primary-orange); /* Underline with orange color */
+  text-underline-offset: 10px; /* Offset underline */
   text-decoration-style: solid;
-  line-height: 4rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  line-height: 4rem; /* Line height for spacing */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transition effects */
 }
 
+/* Timeline Heading Visible State */
 .timeline h2.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Original position */
 }
 
+/* Individual Timeline Items */
 .timeline .timeline-item {
   position: relative;
-  margin-bottom: 2rem;
-  width: 50%;
-  padding: 1rem 2rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  margin-bottom: 2rem; /* Space below each item */
+  width: 50%; /* Half width for alternating layout */
+  padding: 1rem 2rem; /* Padding inside items */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transition effects */
 }
 
-/* Left Timeline Items */
+/* Left-Aligned Timeline Items */
 .timeline .timeline-item.left {
-  left: 0;
-  text-align: right;
+  left: 0; /* Align to left side */
+  text-align: right; /* Right-align text */
 }
 
-/* Right Timeline Items */
+/* Right-Aligned Timeline Items */
 .timeline .timeline-item.right {
-  left: 50%;
-  text-align: left;
+  left: 50%; /* Align to right side */
+  text-align: left; /* Left-align text */
 }
 
-/* Timeline Content */
+/* Card within Timeline Items */
 .timeline .timeline-item .card {
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: none;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+  border: none; /* Remove default border */
+  border-radius: 15px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #fff; /* White background */
 }
 
+/* Card Hover Effect */
 .timeline .timeline-item .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px); /* Lift card on hover */
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
+/* Image within Timeline Items */
 .timeline .timeline-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.3s;
+  width: 100%; /* Full width */
+  height: 200px; /* Fixed height */
+  object-fit: cover; /* Maintain aspect ratio */
+  transition: transform 0.3s; /* Smooth transform */
 }
 
+/* Image Hover Effect */
 .timeline .timeline-item img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
+/* Card Body within Timeline Items */
 .timeline .timeline-item .card-body {
-  padding: 1.5rem;
+  padding: 1.5rem; /* Inner padding */
 }
 
+/* Card Title within Timeline Items */
 .timeline .timeline-item .card-title {
-  font-family: var(--heading-font);
-  color: var(--primary-blue);
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
+  font-family: var(--heading-font); /* Apply heading font */
+  color: var(--primary-blue); /* Title color */
+  margin-bottom: 0.5rem; /* Space below title */
+  font-size: 1.5rem; /* Font size */
 }
 
+/* Card Text within Timeline Items */
 .timeline .timeline-item .card-text {
-  color: var(--text-color);
-  font-size: 1rem;
+  color: var(--text-color); /* Text color */
+  font-size: 1rem; /* Font size */
 }
 
-/* Connector Dots */
+/* Connector Dots on Timeline */
 .timeline .timeline-item::before {
   content: "";
   position: absolute;
-  top: 15px;
-  width: 20px;
-  height: 20px;
-  background: var(--primary-blue);
-  border-radius: 50%;
-  z-index: 1;
+  top: 15px; /* Position from top */
+  width: 20px; /* Dot width */
+  height: 20px; /* Dot height */
+  background: var(--primary-blue); /* Dot color */
+  border-radius: 50%; /* Make it circular */
+  z-index: 1; /* Ensure it appears above other elements */
 }
 
+/* Position Connector Dots for Left Items */
 .timeline .timeline-item.left::before {
-  right: -10px;
+  right: -10px; /* Position to the left of the central line */
 }
 
+/* Position Connector Dots for Right Items */
 .timeline .timeline-item.right::before {
-  left: -10px;
+  left: -10px; /* Position to the right of the central line */
 }
 
-/* Clearfix */
+/* Clearfix to Contain Floated Elements */
 .timeline::after {
   content: "";
   display: table;
-  clear: both;
+  clear: both; /* Clear floats */
 }
 
 /* Interesting Facts Section */
 .facts {
-  padding: 4rem 2rem;
-  background: var(--secondary-light);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  padding: 4rem 2rem; /* Padding for spacing */
+  background: var(--secondary-light); /* Background color */
+  opacity: 0; /* Initial hidden state */
+  transform: translateY(20px); /* Initial position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transition effects */
 }
 
+/* Facts Section Visible State */
 .facts.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Original position */
 }
 
+/* Facts Section Heading */
 .facts h2 {
-  font-family: var(--heading-font);
-  font-size: 2.5rem;
-  color: var(--primary-blue);
-  text-align: center;
-  margin-bottom: 3rem;
+  font-family: var(--heading-font); /* Apply heading font */
+  font-size: 2.5rem; /* Large font size */
+  color: var(--primary-blue); /* Text color */
+  text-align: center; /* Center text */
+  margin-bottom: 3rem; /* Space below heading */
   position: relative;
   display: inline-block;
-  text-decoration: underline var(--primary-orange);
-  text-underline-offset: 10px;
+  text-decoration: underline var(--primary-orange); /* Underline with orange color */
+  text-underline-offset: 10px; /* Offset underline */
   text-decoration-style: solid;
-  line-height: 4rem;
+  line-height: 4rem; /* Line height for spacing */
 }
 
+/* Individual Fact Items */
 .fact-item {
-  text-align: center;
-  padding: 2rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border-radius: 15px;
+  text-align: center; /* Center content */
+  padding: 2rem; /* Inner padding */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+  border-radius: 15px; /* Rounded corners */
 }
 
+/* Fact Item Hover Effect */
 .fact-item:hover {
-  transform: translateY(-10px) rotate(1deg);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px) rotate(1deg); /* Lift and slight rotation on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
+/* Icon within Fact Items */
 .fact-item i {
-  font-size: 3rem;
-  color: var(--primary-orange);
-  margin-bottom: 1rem;
-  transition: transform 0.3s;
+  font-size: 3rem; /* Large icon size */
+  color: var(--primary-orange); /* Icon color */
+  margin-bottom: 1rem; /* Space below icon */
+  transition: transform 0.3s; /* Smooth transform */
 }
 
+/* Fact Item Heading */
 .fact-item h5 {
-  font-family: var(--heading-font);
-  margin-bottom: 0.5rem;
-  color: var(--primary-blue);
-  font-size: 1.2rem;
+  font-family: var(--heading-font); /* Apply heading font */
+  margin-bottom: 0.5rem; /* Space below heading */
+  color: var(--primary-blue); /* Heading color */
+  font-size: 1.2rem; /* Font size */
 }
 
+/* Fact Item Paragraph */
 .fact-item p {
-  color: var(--text-color);
-  font-size: 1rem;
+  color: var(--text-color); /* Text color */
+  font-size: 1rem; /* Font size */
 }
 
-/* Footer */
+/* Footer Styles */
 footer {
-  padding: 2rem;
-  background: var(--primary-blue);
-  color: #fff;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 2s ease-out;
+  padding: 2rem; /* Padding for spacing */
+  background: var(--primary-blue); /* Background color */
+  color: #fff; /* Text color */
+  text-align: center; /* Center text */
+  opacity: 0; /* Initial hidden state */
+  transition: opacity 2s ease-out; /* Fade-in transition */
 }
 
+/* Footer Visible State */
 footer.visible {
-  opacity: 1;
+  opacity: 1; /* Fully visible */
 }
 
+/* Footer Links */
 footer a {
-  color: white;
-  text-decoration: none;
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline */
 }
 
+/* Footer Links Hover Effect */
 footer a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Underline on hover */
 }
 
 /* Animations */
+
+/* Fade In Up Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px); /* Start slightly below */
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); /* End at original position */
   }
 }
 
+/* Slide In Left Animation */
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-50px); /* Start off to the left */
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0); /* End at original position */
   }
 }
 
+/* Slide In Right Animation */
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(50px); /* Start off to the right */
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0); /* End at original position */
   }
 }
 
+/* Fade In Animation */
 @keyframes fadeIn {
   from {
-    opacity: 0;
+    opacity: 0; /* Start invisible */
   }
   to {
-    opacity: 1;
+    opacity: 1; /* End fully visible */
   }
 }
 
 /* Responsive Adjustments */
 
-/* Hide Timeline Line and Connector Dots on Small Screens */
+/* Adjustments for Medium to Small Screens */
 @media (max-width: 992px) {
   .timeline::before {
-    display: none;
+    display: none; /* Hide central line */
   }
 
   .timeline .timeline-item::before {
-    display: none;
+    display: none; /* Hide connector dots */
   }
+
   .timeline .timeline-item.right {
-    left: 0;
+    left: 0; /* Align all items to left */
   }
 
   .timeline .timeline-item {
-    width: 100%;
-    left: 0;
-    text-align: left;
-    padding-left: 0;
-    padding-right: 0;
-    margin-bottom: 2rem; /* Reduce margin for better spacing */
+    width: 100%; /* Full width for each item */
+    left: 0; /* Reset left position */
+    text-align: left; /* Left-align text */
+    padding-left: 0; /* Remove left padding */
+    padding-right: 0; /* Remove right padding */
+    margin-bottom: 2rem; /* Maintain spacing */
   }
 }
 
-/* Ensure Hero and Other Sections are Responsive */
+/* Adjustments for Extra Small Screens */
 @media (max-width: 576px) {
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2rem; /* Smaller heading */
   }
 
   .hero p {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Smaller paragraph */
   }
 
   .timeline .timeline-item img {
-    height: 150px;
+    height: 150px; /* Reduced image height */
   }
 
   .timeline h2 {
-    font-size: 2rem;
+    font-size: 2rem; /* Smaller timeline heading */
   }
 
   .fact-item i {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Smaller icons */
   }
 
   .fact-item h5 {
-    font-size: 1rem;
+    font-size: 1rem; /* Smaller fact headings */
   }
 
   .fact-item p {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Smaller fact text */
   }
 
   footer p {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Smaller footer text */
   }
 }

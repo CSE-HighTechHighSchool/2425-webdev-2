@@ -4,33 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Venice | Venice Tours</title>
+
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Domine:wght@700&display=swap"
       rel="stylesheet"
     />
+
     <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/favicon.svg" />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/about-venice.css" />
+
+    <!-- Bootstrap JS  -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/navbar.js" defer></script>
+    <script src="js/timeline.js" defer></script>
   </head>
+
   <body>
     <div class="main-content">
-      <!-- Navbar -->
+      <!-- Navbar Section -->
       <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
+          <!-- Brand Logo and Name -->
           <a class="navbar-brand" href="home.html">
             <i class="bi bi-geo-alt-fill"></i>Tour Venice
           </a>
+
+          <!-- Toggler for Mobile View -->
           <button
             class="navbar-toggler"
             type="button"
@@ -43,6 +63,8 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
+
+          <!-- Navbar Links -->
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -67,11 +89,12 @@
         </div>
       </section>
 
-      <!-- Historical Timeline -->
+      <!-- Historical Timeline Section -->
       <section id="history" class="timeline">
         <div class="container">
           <h2>Historical Timeline</h2>
-          <!-- Timeline Items -->
+
+          <!-- Timeline Item - Founding of Venice -->
           <div class="timeline-item left">
             <div class="card">
               <img
@@ -88,6 +111,8 @@
               </div>
             </div>
           </div>
+
+          <!-- Timeline Item - Refuge from Invasions -->
           <div class="timeline-item right">
             <div class="card">
               <img
@@ -104,6 +129,8 @@
               </div>
             </div>
           </div>
+
+          <!-- Timeline Item - Venetian Republic -->
           <div class="timeline-item left">
             <div class="card">
               <img
@@ -120,6 +147,8 @@
               </div>
             </div>
           </div>
+
+          <!-- Timeline Item - Napoleon Conquers Venice -->
           <div class="timeline-item right">
             <div class="card">
               <img
@@ -136,6 +165,8 @@
               </div>
             </div>
           </div>
+
+          <!-- Timeline Item - Part of Italy -->
           <div class="timeline-item left">
             <div class="card">
               <img
@@ -152,6 +183,8 @@
               </div>
             </div>
           </div>
+
+          <!-- Timeline Item - Modern Venice -->
           <div class="timeline-item right">
             <div class="card">
               <img
@@ -171,11 +204,12 @@
         </div>
       </section>
 
-      <!-- Interesting Facts -->
+      <!-- Interesting Facts Section -->
       <section id="facts" class="facts">
         <div class="container">
           <h2>Interesting Facts</h2>
           <div class="row mt-4">
+            <!-- Fact Item - Built on Water -->
             <div class="col-md-4 mb-4">
               <div class="fact-item">
                 <i class="bi bi-water"></i>
@@ -183,6 +217,8 @@
                 <p>Venice is renowned for its intricate canal system and stunning waterways.</p>
               </div>
             </div>
+
+            <!-- Fact Item - Artistic Heritage -->
             <div class="col-md-4 mb-4">
               <div class="fact-item">
                 <i class="bi bi-palette-fill"></i>
@@ -190,6 +226,8 @@
                 <p>Home to masterpieces by Titian, Tintoretto, and Bellini.</p>
               </div>
             </div>
+
+            <!-- Fact Item - Historical Architecture -->
             <div class="col-md-4 mb-4">
               <div class="fact-item">
                 <i class="bi bi-clock-fill"></i>
@@ -201,7 +239,7 @@
         </div>
       </section>
 
-      <!-- Footer -->
+      <!-- Footer Section -->
       <footer>
         <p>&copy; 2024 Venice Tours. All rights reserved.</p>
         <p>
@@ -210,11 +248,5 @@
         </p>
       </footer>
     </div>
-
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="js/navbar.js"></script>
-    <script src="js/timeline.js"></script>
   </body>
 </html>
