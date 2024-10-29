@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Venice | Venice Tours</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Domine:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="icon" type="image/x-icon" href="img/favicon.svg" />
+    <!-- Custom CSS -->
+    <style>
+      /* Color Variables */
+      :root {
+        --primary-blue: #0056b3; /* Darker blue for better contrast */
+        --primary-orange: #e64a19; /* Darker orange for better contrast */
+        --secondary-light: #f8f9fa;
+        --secondary-dark: #343a40;
+        --text-color: #2b2b2b; /* Darker text color for better readability */
+        --heading-font: "Domine", serif;
+        --body-font: "Raleway", sans-serif;
+      }
+
+      body {
+        font-family: var(--body-font);
+        color: var(--text-color);
+        scroll-behavior: smooth;
+        background-color: var(--secondary-light);
+      }
+
+      /* Navbar */
+      .navbar {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s, box-shadow 0.3s;
+        z-index: 1000;
+      }
+
+      .navbar.scrolled {
+        background: var(--primary-blue);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .navbar-brand {
+        font-family: var(--heading-font);
+        font-size: 1.8rem;
+        color: var(--primary-blue) !important;
+        transition: color 0.3s;
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar.scrolled .navbar-brand {
+        color: #fff !important;
+      }
+
+      .navbar-brand .bi {
+        margin-right: 0.5rem;
+        font-size: 1.5rem;
+        color: var(--primary-orange);
+        transition: color 0.3s;
+      }
+
+      .navbar.scrolled .navbar-brand .bi {
+        color: #fff;
+      }
+
+      .navbar-toggler.scrolled {
+        filter: invert(1) !important;
+      }
+
+      .nav-link {
+        color: var(--text-color) !important;
+        font-weight: 500;
+        transition: color 0s;
+        font-size: 1.1em;
+      }
+
+      .navbar.scrolled .nav-link {
+        color: #fff !important;
+      }
+
+      .navbar.scrolled .nav-link:hover {
+        color: #ff794d !important;
+        text-decoration: solid underline #ff794d !important;
+      }
+
+      .nav-link:hover {
+        color: var(--primary-orange) !important;
+        text-decoration: solid underline var(--primary-orange) !important;
+        text-underline-offset: 3px !important;
+        font-weight: bold !important;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 60vh;
+        background: url("https://media.cntraveller.com/photos/665ee92a9421aab48dea082c/16:9/w_2560%2Cc_limit/venice-GettyImages-941234062.jpeg")
+          center center/cover no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        text-align: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        animation: fadeInUp 1s ease-out;
+        padding: 0 1rem;
+      }
+
+      .hero h1 {
+        font-family: var(--heading-font);
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        animation: slideInLeft 1s ease-out;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        animation: slideInRight 1s ease-out;
+      }
+
+      /* Timeline Section */
+      .timeline {
+        padding: 4rem 2rem;
+        position: relative;
+        background: #fff;
+      }
+
+      /* Central Vertical Line */
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background: var(--primary-blue);
+      }
+
+      .timeline h2 {
+        font-family: var(--heading-font);
+        font-size: 2.5rem;
+        color: var(--primary-blue);
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+        display: inline-block;
+        text-decoration: underline var(--primary-orange);
+        text-underline-offset: 10px;
+        text-decoration-style: solid;
+        line-height: 4rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .timeline h2.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .timeline .timeline-item {
+        position: relative;
+        margin-bottom: 2rem;
+        width: 50%;
+        padding: 1rem 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      /* Left Timeline Items */
+      .timeline .timeline-item.left {
+        left: 0;
+        text-align: right;
+      }
+
+      /* Right Timeline Items */
+      .timeline .timeline-item.right {
+        left: 50%;
+        text-align: left;
+      }
+
+      /* Timeline Content */
+      .timeline .timeline-item .card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+      }
+
+      .timeline .timeline-item .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .timeline .timeline-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+
+      .timeline .timeline-item img:hover {
+        transform: scale(1.05);
+      }
+
+      .timeline .timeline-item .card-body {
+        padding: 1.5rem;
+      }
+
+      .timeline .timeline-item .card-title {
+        font-family: var(--heading-font);
+        color: var(--primary-blue);
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      .timeline .timeline-item .card-text {
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      /* Connector Dots */
+      .timeline .timeline-item::before {
+        content: "";
+        position: absolute;
+        top: 15px;
+        width: 20px;
+        height: 20px;
+        background: var(--primary-blue);
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .timeline .timeline-item.left::before {
+        right: -10px;
+      }
+
+      .timeline .timeline-item.right::before {
+        left: -10px;
+      }
+
+      /* Clearfix */
+      .timeline::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Interesting Facts Section */
+      .facts {
+        padding: 4rem 2rem;
+        background: var(--secondary-light);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .facts.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .facts h2 {
+        font-family: var(--heading-font);
+        font-size: 2.5rem;
+        color: var(--primary-blue);
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+        display: inline-block;
+        text-decoration: underline var(--primary-orange);
+        text-underline-offset: 10px;
+        text-decoration-style: solid;
+        line-height: 4rem;
+      }
+
+      .fact-item {
+        text-align: center;
+        padding: 2rem;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .fact-item:hover {
+        transform: translateY(-10px) rotate(1deg);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .fact-item i {
+        font-size: 3rem;
+        color: var(--primary-orange);
+        margin-bottom: 1rem;
+        transition: transform 0.3s;
+      }
+
+      .fact-item h5 {
+        font-family: var(--heading-font);
+        margin-bottom: 0.5rem;
+        color: var(--primary-blue);
+        font-size: 1.2rem;
+      }
+
+      .fact-item p {
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      /* Footer */
+      footer {
+        padding: 2rem;
+        background: var(--primary-blue);
+        color: #fff;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 2s ease-out;
+      }
+
+      footer.visible {
+        opacity: 1;
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive Adjustments */
+
+      /* Hide Timeline Line and Connector Dots on Small Screens */
+      @media (max-width: 992px) {
+        .timeline::before {
+          display: none;
+        }
+
+        .timeline .timeline-item::before {
+          display: none;
+        }
+        .timeline .timeline-item.right {
+          left: 0;
+        }
+
+        .timeline .timeline-item {
+          width: 100%;
+          left: 0;
+          text-align: left;
+          padding-left: 0;
+          padding-right: 0;
+          margin-bottom: 2rem; /* Reduce margin for better spacing */
+        }
+      }
+
+      /* Ensure Hero and Other Sections are Responsive */
+      @media (max-width: 576px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 0.9rem;
+        }
+
+        .timeline .timeline-item img {
+          height: 150px;
+        }
+
+        .timeline h2 {
+          font-size: 2rem;
+        }
+
+        .fact-item i {
+          font-size: 2.5rem;
+        }
+
+        .fact-item h5 {
+          font-size: 1rem;
+        }
+
+        .fact-item p {
+          font-size: 0.9rem;
+        }
+
+        footer p {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-content">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="home.html">
+            <i class="bi bi-geo-alt-fill"></i>Tour Venice
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            data-bs-theme="light"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="about-venice.html">About Venice</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tours.html">Tours</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about-us.html">About Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="hero" class="hero">
+        <div class="hero-content">
+          <h1>About Venice</h1>
+          <p>Discover the rich history and charm of the Floating City.</p>
+        </div>
+      </section>
+
+      <!-- Historical Timeline -->
+      <section id="history" class="timeline">
+        <div class="container">
+          <h2>Historical Timeline</h2>
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item left">
+            <div class="card">
+              <img
+                src="https://gobargingwp-s3.s3.eu-west-1.amazonaws.com/wp-content/uploads/2023/11/Venice-Navy.jpg"
+                class="card-img-top img-fluid"
+                alt="Founding of Venice"
+              />
+              <div class="card-body">
+                <h5 class="card-title">421 AD</h5>
+                <p class="card-text">
+                  The founding of Venice begins as refugees from mainland Italy settle on the lagoon
+                  islands.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item right">
+            <div class="card">
+              <img
+                src="https://th-i.thgim.com/public/migration_catalog/article14126005.ece/alternates/FREE_1200/25YT_VENICE.jpg"
+                class="card-img-top img-fluid"
+                alt="Refuge from Invasions"
+              />
+              <div class="card-body">
+                <h5 class="card-title">812 AD</h5>
+                <p class="card-text">
+                  Venice becomes a refuge for people fleeing barbarian invasions, solidifying its
+                  independent identity.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item left">
+            <div class="card">
+              <img
+                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2af104e3-4841-493c-8db5-1398aa5b452a/dcb7dve-0f6e552e-cdc2-4b42-9f59-5dfc71ea5ce7.png/v1/fill/w_1600,h_805,q_80,strp/republic_of_venice_by_courageouslife_dcb7dve-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODA1IiwicGF0aCI6IlwvZlwvMmFmMTA0ZTMtNDg0MS00OTNjLThkYjUtMTM5OGFhNWI0NTJhXC9kY2I3ZHZlLTBmNmU1NTJlLWNkYzItNGI0Mi05ZjU5LTVkZmM3MWVhNWNlNy5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.c7b1dXGupohHZUeYoXiWAAzjQgizF1QQ1TO4CnqqDmo"
+                class="card-img-top img-fluid"
+                alt="Venetian Republic"
+              />
+              <div class="card-body">
+                <h5 class="card-title">1204</h5>
+                <p class="card-text">
+                  The Fourth Crusade leads to the establishment of the Venetian Republic's dominance
+                  in trade.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item right">
+            <div class="card">
+              <img
+                src="https://www.economist.com/cdn-cgi/image/width=1424,quality=80,format=auto/sites/default/files/images/print-edition/20210515_BKP001_0.jpg"
+                class="card-img-top img-fluid"
+                alt="Napoleon Conquers Venice"
+              />
+              <div class="card-body">
+                <h5 class="card-title">1797</h5>
+                <p class="card-text">
+                  Napoleon conquers Venice, ending the centuries-old Venetian Republic and
+                  integrating it into the Austrian Empire.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Timeline Item 5 -->
+          <div class="timeline-item left">
+            <div class="card">
+              <img
+                src="https://www.veniceguideandboat.it/wp-content/uploads/2015/11/bullfights-venice.jpg"
+                class="card-img-top img-fluid"
+                alt="Part of Italy"
+              />
+              <div class="card-body">
+                <h5 class="card-title">1866</h5>
+                <p class="card-text">
+                  Venice becomes part of the Kingdom of Italy after the Third Italian War of
+                  Independence.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Timeline Item 6 -->
+          <div class="timeline-item right">
+            <div class="card">
+              <img
+                src="https://worldstrides.com/wp-content/uploads/2015/07/iStock_000057294472_Full.jpg"
+                class="card-img-top img-fluid"
+                alt="Modern Venice"
+              />
+              <div class="card-body">
+                <h5 class="card-title">2024</h5>
+                <p class="card-text">
+                  Venice continues to enchant visitors with its unique canals, architecture, and
+                  vibrant cultural scene.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interesting Facts -->
+      <section id="facts" class="facts">
+        <div class="container">
+          <h2>Interesting Facts</h2>
+          <div class="row mt-4">
+            <div class="col-md-4 mb-4">
+              <div class="fact-item">
+                <i class="bi bi-water"></i>
+                <h5>Built on Water</h5>
+                <p>Venice is renowned for its intricate canal system and stunning waterways.</p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="fact-item">
+                <i class="bi bi-palette-fill"></i>
+                <h5>Artistic Heritage</h5>
+                <p>Home to masterpieces by Titian, Tintoretto, and Bellini.</p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="fact-item">
+                <i class="bi bi-clock-fill"></i>
+                <h5>Historical Architecture</h5>
+                <p>The city boasts a blend of Gothic, Renaissance, and Baroque architecture.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2024 Venice Tours. All rights reserved.</p>
+        <p>
+          Contact us: <a href="mailto:info@venicetours.com">info@venicetours.com</a> | +39 123 456
+          7890
+        </p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+      // Navbar background change on scroll
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        const navToggle = document.querySelector(".navbar-toggler");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+          navToggle.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+          navToggle.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll-Based Animations
+      document.addEventListener("DOMContentLoaded", function () {
+        const timelineHeading = document.querySelector(".timeline h2");
+        const timelineItems = document.querySelectorAll(".timeline .timeline-item");
+        const factsSection = document.querySelector(".facts");
+        const footerSection = document.querySelector("footer");
+
+        const observerOptions = {
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Animate Timeline Heading
+              if (entry.target === timelineHeading) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+
+              // Animate Timeline Items
+              if (entry.target.classList.contains("timeline-item")) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                observer.unobserve(entry.target);
+              }
+
+              // Animate Facts Section
+              if (entry.target === factsSection) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+
+              // Animate Footer
+              if (entry.target === footerSection) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            }
+          });
+        }, observerOptions);
+
+        // Observe Timeline Heading
+        if (timelineHeading) {
+          observer.observe(timelineHeading);
+        }
+
+        // Observe each Timeline Item
+        timelineItems.forEach((item) => {
+          observer.observe(item);
+        });
+
+        // Observe Facts Section
+        if (factsSection) {
+          observer.observe(factsSection);
+        }
+
+        // Observe Footer
+        if (footerSection) {
+          observer.observe(footerSection);
+        }
+      });
+    </script>
+  </body>
+</html>

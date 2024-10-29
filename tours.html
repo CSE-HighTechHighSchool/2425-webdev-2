@@ -3,302 +3,1043 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-                integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
-                crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" 
-                integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" 
-                crossorigin="anonymous">
-    <link rel="stylesheet" href="tours.css">
+    <title>Tours | Venice Tours</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Domine:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="icon" type="image/x-icon" href="img/favicon.svg" />
+    <!-- Custom CSS -->
+    <style>
+      /* Color Variables */
+      :root {
+        --primary-blue: #0056b3; /* Darker blue for better contrast */
+        --primary-orange: #e64a19; /* Darker orange for better contrast */
+        --secondary-light: #f8f9fa;
+        --secondary-dark: #343a40;
+        --text-color: #2b2b2b; /* Darker text color for better readability */
+        --heading-font: "Domine", serif;
+        --body-font: "Raleway", sans-serif;
+        --modal-overlay-bg: rgba(0, 0, 0, 0.8);
+        --modal-bg: #ffffff;
+        --modal-border-radius: 15px;
+        --modal-padding: 2rem;
+        --modal-header-bg: var(--primary-blue);
+        --modal-header-color: #fff;
+        --modal-close-color: #fff;
+      }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" 
-                integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" 
-                crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>TourVenice</title>
+      body {
+        font-family: var(--body-font);
+        color: var(--text-color);
+        scroll-behavior: smooth;
+        background-color: var(--secondary-light);
+      }
+
+      /* Navbar */
+      .navbar {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s, box-shadow 0.3s;
+        z-index: 1000;
+      }
+
+      .navbar.scrolled {
+        background: var(--primary-blue);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .navbar-brand {
+        font-family: var(--heading-font);
+        font-size: 1.8rem;
+        color: var(--primary-blue) !important;
+        transition: color 0.3s;
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar.scrolled .navbar-brand {
+        color: #fff !important;
+      }
+
+      .navbar-brand .bi {
+        margin-right: 0.5rem;
+        font-size: 1.5rem;
+        color: var(--primary-orange);
+        transition: color 0.3s;
+      }
+
+      .navbar.scrolled .navbar-brand .bi {
+        color: #fff;
+      }
+
+      .navbar-toggler.scrolled {
+        filter: invert(1) !important;
+      }
+      .nav-link {
+        color: var(--text-color) !important;
+        font-weight: 500;
+        transition: color 0s;
+        font-size: 1.1em;
+      }
+
+      .navbar.scrolled .nav-link {
+        color: #fff !important;
+      }
+
+      .navbar.scrolled .nav-link:hover {
+        color: #ff794d !important;
+        text-decoration: solid underline #ff794d !important;
+      }
+
+      .nav-link:hover {
+        color: var(--primary-orange) !important;
+        text-decoration: solid underline var(--primary-orange) !important;
+        text-underline-offset: 3px !important;
+        font-weight: bold !important;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 60vh;
+        background: url("https://media.cntraveller.com/photos/665ee92a9421aab48dea082c/16:9/w_2560%2Cc_limit/venice-GettyImages-941234062.jpeg")
+          center center/cover no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        text-align: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .hero-content.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hero h1 {
+        font-family: var(--heading-font);
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .hero h1.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .hero p.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Tour Destinations Section */
+      .destinations {
+        padding: 4rem 2rem;
+        background: #fff;
+      }
+
+      .destinations h2 {
+        font-family: var(--heading-font);
+        font-size: 2.5rem;
+        color: var(--primary-blue);
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+        display: inline-block;
+        text-decoration: underline var(--primary-orange);
+        text-underline-offset: 10px;
+        text-decoration-style: solid;
+        line-height: 4rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .destinations h2.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .destination-card {
+        cursor: pointer;
+        transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        height: 100%;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .destination-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .destination-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .destination-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+
+      .destination-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .destination-card .card-body {
+        text-align: center;
+        padding: 1.5rem;
+      }
+
+      .destination-card .card-title {
+        font-family: var(--heading-font);
+        color: var(--primary-blue);
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      .destination-card .card-text {
+        color: var(--text-color);
+      }
+
+      .modal-title {
+        font-weight: bold !important;
+      }
+
+      .modal-body p {
+        margin-bottom: 0;
+      }
+
+      /* Tour Plans Section */
+      .plans {
+        padding: 4rem 2rem;
+        background: var(--secondary-light);
+      }
+
+      .plans h2 {
+        font-family: var(--heading-font);
+        font-size: 2.5rem;
+        color: var(--primary-blue);
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+        display: inline-block;
+        text-decoration: underline var(--primary-orange);
+        text-underline-offset: 10px;
+        text-decoration-style: solid;
+        line-height: 4rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .plans h2.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .plan-card {
+        transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 1.5rem;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .plan-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Highlighted Card */
+      .plan-card.highlighted {
+        border: 2px solid var(--primary-orange);
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        background-color: #fff8f2;
+        transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
+      }
+
+      .plan-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .plan-card .card-title {
+        font-family: var(--heading-font);
+        color: var(--primary-blue);
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      .plan-card .card-text {
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+      }
+
+      .plan-card .price {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--primary-orange);
+        margin-bottom: 1rem;
+      }
+
+      .plan-card .btn {
+        background-color: var(--primary-blue);
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 50px;
+        transition: transform 0.3s, background-color 0.3s;
+        text-decoration: none;
+      }
+
+      .plan-card .btn:hover {
+        background-color: var(--primary-orange);
+        transform: scale(1.05);
+      }
+
+      /* Feature List */
+      .plan-features {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .plan-features li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .plan-features li::before {
+        content: "✔️";
+        position: absolute;
+        left: 0;
+        color: var(--primary-orange);
+      }
+
+      /* Footer */
+      footer {
+        padding: 2rem;
+        background: var(--primary-blue);
+        color: #fff;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      footer.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .hero {
+          height: 40vh;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .destinations .destination-card img,
+        .plans .plan-card img {
+          height: 150px;
+        }
+
+        .plans .plan-card {
+          margin-bottom: 2rem;
+        }
+
+        .modal-content {
+          width: 90%;
+          margin: auto;
+        }
+
+        .modal-header {
+          padding: 1rem;
+        }
+
+        .modal-title {
+          font-size: 1.5rem;
+        }
+
+        /* Adjust plan features for mobile */
+        .plan-features {
+          text-align: center;
+        }
+      }
+
+      /* Prefers-Reduced-Motion for Accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        .hero-content,
+        .hero h1,
+        .hero p,
+        .destinations h2,
+        .destination-card,
+        .plans h2,
+        .plan-card,
+        footer {
+          transition: none;
+          transform: none;
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
-<nav class="navbar navigation-bar navbar-expand-lg nb-background-color">
-        <a href="index.html" class="navbar-brand">
-            <img src="index-imgs/logo.png" alt="Site Logo" class="d-inline-block align-text-top w-50" id="logo-img">
-        </a>
-
-
-        <!-- Hamburger Menu Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+    <div class="main-content">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="home.html">
+            <i class="bi bi-geo-alt-fill"></i>Tour Venice
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            data-bs-theme="light"
+          >
             <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Callapsible navbar menu with custon hover underline CSS animation -->
-            <div class="collapse navbar-collapse" id="navmenu">
-            <!-- Links to hamburger menu button -->
-                <ul class="navbar-nav ms-auto"> <!-- ms-auto provides auto margin spacing -->
-                <li class="nav-item">
-                    <a href="venice.html" class="nav-link hover-underline-animation nbMenuItem">About Venice</a>
-                </li>
-                <li class="nav-item">
-                    <a href="tours.html" class="nav-link hover-underline-animation nbMenuItem">Tours</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link hover-underline-animation nbMenuItem">About Us</a>
-                </li>
-                </ul>
-            </div>
-      </nav>
-    <!-- Background image container -->
-        <div class="bg-image-container">
-            <div class="dark-overlay"></div>
-            <div class="text-overlay">
-                <h1>Welcome to Venice</h1>
-                <p>Your Venetian Journey Starts Here</p>
-            </div>
-            <div class="scroll-down">
-                <a href="#tour-offering">
-                    <i class="bi bi-arrow-down-circle"></i>
-                </a>
-            </div>
-        </div>
-        <!-- Content below the background image container -->
- <!-- Content below the background image container -->
-        <div id="tour-offering" class="tour-offering">
-            <h1>Our tour offerings:</h1>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card bg-image-card" style="background-image: url('index-imgs/gondola-tour.jpg');">
-                        <div class="card-body">
-                            <p class="card-text">Basilica San Marco, Doges Palace & <br>Gondola ride</p>
-                            <h3 class="card-title">Venice in a day.</h3>
-                            <a href="#" class="plus-icon" data-bs-toggle="modal" data-bs-target="#tourModal1">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="card-cta-modal-button-small-icon card-modal-button-small-icon">
-                                    <path d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card bg-image-card" style="background-image: url('index-imgs/venice-islands.png');">
-                        <div class="card-body">
-                            <p class="card-text">Venice walking, gondola, and an island tour all in 4 days.</p>
-                            <h3 class="card-title">Best of Venice.</h3>
-                            <a href="#" class="plus-icon" data-bs-toggle="modal" data-bs-target="#tourModal2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="card-cta-modal-button-small-icon card-modal-button-small-icon">
-                                    <path d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card bg-image-card" style="background-image: url('index-imgs/st-mark.png');">
-                        <div class="card-body">
-                            <p class="card-text">30+ attractions, St. Mark's & a <br>Gondola ride.</p>
-                            <h3 class="card-title">Tour Extravaganza.</h3>
-                            <a href="#" class="plus-icon" data-bs-toggle="modal" data-bs-target="#tourModal3">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="card-cta-modal-button-small-icon card-modal-button-small-icon">
-                                    <path d="M17.25,8.51H11.5V2.75A1.5,1.5,0,0,0,10,1.25h0a1.5,1.5,0,0,0-1.5,1.5V8.5H2.75a1.5,1.5,0,0,0,0,3H8.5v5.75a1.5,1.5,0,0,0,1.5,1.5h0a1.5,1.5,0,0,0,1.5-1.5V11.5h5.75a1.5,1.5,0,0,0,0-3Z"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Modal for the first card -->
-<!-- Modal for the first card -->
-<div class="modal fade" id="tourModal1" tabindex="-1" aria-labelledby="tourModalLabel1" aria-hidden="true">
-    <div class="modal-dialog custom-modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tourModalLabel1">Venice in a day</h5>
-                <button type="button" class="custom-close-button" data-bs-dismiss="modal" aria-label="Close">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" class="custom-close-icon">
-                        <path d="M12.12,10l4.07-4.06a1.5,1.5,0,1,0-2.11-2.12L10,7.88,5.94,3.81A1.5,1.5,0,1,0,3.82,5.93L7.88,10,3.81,14.06a1.5,1.5,0,0,0,0,2.12,1.51,1.51,0,0,0,2.13,0L10,12.12l4.06,4.07a1.45,1.45,0,0,0,1.06.44,1.5,1.5,0,0,0,1.06-2.56Z"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Modal content for the first card goes here -->
-                <p>Basilica San Marco, Doges Palace & Gondola ride</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal for the second card -->
-<div class="modal fade" id="tourModal2" tabindex="-1" aria-labelledby="tourModalLabel2" aria-hidden="true">
-    <div class="modal-dialog custom-modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tourModalLabel2">Best of Venice</h5>
-                <button type="button" class="custom-close-button" data-bs-dismiss="modal" aria-label="Close">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" class="custom-close-icon">
-                        <path d="M12.12,10l4.07-4.06a1.5,1.5,0,1,0-2.11-2.12L10,7.88,5.94,3.81A1.5,1.5,0,1,0,3.82,5.93L7.88,10,3.81,14.06a1.5,1.5,0,0,0,0,2.12,1.51,1.51,0,0,0,2.13,0L10,12.12l4.06,4.07a1.45,1.45,0,0,0,1.06.44,1.5,1.5,0,0,0,1.06-2.56Z"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Modal content for the second card goes here -->
-                <p>Venice walking, gondola, and an island tour all in 4 days.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal for the third card -->
-<div class="modal fade" id="tourModal3" tabindex="-1" aria-labelledby="tourModalLabel3" aria-hidden="true">
-    <div class="modal-dialog custom-modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tourModalLabel3">Tour Extravaganza</h5>
-                <button type="button" class="custom-close-button" data-bs-dismiss="modal" aria-label="Close">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" class="custom-close-icon">
-                        <path d="M12.12,10l4.07-4.06a1.5,1.5,0,1,0-2.11-2.12L10,7.88,5.94,3.81A1.5,1.5,0,1,0,3.82,5.93L7.88,10,3.81,14.06a1.5,1.5,0,0,0,0,2.12,1.51,1.51,0,0,0,2.13,0L10,12.12l4.06,4.07a1.45,1.45,0,0,0,1.06.44,1.5,1.5,0,0,0,1.06-2.56Z"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Modal content for the third card goes here -->
-                <p>30+ attractions, St. Mark's & a Gondola ride.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-        </div>
-        <div class="container-fluid bg-light-blue no-padding no-margin">
-            <div class="row no-padding no-margin">
-                <div class="col-md-12 no-padding no-margin">
-                    <h2>Choose the tour that's right for you</h2>
-                </div>
-            </div>
-            <div class="row custom-card-row">
-                <div class="col-md-4">
-                    <div class="custom-card-separate" onclick="toggleCheckmark(this)">
-                        <div class="custom-card-top-box"></div>
-                        <div class="custom-card-body-separate">
-                            <div class="custom-card-box custom-card-box-first">
-                                <h3 class="custom-card-title-separate">Venice in a day.</h3>
-                                <p class="custom-card-text-separate">Short and Sweet</p>
-                            </div>
-                            <div class="custom-card-price">
-                                <p class="custom-card-price-label">Price</p>
-                                <p class="custom-card-price-value">Starts at $80</p>
-                                <hr class="custom-card-divider">
-                            </div>
-                            <div class="custom-card-price">
-                                <p class="custom-card-price-label">Tour Duration</p>
-                                <p class="custom-card-price-value">1 day.</p>
-                                <hr class="custom-card-divider">
-                            </div>
-                            <div class="custom-card-price">
-                                <p class="custom-card-price-label">Tourist Attractuons</p>
-                                <p class="custom-card-price-value">5.</p>
-                                <hr class="custom-card-divider">
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="custom-checkmark-icon-separate">
-                                <path d="M12.0183 21.0833C17.7761 21.0833 22.4438 16.5688 22.4438 11C22.4438 5.43112 17.7761 0.916656 12.0183 0.916656C6.26044 0.916656 1.59277 5.43112 1.59277 11C1.59277 16.5688 6.26044 21.0833 12.0183 21.0833ZM11.7407 14.3982L17.4273 8.89817L16.087 7.60181L11.0705 12.4536L8.89738 10.3518L7.55702 11.6482L10.4004 14.3982L11.0705 15.0463L11.7407 14.3982Z"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="custom-card-separate" onclick="toggleCheckmark(this)">
-                        <div class="custom-card-top-box"></div>
-                        <div class="custom-card-body-separate">
-                            <div class="custom-card-box custom-card-box-second">
-                                <h3 class="custom-card-title-separate">Best of Venice.</h3>
-                                <p class="custom-card-text-separate">Most popular.</p>
-                            </div>
-                            <div class="custom-card-price">
-                                <p class="custom-card-price-label">Price</p>
-                                <p class="custom-card-price-value">Starts at $200</p>
-                                <hr class="custom-card-divider">
-                            </div>
-                            <div class="custom-card-price">
-                                <p class="custom-card-price-label">Tour Duration</p>
-                                <p class="custom-card-price-value">3 days.</p>
-                                <hr class="custom-card-divider">
-                            </div>
-                            <div class="custom-card-price">
-                                <p class="custom-card-price-label">Tourist Attractuons</p>
-                                <p class="custom-card-price-value">10.</p>
-                                <hr class="custom-card-divider">
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="custom-checkmark-icon-separate">
-                                <path d="M12.0183 21.0833C17.7761 21.0833 22.4438 16.5688 22.4438 11C22.4438 5.43112 17.7761 0.916656 12.0183 0.916656C6.26044 0.916656 1.59277 5.43112 1.59277 11C1.59277 16.5688 6.26044 21.0833 12.0183 21.0833ZM11.7407 14.3982L17.4273 8.89817L16.087 7.60181L11.0705 12.4536L8.89738 10.3518L7.55702 11.6482L10.4004 14.3982L11.0705 15.0463L11.7407 14.3982Z"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="custom-card-separate" onclick="toggleCheckmark(this)">
-                        <div class="custom-card-top-box"></div>
-                        <div class="custom-card-body-separate">
-                            <div class="custom-card-box custom-card-box-third">
-                                <h3 class="custom-card-title-separate">Tour Extravaganza.</h3>
-                                <p class="custom-card-text-separate">Mamma mia!</p>
-                            </div>
-                            <div class="custom-card-price">
-                                <p class="custom-card-price-label">Price</p>
-                                <p class="custom-card-price-value">Starts at $500</p>
-                                <hr class="custom-card-divider">
-                            </div>
-                            <div class="custom-card-price">
-                                <p class="custom-card-price-label">Tour Duration</p>
-                                <p class="custom-card-price-value">1-2 Weeks.</p>
-                                <hr class="custom-card-divider">
-                            </div>
-                            <div class="custom-card-price">
-                                <p class="custom-card-price-label">Tourist Attractuons</p>
-                                <p class="custom-card-price-value">30.</p>
-                                <hr class="custom-card-divider">
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="custom-checkmark-icon-separate">
-                                <path d="M12.0183 21.0833C17.7761 21.0833 22.4438 16.5688 22.4438 11C22.4438 5.43112 17.7761 0.916656 12.0183 0.916656C6.26044 0.916656 1.59277 5.43112 1.59277 11C1.59277 16.5688 6.26044 21.0833 12.0183 21.0833ZM11.7407 14.3982L17.4273 8.89817L16.087 7.60181L11.0705 12.4536L8.89738 10.3518L7.55702 11.6482L10.4004 14.3982L11.0705 15.0463L11.7407 14.3982Z"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-            </div>
-            </div>
-        </div>
-        
-
-        <div class="footer">
-            <a href="#" class="foot-icon">
-              <i class="bi bi-arrow-up-circle h2 icon-white"></i>
-            </a>
-            <h1 class="foot-text">Copyright &copy; SE 2024 TourVenice Webiste</h1>
-            <h3 class="foot-text">stock images credit to Canva and found online non-copyright</h3>
-            
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="about-venice.html">About Venice</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="tours.html">Tours</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about-us.html">About Us</a>
+              </li>
+            </ul>
           </div>
+        </div>
+      </nav>
 
-        
-        <script>
-            document.querySelector('.scroll-down a').addEventListener('click', function(event) {
-                event.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        </script>
-    
-        <!-- Bootstrap JS and dependencies -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <!-- Hero Section -->
+      <section id="hero" class="hero">
+        <div class="hero-content animate-on-scroll">
+          <h1 class="animate-on-scroll">Our Tours</h1>
+          <p class="animate-on-scroll">Explore Venice through our curated tour packages.</p>
+        </div>
+      </section>
+
+      <!-- Tour Destinations -->
+      <section id="destinations" class="destinations">
+        <div class="container">
+          <h2 class="animate-on-scroll">Popular Destinations</h2>
+          <div class="row mt-4">
+            <!-- Destination 1: Basilica di Santa Maria della Salute -->
+            <div class="col-md-4 mb-4">
+              <div
+                class="card destination-card animate-on-scroll"
+                data-bs-toggle="modal"
+                data-bs-target="#modalSantaMariaSalute"
+              >
+                <img
+                  src="https://www.thetrainline.com/cmsmedia/cms/8169/venice_mobile.jpg"
+                  class="card-img-top"
+                  alt="Basilica di Santa Maria della Salute"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Basilica di Santa Maria della Salute</h5>
+                  <p class="card-text">
+                    Admire the stunning Baroque architecture of one of Venice's most iconic
+                    churches.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Destination 2: Peggy Guggenheim Collection -->
+            <div class="col-md-4 mb-4">
+              <div
+                class="card destination-card animate-on-scroll"
+                data-bs-toggle="modal"
+                data-bs-target="#modalPeggyGuggenheim"
+              >
+                <img
+                  src="https://images.visititaly.eu/uploads/articoli/evidenza/2023105247-peggy-guggenheim-collection-venice.jpg"
+                  class="card-img-top"
+                  alt="Peggy Guggenheim Collection"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Peggy Guggenheim Collection</h5>
+                  <p class="card-text">
+                    Explore a premier modern art museum housed in Peggy Guggenheim's former
+                    residence.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Destination 3: La Fenice Opera House -->
+            <div class="col-md-4 mb-4">
+              <div
+                class="card destination-card animate-on-scroll"
+                data-bs-toggle="modal"
+                data-bs-target="#modalLaFenice"
+              >
+                <img
+                  src="https://www.commediahotel.com/wp-content/uploads/2017/09/fenice-theatre.jpg"
+                  class="card-img-top"
+                  alt="La Fenice Opera House"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">La Fenice Opera House</h5>
+                  <p class="card-text">
+                    Visit Venice's historic opera house, renowned for its exquisite performances and
+                    architecture.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Destination 4: Ca' Rezzonico -->
+            <div class="col-md-4 mb-4">
+              <div
+                class="card destination-card animate-on-scroll"
+                data-bs-toggle="modal"
+                data-bs-target="#modalCaRezzonico"
+              >
+                <img
+                  src="https://media.cntraveler.com/photos/5d693f8623390800088706cc/16:9/w_2560,c_limit/Ca'-Rezzonico_GettyImages-1050656858.jpg"
+                  class="card-img-top"
+                  alt="Ca' Rezzonico"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Ca' Rezzonico</h5>
+                  <p class="card-text">
+                    Discover Baroque art and furnishings in this magnificent palazzo-turned-museum.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Destination 5: Scuola Grande di San Rocco -->
+            <div class="col-md-4 mb-4">
+              <div
+                class="card destination-card animate-on-scroll"
+                data-bs-toggle="modal"
+                data-bs-target="#modalSanRocco"
+              >
+                <img
+                  src="https://www.tobevenice.com/wp-content/uploads/2023/02/9F93250D-C48D-4DE0-AE95-F320715573F4.jpeg"
+                  class="card-img-top"
+                  alt="Scuola Grande di San Rocco"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Scuola Grande di San Rocco</h5>
+                  <p class="card-text">
+                    Marvel at masterpieces by Tintoretto in one of Venice's most important art
+                    institutions.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Destination 6: Accademia Gallery -->
+            <div class="col-md-4 mb-4">
+              <div
+                class="card destination-card animate-on-scroll"
+                data-bs-toggle="modal"
+                data-bs-target="#modalAccademiaGallery"
+              >
+                <img
+                  src="https://cdn-imgix.headout.com/tour/13856/TOUR-IMAGE/32582ac6-6590-4ae4-bf21-c7f3a089f3c0-7601-florence-guided-tour-of-accademia-and-uffizi-galleries-with-priority-access-01.jpg"
+                  class="card-img-top"
+                  alt="Accademia Gallery"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Accademia Gallery</h5>
+                  <p class="card-text">
+                    Explore Venice's premier art museum, featuring a vast collection of Venetian
+                    paintings.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tour Plans -->
+      <section id="plans" class="plans">
+        <div class="container">
+          <h2 class="animate-on-scroll">Our Tour Plans</h2>
+          <div class="row mt-4 justify-content-center">
+            <!-- Plan 1 -->
+            <div class="col-md-4 mb-4">
+              <div class="card plan-card animate-on-scroll">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">Basic Tour</h5>
+                  <p class="card-text">
+                    A perfect introduction to Venice, covering the main attractions with a
+                    knowledgeable guide.
+                  </p>
+                  <div class="price">$49</div>
+                  <ul class="plan-features">
+                    <li>3 Hours Tour</li>
+                    <li>Group Size: Up to 15</li>
+                    <li>Includes Basilica di Santa Maria della Salute</li>
+                  </ul>
+                  <a href="#" class="btn mt-auto">Book Now</a>
+                </div>
+              </div>
+            </div>
+            <!-- Plan 2 (Highlighted) -->
+            <div class="col-md-4 mb-4">
+              <div class="card plan-card highlighted animate-on-scroll">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">Standard Tour</h5>
+                  <p class="card-text">
+                    Includes additional stops and exclusive access to certain landmarks, enhancing
+                    your Venice experience.
+                  </p>
+                  <div class="price">$79</div>
+                  <ul class="plan-features">
+                    <li>5 Hours Tour</li>
+                    <li>Group Size: Up to 10</li>
+                    <li>Includes Peggy Guggenheim Collection</li>
+                    <li>Complimentary Refreshments</li>
+                  </ul>
+                  <a href="#" class="btn mt-auto">Book Now</a>
+                </div>
+              </div>
+            </div>
+            <!-- Plan 3 -->
+            <div class="col-md-4 mb-4">
+              <div class="card plan-card animate-on-scroll">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">Premium Tour</h5>
+                  <p class="card-text">
+                    Our most comprehensive tour, featuring private guides, gourmet dining, and VIP
+                    experiences.
+                  </p>
+                  <div class="price">$129</div>
+                  <ul class="plan-features">
+                    <li>Full Day Tour</li>
+                    <li>Private Guide</li>
+                    <li>Includes Scuola Grande di San Rocco</li>
+                    <li>Gourmet Lunch</li>
+                    <li>VIP Access to Attractions</li>
+                  </ul>
+                  <a href="#" class="btn mt-auto">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="animate-on-scroll">
+        <p>&copy; 2024 Venice Tours. All rights reserved.</p>
+        <p>
+          Contact us: <a href="mailto:info@venicetours.com">info@venicetours.com</a> | +39 123 456
+          7890
+        </p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap Modals for Destinations -->
+
+    <!-- Modal 1: Basilica di Santa Maria della Salute -->
+    <div
+      class="modal fade"
+      id="modalSantaMariaSalute"
+      tabindex="-1"
+      aria-labelledby="modalSantaMariaSaluteLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalSantaMariaSaluteLabel">
+              Basilica di Santa Maria della Salute
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="https://www.thetrainline.com/cmsmedia/cms/8169/venice_mobile.jpg"
+              class="img-fluid mb-3 rounded-3 w-100"
+              alt="Basilica di Santa Maria della Salute"
+            />
+            <p>
+              The Basilica di Santa Maria della Salute is a stunning example of Baroque architecture
+              in Venice. Located at the junction of the Grand Canal and the Bacino di San Marco,
+              this majestic church was built in gratitude for the city's deliverance from the plague
+              in the 17th century. Its grand dome and intricate façade make it one of Venice's most
+              recognizable landmarks. Inside, visitors can admire exquisite artworks, including
+              masterpieces by Titian and Tintoretto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Peggy Guggenheim Collection -->
+    <div
+      class="modal fade"
+      id="modalPeggyGuggenheim"
+      tabindex="-1"
+      aria-labelledby="modalPeggyGuggenheimLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalPeggyGuggenheimLabel">Peggy Guggenheim Collection</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="https://images.visititaly.eu/uploads/articoli/evidenza/2023105247-peggy-guggenheim-collection-venice.jpg"
+              class="img-fluid mb-3 rounded-3 w-100"
+              alt="Peggy Guggenheim Collection"
+            />
+            <p>
+              The Peggy Guggenheim Collection is one of the most important museums of modern art in
+              Italy. Housed in Peggy Guggenheim's former residence on the Grand Canal, the museum
+              showcases an impressive collection of works by artists such as Picasso, Pollock, and
+              Dalí. The spacious rooms and beautiful garden provide a serene environment to
+              appreciate avant-garde art. Visitors can also enjoy special exhibitions, workshops,
+              and guided tours that delve into the life and legacy of Peggy Guggenheim.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: La Fenice Opera House -->
+    <div
+      class="modal fade"
+      id="modalLaFenice"
+      tabindex="-1"
+      aria-labelledby="modalLaFeniceLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLaFeniceLabel">La Fenice Opera House</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="https://www.commediahotel.com/wp-content/uploads/2017/09/fenice-theatre.jpg"
+              class="img-fluid mb-3 rounded-3 w-100"
+              alt="La Fenice Opera House"
+            />
+            <p>
+              La Fenice is Venice's famed opera house, renowned for its rich history and
+              architectural beauty. First inaugurated in 1792, the opera house has been rebuilt
+              multiple times due to devastating fires. Today, it stands as a symbol of Venice's
+              enduring love for the performing arts. Visitors can take guided tours of the opulent
+              interiors, including the grand auditorium and lavish foyers. La Fenice also hosts
+              world-class opera performances, ballets, and concerts, making it a must-visit for art
+              and culture enthusiasts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4: Ca' Rezzonico -->
+    <div
+      class="modal fade"
+      id="modalCaRezzonico"
+      tabindex="-1"
+      aria-labelledby="modalCaRezzonicoLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCaRezzonicoLabel">Ca' Rezzonico</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="https://media.cntraveler.com/photos/5d693f8623390800088706cc/16:9/w_2560,c_limit/Ca'-Rezzonico_GettyImages-1050656858.jpg"
+              class="img-fluid mb-3 rounded-3 w-100"
+              alt="Ca' Rezzonico"
+            />
+            <p>
+              Ca' Rezzonico is a splendid Baroque palace on the Grand Canal, now serving as a museum
+              dedicated to 18th-century Venice. The museum houses an impressive collection of
+              paintings, furniture, and decorative arts that offer a glimpse into the opulent
+              lifestyle of Venetian nobility. The ornate rooms, lavish furnishings, and exquisite
+              artwork create an immersive experience, transporting visitors back to the height of
+              Venice's artistic and cultural renaissance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 5: Scuola Grande di San Rocco -->
+    <div
+      class="modal fade"
+      id="modalSanRocco"
+      tabindex="-1"
+      aria-labelledby="modalSanRoccoLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalSanRoccoLabel">Scuola Grande di San Rocco</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="https://www.tobevenice.com/wp-content/uploads/2023/02/9F93250D-C48D-4DE0-AE95-F320715573F4.jpeg"
+              class="img-fluid mb-3 rounded-3 w-100"
+              alt="Scuola Grande di San Rocco"
+            />
+            <p>
+              Scuola Grande di San Rocco is renowned for its breathtaking collection of Tintoretto
+              paintings. Often referred to as the "Scuola del Caravaggio," this historic building
+              houses over 300 canvases by the master artist. The elaborate frescoes and vibrant
+              colors depict various biblical scenes, creating a mesmerizing visual experience. The
+              Scuola Grande also serves as a cultural hub, hosting events, exhibitions, and concerts
+              that celebrate Venice's rich artistic heritage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 6: Accademia Gallery -->
+    <div
+      class="modal fade"
+      id="modalAccademiaGallery"
+      tabindex="-1"
+      aria-labelledby="modalAccademiaGalleryLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalAccademiaGalleryLabel">Accademia Gallery</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="https://cdn-imgix.headout.com/tour/13856/TOUR-IMAGE/32582ac6-6590-4ae4-bf21-c7f3a089f3c0-7601-florence-guided-tour-of-accademia-and-uffizi-galleries-with-priority-access-01.jpg"
+              class="img-fluid mb-3 rounded-3 w-100"
+              alt="Accademia Gallery"
+            />
+            <p>
+              The Accademia Gallery is Venice's premier art museum, showcasing an extensive
+              collection of Venetian paintings from the 14th to the 18th century. Highlights include
+              masterpieces by artists such as Bellini, Titian, and Veronese. The gallery also
+              features stunning sculptures, decorative arts, and temporary exhibitions that
+              highlight both classical and contemporary art. Situated in the Dorsoduro district, the
+              Accademia offers panoramic views of the Grand Canal from its terrace, enhancing the
+              overall visitor experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+      // Navbar background change on scroll
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        const navToggle = document.querySelector(".navbar-toggler");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+          navToggle.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+          navToggle.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll-Based Animations
+      document.addEventListener("DOMContentLoaded", function () {
+        const animatedElements = document.querySelectorAll(".animate-on-scroll");
+
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        animatedElements.forEach((el) => {
+          observer.observe(el);
+        });
+      });
+    </script>
   </body>
 </html>

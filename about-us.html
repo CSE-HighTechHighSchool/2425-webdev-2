@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Venice Tours</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&family=Domine:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="icon" type="image/x-icon" href="img/favicon.svg" />
+    <!-- Custom CSS -->
+    <style>
+      /* Color Variables */
+      :root {
+        --primary-blue: #0056b3; /* Darker blue for better contrast */
+        --primary-orange: #e64a19; /* Darker orange for better contrast */
+        --secondary-light: #f8f9fa;
+        --secondary-dark: #343a40;
+        --text-color: #2b2b2b; /* Darker text color for better readability */
+        --heading-font: "Domine", serif;
+        --body-font: "Raleway", sans-serif;
+      }
+
+      body {
+        font-family: var(--body-font);
+        color: var(--text-color);
+        scroll-behavior: smooth;
+        background-color: var(--secondary-light);
+      }
+
+      /* Navbar */
+      .navbar {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s, box-shadow 0.3s;
+        z-index: 1000;
+      }
+
+      .navbar.scrolled {
+        background: var(--primary-blue);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .navbar-brand {
+        font-family: var(--heading-font);
+        font-size: 1.8rem;
+        color: var(--primary-blue) !important;
+        transition: color 0.3s;
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar.scrolled .navbar-brand {
+        color: #fff !important;
+      }
+
+      .navbar-toggler.scrolled {
+        filter: invert(1) !important;
+      }
+
+      .navbar-brand .bi {
+        margin-right: 0.5rem;
+        font-size: 1.5rem;
+        color: var(--primary-orange);
+        transition: color 0.3s;
+      }
+
+      .navbar.scrolled .navbar-brand .bi {
+        color: #fff;
+      }
+
+      .nav-link {
+        color: var(--text-color) !important;
+        font-weight: 500;
+        transition: color 0s;
+        font-size: 1.1em;
+      }
+
+      .navbar.scrolled .nav-link {
+        color: #fff !important;
+      }
+
+      .navbar.scrolled .nav-link:hover {
+        color: #ff794d !important;
+        text-decoration: solid underline #ff794d !important;
+      }
+
+      .nav-link:hover {
+        color: var(--primary-orange) !important;
+        text-decoration: solid underline var(--primary-orange) !important;
+        text-underline-offset: 3px !important;
+        font-weight: bold !important;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 60vh;
+        background: url("https://media.cntraveller.com/photos/665ee92a9421aab48dea082c/16:9/w_2560%2Cc_limit/venice-GettyImages-941234062.jpeg")
+          center center/cover no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        text-align: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .hero-content.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hero h1 {
+        font-family: var(--heading-font);
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .hero h1.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .hero p.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Meet the Team Section */
+      .meet-the-team {
+        padding: 4rem 2rem;
+        background: #fff;
+      }
+
+      .meet-the-team h2 {
+        font-family: var(--heading-font);
+        font-size: 2.5rem;
+        color: var(--primary-blue);
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+        display: inline-block;
+        text-decoration: underline var(--primary-orange);
+        text-underline-offset: 10px;
+        text-decoration-style: solid;
+        line-height: 4rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .meet-the-team h2.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .meet-the-team .intro {
+        font-size: 1.1rem;
+        color: var(--text-color);
+        max-width: 90%;
+        margin: 1rem auto 0 auto;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .meet-the-team .intro.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Team Member Card Styles */
+      .team-member-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .team-member-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .team-member-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .team-member-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+
+      .team-member-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .team-member-card .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 20px;
+        transition: all 0.2s ease;
+        max-height: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      .team-member-card .overlay .name {
+        font-family: var(--heading-font);
+        font-size: 1.5rem;
+        transition: transform 0.2s ease;
+      }
+
+      .team-member-card .overlay .info {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.2s ease, max-height 0.2s linear;
+        font-size: 1rem;
+      }
+
+      .team-member-card:hover .overlay {
+        max-height: 70%;
+      }
+
+      .team-member-card:hover .overlay .info {
+        opacity: 1;
+        max-height: 100%;
+      }
+
+      .team-member-card .overlay a {
+        color: var(--primary-orange);
+        text-decoration: underline;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+
+      /* FAQ Section */
+      .faq {
+        padding: 4rem 2rem;
+        background: var(--secondary-light);
+      }
+
+      .faq h2 {
+        font-family: var(--heading-font);
+        font-size: 2.5rem;
+        color: var(--primary-blue);
+        text-align: left;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        text-decoration: underline var(--primary-orange);
+        text-underline-offset: 10px;
+        text-decoration-style: solid;
+        line-height: 4rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .faq h2.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .accordion-button {
+        font-weight: 600 !important;
+      }
+
+      .accordion-button:not(.collapsed) {
+        color: var(--primary-orange);
+        background-color: #f8f9fa;
+      }
+
+      .accordion-button::after {
+        filter: invert(1);
+      }
+
+      /* Contact & Location Section */
+      .contact-location {
+        padding: 4rem 2rem;
+        background: #fff;
+      }
+
+      .contact-location h2 {
+        font-family: var(--heading-font);
+        font-size: 2.5rem;
+        color: var(--primary-blue);
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+        display: inline-block;
+        text-decoration: underline var(--primary-orange);
+        text-underline-offset: 10px;
+        text-decoration-style: solid;
+        line-height: 4rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .contact-location h2.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .contact-location h5 {
+        font-family: var(--heading-font);
+        font-size: 1.8rem;
+        color: var(--primary-blue);
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .contact-location h5.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .contact-location .contact-info {
+        font-size: 1.1rem;
+        color: var(--text-color);
+        list-style: none;
+        padding: 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .contact-location .contact-info.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .contact-location .contact-info li {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-location .contact-info i {
+        font-size: 1.2rem;
+        color: var(--primary-orange);
+        margin-right: 0.5rem;
+      }
+
+      .contact-location .contact-info a {
+        color: var(--primary-blue);
+        text-decoration: none;
+      }
+
+      .contact-location .contact-info a:hover {
+        text-decoration: underline;
+        color: var(--primary-orange);
+      }
+
+      .map-responsive {
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+        height: 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .map-responsive.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .map-responsive iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+      }
+
+      /* Contact Form Styles */
+      .contact-location form {
+        background: var(--secondary-light);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .contact-location form.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .contact-location .form-label {
+        font-weight: 600;
+      }
+
+      .contact-location .input-group-text {
+        background: var(--primary-blue);
+        color: #fff;
+        border: none;
+      }
+
+      .contact-location .form-control {
+        border-left: none;
+      }
+
+      .contact-location .form-control:focus {
+        border-color: var(--primary-blue);
+        box-shadow: none;
+      }
+
+      .contact-location .btn-primary {
+        background: var(--primary-blue);
+        border: none;
+        transition: background 0.3s, transform 0.3s;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      .contact-location .btn-primary.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .contact-location .btn-primary:hover {
+        background: var(--primary-orange);
+        transform: scale(1.05);
+      }
+
+      /* Footer */
+      footer {
+        padding: 2rem;
+        background: var(--primary-blue);
+        color: #fff;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+
+      footer.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .map-responsive {
+          margin-top: 2rem;
+        }
+
+        .contact-location form {
+          margin-bottom: 2rem;
+        }
+
+        .team-member-card .overlay .info {
+          font-size: 0.7rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .hero {
+          height: 40vh;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .team-member-card {
+          height: 350px;
+        }
+
+        .team-member-card img {
+          height: 100%;
+        }
+        .team-member-card .overlay .info {
+          font-size: 1rem;
+        }
+
+        /* Adjusting Contact & Location Section */
+        .contact-location .contact-info {
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .contact-location h2 {
+          font-size: 2rem;
+        }
+
+        .contact-location h5 {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* Prefers-Reduced-Motion for Accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        .hero-content,
+        .hero h1,
+        .hero p,
+        .meet-the-team h2,
+        .meet-the-team .intro,
+        .team-member-card,
+        .faq h2,
+        .contact-location h2,
+        .contact-location h5,
+        .contact-location .contact-info,
+        .map-responsive,
+        .contact-location form,
+        footer {
+          transition: none;
+          transform: none;
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-content">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="home.html">
+            <i class="bi bi-geo-alt-fill"></i>Tour Venice
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            data-bs-theme="light"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="about-venice.html">About Venice</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tours.html">Tours</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="about-us.html">About Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="hero" class="hero">
+        <div class="hero-content animate-on-scroll">
+          <h1 class="animate-on-scroll">About Us</h1>
+          <p class="animate-on-scroll">
+            Learn more about our passion for Venice and how we create unforgettable experiences.
+          </p>
+        </div>
+      </section>
+
+      <!-- Meet the Team Section -->
+      <section id="meet-the-team" class="meet-the-team">
+        <div class="container">
+          <h2 class="animate-on-scroll">Meet the Team</h2>
+          <div class="row mt-4">
+            <!-- Team Member 1 -->
+            <div class="col-md-4 mb-4">
+              <div class="team-member-card animate-on-scroll">
+                <img src="img/henry-cantor.jpeg" alt="Sofia Rossi" />
+                <div class="overlay">
+                  <div class="name">Henry Cantor</div>
+                  <div class="info">
+                    Founder & CEO - With over a decade of experience in tourism, Sofia is dedicated
+                    to creating exceptional tour experiences.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="col-md-4 mb-4">
+              <div class="team-member-card animate-on-scroll">
+                <img src="img/niyel-hassan.jpeg" alt="Luca Bianchi" />
+                <div class="overlay">
+                  <div class="name">Niyel Hassan</div>
+                  <div class="info">
+                    Head Tour Guide - Luca's extensive knowledge of Venice's history and culture
+                    makes every tour insightful and enjoyable.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="col-md-4 mb-4">
+              <div class="team-member-card animate-on-scroll">
+                <img src="img/vinil-polepalli.png" alt="Giulia Verdi" />
+                <div class="overlay">
+                  <div class="name">Vinil Polepalli</div>
+                  <div class="info">
+                    Marketing Manager - Giulia brings creative strategies to promote our tours and
+                    connect with travelers worldwide.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="intro animate-on-scroll">
+            At Venice Tours, we are passionate about sharing the beauty and history of Venice with
+            travelers from around the world. Founded in 2010, our mission is to provide authentic
+            and memorable tour experiences that highlight the unique charm of the Floating City. Our
+            dedicated team of local experts ensures that every tour is informative, engaging, and
+            tailored to your interests.
+          </p>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq" class="faq">
+        <div class="container">
+          <h2 class="animate-on-scroll">Frequently Asked Questions</h2>
+          <div class="accordion mt-4 animate-on-scroll" id="faqAccordion">
+            <!-- FAQ Item 1 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingOne">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  What languages do your tour guides speak?
+                </button>
+              </h3>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingOne"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Our tour guides are multilingual and can conduct tours in English, Italian,
+                  Spanish, French, and German. Please let us know your preferred language when
+                  booking.
+                </div>
+              </div>
+            </div>
+            <!-- FAQ Item 2 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Do I need to book in advance?
+                </button>
+              </h3>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Yes, we recommend booking your tours in advance to secure your preferred dates and
+                  times, especially during peak tourist seasons.
+                </div>
+              </div>
+            </div>
+            <!-- FAQ Item 3 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingThree">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  What is included in the tour price?
+                </button>
+              </h3>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingThree"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Our tour prices include professional guide services, entrance fees to listed
+                  attractions, and refreshments during the tour. Specific inclusions may vary
+                  depending on the tour package.
+                </div>
+              </div>
+            </div>
+            <!-- FAQ Item 4 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingFour">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour"
+                  aria-expanded="false"
+                  aria-controls="collapseFour"
+                >
+                  What is your cancellation policy?
+                </button>
+              </h3>
+              <div
+                id="collapseFour"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingFour"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Cancellations made at least 48 hours before the tour are fully refundable.
+                  Cancellations made within 48 hours of the tour will incur a 50% cancellation fee.
+                  Please refer to our Terms and Conditions for more details.
+                </div>
+              </div>
+            </div>
+            <!-- FAQ Item 5 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingFive">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive"
+                  aria-expanded="false"
+                  aria-controls="collapseFive"
+                >
+                  Are the tours wheelchair accessible?
+                </button>
+              </h3>
+              <div
+                id="collapseFive"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingFive"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  We strive to make our tours accessible to all. Please inform us in advance if you
+                  require wheelchair accessibility, and we will do our best to accommodate your
+                  needs.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Us & Our Location Section -->
+      <section id="contact-location" class="contact-location">
+        <div class="container">
+          <h2 class="animate-on-scroll">Contact Us</h2>
+          <div class="row mt-4 gx-5">
+            <!-- Contact Form -->
+            <div class="col-lg-6 mb-4">
+              <h5 class="animate-on-scroll">Get in Touch</h5>
+              <form class="animate-on-scroll">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="subject" class="form-label">Subject</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-chat-dots"></i></span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="subject"
+                      placeholder="Subject"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Message</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-pencil-square"></i></span>
+                    <textarea
+                      class="form-control"
+                      id="message"
+                      rows="5"
+                      placeholder="Your Message"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary btn-lg animate-on-scroll">
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- Our Location -->
+            <div class="col-lg-6 mb-4">
+              <h5 class="animate-on-scroll">Venice Tours Headquarters</h5>
+              <ul class="list-unstyled contact-info animate-on-scroll">
+                <li><i class="bi bi-geo-alt-fill me-2"></i>Calle delle Bocche, 123</li>
+                <li><i class="bi bi-building me-2"></i>30124 Venice, Italy</li>
+                <li><i class="bi bi-telephone-fill me-2"></i>Phone: +39 123 456 7890</li>
+                <li>
+                  <i class="bi bi-envelope-fill me-2"></i>Email:
+                  <a href="mailto:info@venicetours.com">info@venicetours.com</a>
+                </li>
+              </ul>
+              <div class="map-responsive animate-on-scroll">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019708291673!2d12.33803331567463!3d45.4344289791004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eb1e08fbd0c5d%3A0x8c3e3e9d5c5e3d6d!2sCalle%20delle%20Bocche%2C%20123%2C%2030124%20Venezia%20VE%2C%20Italy!5e0!3m2!1sen!2sus!4v1698625600000!5m2!1sen!2sus"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Venice Tours Headquarters Location"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="animate-on-scroll">
+        <p>&copy; 2024 Venice Tours. All rights reserved.</p>
+        <p>
+          Contact us: <a href="mailto:info@venicetours.com">info@venicetours.com</a> | +39 123 456
+          7890
+        </p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+      // Navbar background change on scroll
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        const navToggle = document.querySelector(".navbar-toggler");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+          navToggle.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+          navToggle.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll-Based Animations
+      document.addEventListener("DOMContentLoaded", function () {
+        const animatedElements = document.querySelectorAll(".animate-on-scroll");
+
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Add 'visible' class to trigger CSS transitions
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        animatedElements.forEach((el) => {
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>
