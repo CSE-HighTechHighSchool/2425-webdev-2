@@ -39,9 +39,12 @@
       defer
     ></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
     <!-- Custom JavaScript -->
     <script src="js/navbar.js" defer></script>
     <script src="js/scroll.js" defer></script>
+    <script src="js/stats.js" defer></script>
   </head>
 
   <body>
@@ -206,6 +209,31 @@
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stats" class="stats">
+        <div class="container">
+          <h2 class="animate-on-scroll">Trending Locations</h2>
+          <canvas id="myChart" class="chart animate-on-scroll w-100"></canvas>
+          <div class="row text-center mt-5 animate-on-scroll stat-container">
+            <div class="col-6 col-md-3 mb-3">
+              <h3 class="display-5 fw-bold stat-number" data-number="5000">0</h3>
+              <p>Tours Booked</p>
+            </div>
+            <div class="col-6 col-md-3 mb-3">
+              <h3 class="display-5 fw-bold stat-number" data-number="98" data-suffix="%">0</h3>
+              <p>Customer Satisfaction</p>
+            </div>
+            <div class="col-6 col-md-3 mb-3">
+              <h3 class="display-5 fw-bold stat-number" data-number="50" data-suffix="+">0</h3>
+              <p>Destinations Offered</p>
+            </div>
+            <div class="col-6 col-md-3 mb-3">
+              <h3 class="display-5 fw-bold stat-number" data-number="24" data-suffix=" hr">0</h3>
+              <p>Support Available</p>
             </div>
           </div>
         </div>
