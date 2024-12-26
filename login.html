@@ -11,7 +11,7 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
             crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/login.css">
 
     <!-- Bootstrap 5, crypto-js and custom JS script tags-->
     <!-- Include 'defer' keyword for each to improve loading-->
@@ -21,50 +21,71 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" 
             defer integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" 
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="module" src="js/signIn.js" defer></script>
+    <script type="module" src="js/login.js" defer></script>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light headerBG">
-        <!-- lg = large breakpoint, headerBG = custom css BG color -->
-        <div class="container"> <!-- Container will contain content in certain space in middle of page -->
-            <a href="index.html" class="navbar-brand">
-                <img src="/img/Built_with_Firebase_Logo_LightTP.png" alt="Built wtih Firebase" class="d-inline-block align-text-top">
-            </a>
-
-            <!-- Hamburger Menu Button-->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Collapsible navbar menu with custom hover underline CSS animation -->
-            <div class="collapse navbar-collapse" id="navmenu">
-                <!-- Links to hamburger menu button -->
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item nbMenuItem">
-                    </li>
-                </ul>
-            </div>
-
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <!-- Brand Logo -->
+          <a class="navbar-brand" href="home.html"><i class="bi bi-geo-alt-fill"></i>Tour Venice</a>
+          <!-- Toggle Button for Mobile View -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            data-bs-theme="light"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navigation Links -->
+          <!--<div class="collapse navbar-collapse justify-content-center" id="navbarNav">-->
+          <ul class="collapse navbar-collapse navbar-nav justify-content-center nav-center">
+            <li class="nav-item">
+              <a class="nav-link" href="about-venice.html">About Venice</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tours.html">Tours</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about-us.html">About Us</a>
+            </li>
+          </ul>
+          <ul class="collapse navbar-collapse navbar-nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Sign In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="register.html">Sign Up</a>
+            </li>
+          </ul>
+          <!--</div>-->
         </div>
-    </nav>
+      </nav>
 
-    <div class="container">
-        <br><h2 class="text-center">Sign In</h2><br>
-    </div>
+      <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content hero-text">
+            <br><h1 class="text-center">Sign In and Book a Tour You Won't Forget</h1><br>
+        </div>
 
-    <!--Sign Up -->
-    <div class="signUpForm">     
-        <form>
-            <input type="email" placeholder="Email" id="loginEmail" class="form-control mb-3">
-            <input type="password" placeholder="password" id="loginPassword" class="form-control mb-3">
-            <div class="form-check form-switch mb-3">
-                <input class="form-check-input" type="checkbox" role="switch" id="keepLoggedInSwitch">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Keep me signed in</label>
-            </div>
-            <button type = "button" id="signIn" name="signIn" class="btn btn-outline-primary mb-3 w-100">Sign In</button>
-        </form>
-    </div>
+        <!--Sign Up -->
+        <div class="signUpForm hero-content">     
+            <form>
+                <input type="email" placeholder="Email" id="loginEmail" class="form-control mb-3">
+                <input type="password" placeholder="password" id="loginPassword" class="form-control mb-3">
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" role="switch" id="keepLoggedInSwitch">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Keep me signed in</label>
+                </div>
+                <button type = "button" id="signIn" name="signIn" class="btn btn-outline-primary mb-3 w-100 signInButton">Sign In</button>
+            </form>
+        </div>
+    </section>
     
 </body>
 </html>

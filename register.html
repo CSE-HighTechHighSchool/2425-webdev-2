@@ -11,7 +11,7 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
             crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/register.css">
 
     <!-- Bootstrap 5, crypto-js and custom JS script tags-->
     <!-- Include 'defer' keyword for each to improve loading-->
@@ -25,45 +25,67 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light headerBG">
-        <!-- lg = large breakpoint, headerBG = custom css BG color -->
-        <div class="container"> <!-- Container will contain content in certain space in middle of page -->
-            <a href="index.html" class="navbar-brand">
-                <img src="/img/Built_with_Firebase_Logo_LightTP.png" alt="Built wtih Firebase" class="d-inline-block align-text-top">
-            </a>
-
-            <!-- Hamburger Menu Button-->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Collapsible navbar menu with custom hover underline CSS animation -->
-            <div class="collapse navbar-collapse" id="navmenu">
-                <!-- Links to hamburger menu button -->
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item nbMenuItem">
-                    </li>
-                </ul>
-            </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <!-- Brand Logo -->
+          <a class="navbar-brand" href="home.html"><i class="bi bi-geo-alt-fill"></i>Tour Venice</a>
+          <!-- Toggle Button for Mobile View -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            data-bs-theme="light"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navigation Links -->
+          <!--<div class="collapse navbar-collapse justify-content-center" id="navbarNav">-->
+          <ul class="collapse navbar-collapse navbar-nav justify-content-center nav-center">
+            <li class="nav-item">
+              <a class="nav-link" href="about-venice.html">About Venice</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tours.html">Tours</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about-us.html">About Us</a>
+            </li>
+          </ul>
+          <ul class="collapse navbar-collapse navbar-nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Sign In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="register.html">Sign Up</a>
+            </li>
+          </ul>
+          <!--</div>-->
         </div>
-    </nav>
+      </nav>
 
-    <div class="container">
-        <br><h2 class="text-center">Account Registration</h2><br>
-    </div>
+      <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content hero-text">
+            <br><h1 class="text-center">Create an Account to Start Your Journey</h1><br>
+        </div>
 
     <!--Sign Up -->
-    <div class="signUpForm mb-5">     
-        <form>
-            <input type="text" placeholder="First Name" id="firstName" class="form-control mb-3">
-            <input type="text" placeholder="Last Name" id="lastName" class="form-control mb-3">
-            <input type="email" placeholder="Email" id="userEmail" class="form-control mb-3">
-            <input type="password" placeholder="password" id="userPass" class="form-control mb-3">
-            <button type = "button" id="submitData" name="submitData" class="btn btn-outline-primary mb-3 w-100">Register</button>
-            <a href="signIn.html" class="badge bg-secondary py-1 w-100">Already have an account?</a>
-        </form>
-    </div>
+        <div class="signUpForm hero-content mb-5">     
+            <form>
+                <input type="text" placeholder="First Name" id="firstName" class="form-control mb-3">
+                <input type="text" placeholder="Last Name" id="lastName" class="form-control mb-3">
+                <input type="email" placeholder="Email" id="userEmail" class="form-control mb-3">
+                <input type="password" placeholder="password" id="userPass" class="form-control mb-3">
+                <button type = "button" id="submitData" name="submitData" class="signUpButton btn btn-outline-primary mb-3 w-100">Register</button>
+                <a href="login.html" class="badge bg-secondary py-1 w-100">Already have an account?</a>
+            </form>
+        </div>
+    </section>
     
 </body>
 </html>

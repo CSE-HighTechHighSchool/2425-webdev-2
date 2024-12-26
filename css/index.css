@@ -85,6 +85,10 @@ body {
   font-weight: bold !important;
 }
 
+.nav-center {
+  padding-left: 11.5%;
+}
+
 /* Hero Section */
 .hero {
   height: 100vh; /* Full viewport height */

@@ -1,0 +1,153 @@
+/* Color Variables */
+:root {
+    --primary-blue: #0056b3; /* Darker blue for better contrast */
+    --primary-orange: #e64a19; /* Darker orange for better contrast */
+    --secondary-light: #f8f9fa; /* Light background color */
+    --secondary-dark: #343a40; /* Dark background color */
+    --text-color: #2b2b2b; /* Darker text color for better readability */
+    --heading-font: "Domine", serif; /* Font for headings */
+    --body-font: "Raleway", sans-serif; /* Font for body text */
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background: rgba(255, 255, 255, 1); /* Solid white background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background 0.3s, box-shadow 0.3s; /* Smooth transition on scroll */
+    z-index: 1000; /* Ensure navbar stays on top */
+  }
+  
+  .navbar.scrolled {
+    background: var(--primary-blue); /* Change background on scroll */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on scroll */
+  }
+  
+  /* Navbar Brand */
+  .navbar-brand {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    color: var(--primary-blue) !important; /* Primary color for brand */
+    transition: color 0.3s; /* Smooth color transition */
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar.scrolled .navbar-brand {
+    color: #fff !important; /* White color when scrolled */
+  }
+  
+  /* Navbar Brand Icon */
+  .navbar-brand .bi {
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--primary-orange); /* Icon color */
+    transition: color 0.3s; /* Smooth color transition */
+  }
+  
+  .navbar.scrolled .navbar-brand .bi {
+    color: #fff; /* White icon on scroll */
+  }
+  
+  /* Navigation Links */
+  .nav-link {
+    color: var(--text-color) !important; /* Default link color */
+    font-weight: 500;
+    transition: color 0s; /* Instant color change */
+    font-size: 1.1em;
+  }
+  
+  .navbar.scrolled .nav-link {
+    color: #fff !important; /* White links when scrolled */
+  }
+  
+  /* Navbar Toggler for Mobile */
+  .navbar-toggler.scrolled {
+    filter: invert(1) !important; /* Invert colors on scroll */
+  }
+  
+  /* Hover Effects for Links */
+  .navbar.scrolled .nav-link:hover {
+    color: #ff794d !important;
+    text-decoration: solid underline #ff794d !important;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-orange) !important;
+    text-decoration: solid underline var(--primary-orange) !important;
+    text-underline-offset: 3px !important;
+    font-weight: bold !important;
+  }
+  
+  .nav-center {
+    padding-left: 11.5%;
+  }
+
+  /* Hero Section */
+.hero {
+    height: 100vh; /* Full viewport height */
+    background: url("../img/registerImage.jpg.webp") center center/cover no-repeat; /* Background image settings */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Text color */
+    text-align: center;
+  }
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Overlay for readability */
+    z-index: 0;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1; /* Ensure content is above overlay */
+    animation: fadeInUp 1s ease-out; /* Entrance animation */
+  }
+  .hero-text {
+    justify-content: center;
+    position: absolute;
+        top: 20%;
+  }
+  .hero h1 {
+    font-family: var(--heading-font);
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: slideInLeft 1s ease-out; /* Slide-in animation */
+  }
+  
+  .signUpForm {
+    width: 30%;
+    padding-top: 5%;
+  }
+  
+  .signUpButton {
+    color: lightblue;
+  }
+
+  @media (max-width: 1040px) {
+    .signUpForm {
+        padding-top: 20%;
+        width: 50%;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .signUpForm {
+        width: 60%;
+        padding-top: 30%;
+    }
+  }

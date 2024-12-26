@@ -91,6 +91,10 @@ body {
   font-weight: bold !important; /* Bold text on hover */
 }
 
+.nav-center {
+  padding-left: 11.5%;
+}
+
 /* Hero Section */
 .hero {
   height: 60vh; /* Set height relative to viewport */

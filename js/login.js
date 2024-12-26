@@ -84,7 +84,7 @@ function logIn(user){
     // Session storage will be cleared with a signOut() function in home.js
     if(!keepLoggedIn){
         sessionStorage.setItem('user', JSON.stringify(user));
-        window.location='index.html';    // Redirect browser to home.html
+        window.location='home.html';    // Redirect browser to home.html
     }
 
     // Local storage is permanent (keep user logged in even if browser is closed)
@@ -92,7 +92,7 @@ function logIn(user){
     else {
         localStorage.setItem('keepLoggedIn', 'yes');
         localStorage.setItem('user', JSON.stringify(user));
-        window.location = 'index.html';
+        window.location = 'home.html';
     }
 }
 

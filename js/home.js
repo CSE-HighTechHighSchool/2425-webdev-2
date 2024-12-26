@@ -32,6 +32,7 @@ const db = getDatabase(app)
 // ---------------------// Get reference values -----------------------------
 let userLink = document.getElementById('userLink');     // User name for navbar
 let signOutLink = document.getElementById('signOut');   // Sign out link
+let welcome = document.getElementById('welcome');       // Welcome header
 let currentUser = null;                                 // Initialize current user to null
 
 
@@ -79,6 +80,7 @@ window.onload = function(){
       signOutLink.href = 'login.html';
     } else {
       userLink.innerText = 'Create/Delete Tour';
+      welcome.innerText = currentUser.firstname + ', Experience the Magic of Venice';
       userLink.classList.replace('btn', 'nav-link');
       userLink.classList.add('btn-primary');
       userLink.href = 'book.html';
@@ -88,33 +90,6 @@ window.onload = function(){
       userLink.classList.add('btn-success');
       document.getElementById('signOut').onclick = function(){
         signOutUser();
-      }
-    }
-    document.getElementById('basicTour').onclick = function(){
-      if(currentUser == null) {
-        alert('Please sign in first!');
-        window.location = 'login.html';
-      } else {
-        sessionStorage.setItem('tour', 'basic');
-        window.location = book.html;
-      }
-    }
-    document.getElementById('standardTour').onclick = function(){
-      if(currentUser == null) {
-        alert('Please sign in first!');
-        window.location = 'login.html';
-      } else {
-        sessionStorage.setItem('tour', 'standard');
-        window.location = book.html;
-      }
-    }
-    document.getElementById('premiumTour').onclick = function(){
-      if(currentUser == null) {
-        alert('Please sign in first!');
-        window.location = 'login.html';
-      } else {
-        sessionStorage.setItem('tour', 'premium');
-        window.location = book.html;
       }
     }
 }

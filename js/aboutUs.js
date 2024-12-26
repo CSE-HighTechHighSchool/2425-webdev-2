@@ -90,31 +90,4 @@ window.onload = function(){
         signOutUser();
       }
     }
-    document.getElementById('basicTour').onclick = function(){
-      if(currentUser == null) {
-        alert('Please sign in first!');
-        window.location = 'login.html';
-      } else {
-        sessionStorage.setItem('tour', 'basic');
-        window.location = book.html;
-      }
-    }
-    document.getElementById('standardTour').onclick = function(){
-      if(currentUser == null) {
-        alert('Please sign in first!');
-        window.location = 'login.html';
-      } else {
-        sessionStorage.setItem('tour', 'standard');
-        window.location = book.html;
-      }
-    }
-    document.getElementById('premiumTour').onclick = function(){
-      if(currentUser == null) {
-        alert('Please sign in first!');
-        window.location = 'login.html';
-      } else {
-        sessionStorage.setItem('tour', 'premium');
-        window.location = book.html;
-      }
-    }
 }
