@@ -45,7 +45,7 @@ document.getElementById('signIn').onclick = function(){
         const user = userCredential.user;
 
         // Log sign-in in db
-        // update - will only add the last_login infoand won't overwrite anything else
+        // update - will only add the last_login info and won't overwrite anything else
         let logDate = new Date();
         update(ref(db, 'users/' + user.uid + '/accountInfo'), {
             last_login: logDate
