@@ -70,12 +70,10 @@ window.onload = function(){
     getUserName();    // Get current user's first name
     if(currentUser == null){
       userLink.innerText = "Sign Up";
-      userLink.classList.replace('nav-link', 'btn');
       userLink.classList.add('btn-primary');
       userLink.href = 'register.html';
   
       signOutLink.innerText = 'Sign In';
-      signOutLink.classList.replace('nav-link', 'btn');
       signOutLink.classList.add('btn-success');
       signOutLink.href = 'login.html';
     } else {
