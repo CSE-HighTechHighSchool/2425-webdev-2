@@ -32,7 +32,7 @@ const db = getDatabase(app)
 // ---------------------// Get reference values -----------------------------
 let userLink = document.getElementById('userLink');     // User name for navbar
 let signOutLink = document.getElementById('signOut');   // Sign out link
-let welcome = document.getElementById('welcome');       // Welcome header
+let welcome = document.getElementById('welcome');       // Welcome header (null if it does not exist)
 let currentUser = null;                                 // Initialize current user to null
 
 
@@ -80,7 +80,9 @@ window.onload = function(){
       signOutLink.href = 'login.html';
     } else {
       userLink.innerText = 'Create/Delete Tour';
-      welcome.innerText = currentUser.firstname + ', Experience the Magic of Venice';
+      if(welcome != null) { // Only edit the welcome screen if it exists
+        welcome.innerText = currentUser.firstname + ', Experience the Magic of Venice';
+      }
       userLink.classList.replace('btn', 'nav-link');
       userLink.classList.add('btn-primary');
       userLink.href = 'book.html';
