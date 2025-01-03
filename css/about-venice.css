@@ -94,7 +94,10 @@ body {
 /* Hero Section */
 .hero {
   height: 60vh; /* Set height relative to viewport */
-  background: url("../img/hero-image.webp") center center/cover no-repeat; /* Background image settings */
+  background-image: url('../img/night-tour.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative; /* Positioning for overlay */
   display: flex;
   align-items: center; /* Center content vertically */
