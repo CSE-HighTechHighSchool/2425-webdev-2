@@ -1,0 +1,293 @@
+/* Color Variables */
+:root {
+    --primary-blue: #0056b3; /* Darker blue for better contrast */
+    --primary-orange: #e64a19; /* Darker orange for better contrast */
+    --secondary-light: #f8f9fa; /* Light background color */
+    --secondary-dark: #343a40; /* Dark background color */
+    --text-color: #2b2b2b; /* Darker text color for better readability */
+    --heading-font: "Domine", serif; /* Font for headings */
+    --body-font: "Raleway", sans-serif; /* Font for body text */
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background: rgba(255, 255, 255, 1); /* Solid white background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background 0.3s, box-shadow 0.3s; /* Smooth transition on scroll */
+    z-index: 1000; /* Ensure navbar stays on top */
+  }
+  
+  .navbar.scrolled {
+    background: var(--primary-blue); /* Change background on scroll */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on scroll */
+  }
+  
+  /* Navbar Brand */
+  .navbar-brand {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    color: var(--primary-blue) !important; /* Primary color for brand */
+    transition: color 0.3s; /* Smooth color transition */
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar.scrolled .navbar-brand {
+    color: #fff !important; /* White color when scrolled */
+  }
+  
+  /* Navbar Brand Icon */
+  .navbar-brand .bi {
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--primary-orange); /* Icon color */
+    transition: color 0.3s; /* Smooth color transition */
+  }
+  
+  .navbar.scrolled .navbar-brand .bi {
+    color: #fff; /* White icon on scroll */
+  }
+  
+  /* Navigation Links */
+  .nav-link {
+    color: var(--text-color) !important; /* Default link color */
+    font-weight: 500;
+    transition: color 0s; /* Instant color change */
+    font-size: 1.1em;
+  }
+  
+  .navbar.scrolled .nav-link {
+    color: #fff !important; /* White links when scrolled */
+  }
+  
+  /* Navbar Toggler for Mobile */
+  .navbar-toggler.scrolled {
+    filter: invert(1) !important; /* Invert colors on scroll */
+  }
+  
+  /* Hover Effects for Links */
+  .navbar.scrolled .nav-link:hover {
+    color: #ff794d !important;
+    text-decoration: solid underline #ff794d !important;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-orange) !important;
+    text-decoration: solid underline var(--primary-orange) !important;
+    text-underline-offset: 3px !important;
+    font-weight: bold !important;
+  }
+  
+  .nav-center {
+    padding-left: 11.5%;
+  }
+
+  /* Remove or comment out the old hero section styles */
+
+  /* Split Container Styles */
+  .split-container {
+    display: flex;
+    min-height: calc(100vh - 76px); /* Subtract only navbar height */
+    width: 100%;
+    margin-top: 76px; /* Add margin for navbar */
+}
+
+.split-left {
+    flex: 1;
+    overflow: hidden;
+    padding: 1.5rem; /* Add padding around the image container */
+    position: relative;
+    background-color: var(--secondary-light); /* Add background color */
+}
+
+.carousel {
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.carousel-item {
+    height: 100%;
+    position: relative;
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.split-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+/* Add carousel transition animation */
+.carousel-item {
+    transition: transform 1.2s ease-in-out;
+}
+
+.split-right {
+    flex: 1;
+    background-color: var(--secondary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Registration Form Styles */
+.registration-form {
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.register-title-container {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: slideUpFade 0.8s ease-out forwards;
+}
+
+.register-form-content {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: slideUpFade 0.8s ease-out forwards;
+    animation-delay: 0.4s; /* Slightly longer delay */
+}
+
+.registration-form h1 {
+    font-family: 'Domine', serif;
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.registration-form input {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.75rem 1rem;
+}
+
+.registration-form button {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.registration-form a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.register-title {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    margin-top: -2rem;
+}
+
+.register-subtitle {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.register-subtitle a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-subtitle a:hover {
+    color: var(--primary-orange);
+    text-decoration: underline;
+}
+
+/* Update animation keyframes */
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(15px); /* Reduced distance */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+    }
+
+    .split-left {
+        height: 30vh;
+        padding: 1rem; /* Slightly less padding on mobile */
+    }
+
+    .split-right {
+        padding: 2rem 1rem;
+    }
+
+    .registration-form {
+        width: 100%;
+    }
+}
+
+/* Footer Styles */
+footer {
+    padding: 2rem 1rem;
+    background: var(--primary-blue);
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add footer animation keyframe */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heading Font */
+.heading-font {
+    font-family: 'Domine', serif !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}

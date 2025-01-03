@@ -1,98 +1,58 @@
-// ----------------- User Sign-In Page --------------------------------------//
+// login.js
 
-// ----------------- Firebase Setup & Initialization ------------------------//
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } 
-  from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import { auth, db, signInWithEmailAndPassword, ref, update, get } from "./firebase.js";
 
-import { getDatabase, ref, set, update, child, get } 
-  from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// Function to handle login
+document.getElementById("signIn").onclick = function () {
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value;
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyBMTBvoF079f3sgApCsdKJcpRp7JsbPDSA",
-  authDomain: "cantor-se2425-firebase-demo.firebaseapp.com",
-  databaseURL: "https://cantor-se2425-firebase-demo-default-rtdb.firebaseio.com",
-  projectId: "cantor-se2425-firebase-demo",
-  storageBucket: "cantor-se2425-firebase-demo.firebasestorage.app",
-  messagingSenderId: "75981795996",
-  appId: "1:75981795996:web:20b041c48843d9d1a67359"
+  // Attempt to sign in the user
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // User successfully signed in
+      const user = userCredential.user;
+
+      // Log the login time in the database
+      const logDate = new Date().toISOString();
+      const userRef = ref(db, "users/" + user.uid + "/accountInfo");
+
+      update(userRef, {
+        last_login: logDate,
+      })
+        .then(() => {
+          // Fetch user information
+          return get(userRef);
+        })
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            logIn(snapshot.val());
+          } else {
+            alert("User data not found.");
+          }
+        })
+        .catch((error) => {
+          alert("Error updating login time: " + error.message);
+        });
+    })
+    .catch((error) => {
+      // Handle login errors
+      alert("Login failed: " + error.message);
+    });
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Function to keep the user logged in
+function logIn(userInfo) {
+  const keepLoggedIn = document.getElementById("keepLoggedInSwitch").checked;
 
-// Initialize Firebase Authentication
-const auth = getAuth();
+  if (!keepLoggedIn) {
+    sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
+    localStorage.removeItem("keepLoggedIn");
+  } else {
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    localStorage.setItem("keepLoggedIn", "true");
+  }
 
-// Return an instance of your app's database
-const db = getDatabase(app)
-
-// ---------------------- Sign-In User ---------------------------------------//
-document.getElementById('signIn').onclick = function(){
-
-    // Get user's email and password for sign in
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
-    
-    // Attempt to sign user in
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        // Create user credential and store user ID
-        const user = userCredential.user;
-
-        // Log sign-in in db
-        // update - will only add the last_login infoand won't overwrite anything else
-        let logDate = new Date();
-        update(ref(db, 'users/' + user.uid + '/accountInfo'), {
-            last_login: logDate
-        })
-        .then(() => {
-            // User signed in scucessfuly
-            alert('User signed in successfully!');
-
-            // Get snapshot of all the user info (including uid) to pass to 
-            // the login() function and store in session or local storage
-            return get(ref(db, 'users/' + user.uid + '/accountInfo'))
-        })
-        .then((snapshot)=>{
-                if(snapshot.exists()){
-                    //console.log(snapshot.val())
-                    logIn(snapshot.val());
-                } else {
-                    console.log("User does not exist");
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            })})
-            .catch((error) => {
-            alert(error.message);
-        });
+  // Redirect to the home page or dashboard
+  window.location.href = "home.html";
 }
-
-
-// ---------------- Keep User Logged In ----------------------------------//
-function logIn(user){
-    let keepLoggedIn = document.getElementById('keepLoggedInSwitch').ariaChecked;
-
-    // Session storage is temporary (only while session is active)
-    // Information saved as a string (must convert JS object to a string)
-    // Session storage will be cleared with a signOut() function in home.js
-    if(!keepLoggedIn){
-        sessionStorage.setItem('user', JSON.stringify(user));
-        window.location='index.html';    // Redirect browser to home.html
-    }
-
-    // Local storage is permanent (keep user logged in even if browser is closed)
-    // Local storage will be cleared with a signOut() function in home.js
-    else {
-        localStorage.setItem('keepLoggedIn', 'yes');
-        localStorage.setItem('user', JSON.stringify(user));
-        window.location = 'index.html';
-    }
-}
-
