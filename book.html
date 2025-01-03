@@ -39,7 +39,6 @@
       defer
     ></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" 
             defer integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" 
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -47,7 +46,7 @@
     <!-- Custom JavaScript -->
     <script src="js/navbar.js" defer></script>
     <script src="js/scroll.js" defer></script>
-    <script src="js/stats.js" defer></script>
+    <script src="js/book.js" type="module" defer></script>
   </head>
 
   <body>
@@ -117,7 +116,7 @@
             <input type="text" placeholder="Third Must-See Site" id="setThird" class="form-control mb-3" />
             <input type="text" placeholder="Date" id="setDate" class="form-control mb-3" />
           </form>
-          <button class="btn btn-primary mb-3 w-20" id="removeButton">Add/Update Tour</button>
+          <button class="btn btn-primary mb-3 w-20" id="setButton">Add/Update Tour</button>
         </div>
       </section>
 
@@ -125,16 +124,19 @@
         <div class="container">
           <h2 class="animate-on-scroll">Get Tour Info</h2>
           <form>
-            <input type="text" placeholder="Date" id="removeDate" class="form-control mb-3" />
+            <input type="text" placeholder="Date" id="getDate" class="form-control mb-3" />
           </form>
-          <button class="btn btn-primary mb-3 w-20" id="removeButton">Remove</button>
+          <button class="btn btn-primary mb-3 w-20" id="getButton">Get Tour</button>
+          <table id="getTable">
+            
+          </table>
         </div>
       </section>
 
       <section id="getList" class="getList">
         <div class="container">
           <h2 class="animate-on-scroll">See Your Tours</h2>
-          <button class="btn btn-primary mb-3 w-20" id="toursButton">Get Booked Tours</button>
+          <button class="btn btn-primary mb-3 w-20" id="listButton">Get Booked Tours</button>
         </div>
       </section>
 
