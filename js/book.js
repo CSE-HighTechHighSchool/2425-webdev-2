@@ -62,10 +62,9 @@ document.getElementById("listButton").onclick = function () {
     .then((snapshot) => {
         if (snapshot.exists()) {
             addHeader("getList");
-            print(snapshot.val())
-            /*for i in snapshot.val() {
-                addTour(i, "getList");
-            }*/
+            snapshot.forEach((child) => {
+                addTour(child, "getList")
+            })
         } else {
             alert("User data not found.");
         }
