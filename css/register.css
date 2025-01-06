@@ -1,0 +1,213 @@
+/* Color Variables */
+:root {
+    --primary-blue: #0056b3; /* Darker blue for better contrast */
+    --primary-orange: #e64a19; /* Darker orange for better contrast */
+    --secondary-light: #f8f9fa; /* Light background color */
+    --secondary-dark: #343a40; /* Dark background color */
+    --text-color: #2b2b2b; /* Darker text color for better readability */
+    --heading-font: "Domine", serif; /* Font for headings */
+    --body-font: "Raleway", sans-serif; /* Font for body text */
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+  }
+  
+/* Split Container Styles */
+.split-container {
+    display: flex;
+    min-height: calc(100vh - 76px); /* Subtract only navbar height */
+    width: 100%;
+    margin-top: 76px; /* Add margin for navbar */
+}
+
+.split-left {
+    flex: 1;
+    overflow: hidden;
+    padding: 1.5rem; /* Add padding around the image container */
+    position: relative;
+    background-color: var(--secondary-light); /* Add background color */
+}
+
+.carousel {
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.carousel-item {
+    height: 100%;
+    position: relative;
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.split-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+/* Add carousel transition animation */
+.carousel-item {
+    transition: transform 1.2s ease-in-out;
+}
+
+.split-right {
+    flex: 1;
+    background-color: var(--secondary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Registration Form Styles */
+.registration-form {
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.register-title-container {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: slideUpFade 0.8s ease-out forwards;
+}
+
+.register-form-content {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: slideUpFade 0.8s ease-out forwards;
+    animation-delay: 0.4s; /* Slightly longer delay */
+}
+
+.registration-form h1 {
+    font-family: 'Domine', serif;
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.registration-form input {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.75rem 1rem;
+}
+
+.registration-form button {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.registration-form a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.register-title {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    margin-top: -2rem;
+}
+
+.register-subtitle {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.register-subtitle a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-subtitle a:hover {
+    color: var(--primary-orange);
+    text-decoration: underline;
+}
+
+/* Update animation keyframes */
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(15px); /* Reduced distance */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+    }
+
+    .split-left {
+        height: 30vh;
+        padding: 1rem; /* Slightly less padding on mobile */
+    }
+
+    .split-right {
+        padding: 2rem 1rem;
+    }
+
+    .registration-form {
+        width: 100%;
+    }
+}
+
+/* Footer Styles */
+footer {
+    padding: 2rem 1rem;
+    background: var(--primary-blue);
+    color: #fff;
+    text-align: center;
+    opacity: 1;
+
+}
+
+
+/* Add footer animation keyframe */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heading Font */
+.heading-font {
+    font-family: 'Domine', serif !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
