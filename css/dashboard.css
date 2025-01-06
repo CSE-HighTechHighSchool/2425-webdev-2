@@ -1,0 +1,128 @@
+/* dashboard.css */
+
+/* Sidebar Styles */
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 76px; /* Height of the navbar */
+  left: 0;
+  padding-top: 1rem;
+  background-color: var(--secondary-light);
+  border-right: 1px solid #dee2e6;
+}
+
+.sidebar .nav-link {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.sidebar .nav-link.active {
+  background-color: var(--primary-blue);
+  color: #fff !important;
+  border-radius: 0.25rem;
+}
+
+.sidebar .nav-link.active:hover {
+  background-color: var(--primary-blue);
+  color: #fff !important;
+  border-radius: 0.25rem;
+  text-decoration: solid underline #fff !important;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #e9ecef;
+  color: var(--primary-blue);
+}
+
+/* Main Content Adjustments */
+main {
+  margin-top: 76px; /* Navbar height */
+  margin-left: 250px; /* Sidebar width */
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    display: none;
+  }
+
+  main {
+    margin-left: 0;
+  }
+}
+
+/* Profile Form Styles */
+#profileForm .form-label {
+  font-weight: 600;
+}
+
+#profileForm button {
+  background-color: var(--primary-blue);
+  border: none;
+}
+
+#profileForm button:hover {
+  background-color: var(--primary-orange);
+}
+
+/* My Tours Table Styles */
+#myTours .table th,
+#myTours .table td {
+  vertical-align: middle;
+}
+
+#myTours .btn-success {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+#myTours .btn-success:hover {
+  background-color: var(--primary-orange);
+  border-color: var(--primary-orange);
+}
+
+/* Settings Form Styles */
+#settingsForm .form-label {
+  font-weight: 600;
+}
+
+#settingsForm button {
+  background-color: var(--primary-blue);
+  border: none;
+}
+
+#settingsForm button:hover {
+  background-color: var(--primary-orange);
+}
+
+/* Footer Styles */
+footer {
+  padding: 2rem 1rem;
+  background: var(--primary-blue);
+  color: #fff;
+  text-align: center;
+  opacity: 1;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  main {
+    margin-left: 0;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+body {
+  padding-top: 75px; /* Height of the fixed navbar */
+  position: relative;
+}
+
+/* Optional: Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}

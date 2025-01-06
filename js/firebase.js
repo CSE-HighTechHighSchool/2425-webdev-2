@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 import {
   getDatabase,
@@ -14,6 +15,7 @@ import {
   set,
   update,
   get,
+  remove,
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
 // Your web app's Firebase configuration
@@ -47,4 +49,6 @@ export {
   update,
   get,
   onAuthStateChanged,
+  signOut,
+  remove,
 };
