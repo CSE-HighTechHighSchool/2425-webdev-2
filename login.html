@@ -43,7 +43,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script type="module" src="js/register.js" defer></script>
+    <script type="module" src="js/login.js" defer></script>
     <script src="js/scroll.js" defer></script>
     <script src="js/navbar.js" defer></script>
   </head>
@@ -85,8 +85,8 @@
           </ul>
           <!-- Register and Login Buttons -->
           <div class="d-flex margin-left">
-            <a href="register.html" class="reg-btn me-2">Sign Up</a>
-            <a href="login.html" class="login-btn active">Login</a>
+            <a id="userLink" href="register.html" class="reg-btn me-2">Sign Up</a>
+            <a id="signOut" href="login.html" class="login-btn active">Login</a>
           </div>
         </div>
       </div>
@@ -107,21 +107,21 @@
               <input
                 type="email"
                 placeholder="Email"
-                id="userEmail"
+                id="loginEmail"
                 class="form-control mb-3"
                 required
               />
               <input
                 type="password"
                 placeholder="Password"
-                id="userPass"
+                id="loginPassword"
                 class="form-control mb-3"
                 required
               />
               <button
                 type="button"
-                id="submitLogin"
-                name="submitLogin"
+                id="signIn"
+                name="signIn"
                 class="btn btn-primary mb-3 w-100"
               >
                 Login

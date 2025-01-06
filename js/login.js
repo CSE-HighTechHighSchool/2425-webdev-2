@@ -43,16 +43,16 @@ document.getElementById("signIn").onclick = function () {
 
 // Function to keep the user logged in
 function logIn(userInfo) {
-  const keepLoggedIn = document.getElementById("keepLoggedInSwitch").checked;
+  //const keepLoggedIn = document.getElementById("keepLoggedInSwitch").value;
 
-  if (!keepLoggedIn) {
-    sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
-    localStorage.removeItem("keepLoggedIn");
-  } else {
-    localStorage.setItem("userInfo", JSON.stringify(userInfo));
-    localStorage.setItem("keepLoggedIn", "true");
-  }
+  //if (!keepLoggedIn) {
+  sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
+  localStorage.removeItem("keepLoggedIn");
+  //} else {
+  //  localStorage.setItem("userInfo", JSON.stringify(userInfo));
+  //  localStorage.setItem("keepLoggedIn", "true");
+  //}
 
   // Redirect to the home page or dashboard
-  window.location.href = "home.html";
+  // window.location.href = "home.html";
 }
