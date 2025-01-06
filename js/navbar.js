@@ -6,7 +6,7 @@ window.addEventListener("scroll", function () {
   const navToggle = document.querySelector(".navbar-toggler");
 
   // Check if the page has been scrolled more than 50 pixels vertically
-  if (window.scrollY > 50) {
+  if (window.scrollY > 30) {
     // Add the "scrolled" class to the navbar and toggle button if scrolled more than 50 pixels
     navbar.classList.add("scrolled");
     navToggle.classList.add("scrolled");
