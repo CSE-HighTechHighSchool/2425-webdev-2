@@ -39,9 +39,13 @@
       defer
     ></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" 
-            defer integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" 
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+      defer
+      integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <!-- Custom JavaScript -->
     <script src="js/navbar.js" defer></script>
@@ -52,53 +56,55 @@
   <body>
     <div class="main-content">
       <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-        <!-- Brand Logo -->
-        <a class="navbar-brand" href="home.html"><i class="bi bi-geo-alt-fill"></i>Tour Venice</a>
-        <!-- Toggle Button for Mobile View -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          data-bs-theme="light"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- Navigation Links -->
-        <!--<div class="collapse navbar-collapse justify-content-center" id="navbarNav">-->
-        <ul class="collapse navbar-collapse navbar-nav justify-content-center nav-center">
-          <li class="nav-item">
-            <a class="nav-link" href="about-venice.html">About Venice</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tours.html">Tours</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about-us.html">About Us</a>
-          </li>
-        </ul>
-        <ul class="collapse navbar-collapse navbar-nav justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link" id="signOut" href="login.html">Sign In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="userLink" href="register.html">Sign Up</a>
-          </li>
-        </ul>
-        <!--</div>-->
-      </div>
-    </nav>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <!-- Brand Logo -->
+          <a class="navbar-brand" href="index.html">
+            <i class="bi bi-geo-alt-fill"></i> Tour Venice
+          </a>
+          <!-- Toggle Button for Mobile View -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            data-bs-theme="light"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navigation Links and Buttons -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Centered Navigation Links -->
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="about-venice.html">About Venice</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tours.html">Tours</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about-us.html">About Us</a>
+              </li>
+            </ul>
+            <!-- Register and Login Buttons -->
+            <div class="d-flex margin-left">
+              <a href="register.html" class="reg-btn me-2">Sign Up</a>
+              <a href="login.html" class="login-btn"> Login </a>
+            </div>
+          </div>
+        </div>
+      </nav>
 
       <!-- Hero Section with Promotional Content -->
       <section id="hero" class="hero">
         <div class="hero-content animate-on-scroll">
           <h1 class="animate-on-scroll">Booking</h1>
-          <p class="animate-on-scroll">Book your tour today and turn your Venice dream into reality.</p>
+          <p class="animate-on-scroll">
+            Book your tour today and turn your Venice dream into reality.
+          </p>
         </div>
       </section>
 
@@ -107,13 +113,43 @@
         <div class="container">
           <h2 class="animate-on-scroll">Add or Update a Tour</h2>
           <form>
-            <input type="text" placeholder="Length (Hours)" id="setLength" class="form-control mb-3" />
-            <input type="text" placeholder="Max Group Size" id="setSize" class="form-control mb-3" />
+            <input
+              type="text"
+              placeholder="Length (Hours)"
+              id="setLength"
+              class="form-control mb-3"
+            />
+            <input
+              type="text"
+              placeholder="Max Group Size"
+              id="setSize"
+              class="form-control mb-3"
+            />
             <input type="text" placeholder="VIP (Yes/No)" id="setVIP" class="form-control mb-3" />
-            <input type="text" placeholder="Number of Tourist Sites" id="setNumber" class="form-control mb-3" />
-            <input type="text" placeholder="First Must-See Site" id="setFirst" class="form-control mb-3" />
-            <input type="text" placeholder="Second Must-See Site" id="setSecond" class="form-control mb-3" />
-            <input type="text" placeholder="Third Must-See Site" id="setThird" class="form-control mb-3" />
+            <input
+              type="text"
+              placeholder="Number of Tourist Sites"
+              id="setNumber"
+              class="form-control mb-3"
+            />
+            <input
+              type="text"
+              placeholder="First Must-See Site"
+              id="setFirst"
+              class="form-control mb-3"
+            />
+            <input
+              type="text"
+              placeholder="Second Must-See Site"
+              id="setSecond"
+              class="form-control mb-3"
+            />
+            <input
+              type="text"
+              placeholder="Third Must-See Site"
+              id="setThird"
+              class="form-control mb-3"
+            />
             <input type="text" placeholder="Date" id="setDate" class="form-control mb-3" />
           </form>
           <button class="btn btn-primary mb-3 w-20" id="setButton">Add/Update Tour</button>
@@ -127,9 +163,7 @@
             <input type="text" placeholder="Date" id="getDate" class="form-control mb-3" />
           </form>
           <button class="btn btn-primary mb-3 w-20" id="getButton">Get Tour</button>
-          <table id="getTable">
-            
-          </table>
+          <table id="getTable"></table>
         </div>
       </section>
 

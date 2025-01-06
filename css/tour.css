@@ -527,3 +527,114 @@ footer a:hover {
     margin-bottom: 20px;
   }
 }
+
+.margin-left {
+  margin-left: 50px;
+}
+
+/* Adjust spacing between buttons on larger screens */
+@media (min-width: 992px) {
+  .d-flex .btn {
+    margin-left: 0.5rem;
+  }
+}
+
+.margin-left {
+  margin-left: 50px;
+}
+
+@media (max-width: 992px) {
+  .margin-left {
+    margin-left: 0px;
+  }
+}
+
+/* Register Button Styles */
+.reg-btn {
+  display: inline-block;
+  padding: 0.25rem 0.5rem; /* Reduced padding for smaller size */
+  font-family: "Raleway", sans-serif;
+  font-size: 0.9rem; /* Keeps text size consistent */
+  font-weight: 600;
+  color: var(--primary-blue);
+  background-color: transparent;
+  border: 2px solid var(--primary-blue);
+  border-radius: 9999px; /* Makes the button pill-shaped */
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar.scrolled .login-btn {
+  background-color: #fff;
+  color: var(--primary-blue);
+  align-self: center;
+  border: 2px solid #fff;
+}
+
+.navbar.scrolled .login-btn:hover {
+  background-color: var(--primary-orange);
+  color: #fff;
+  border: 2px solid var(--primary-orange);
+}
+
+.navbar.scrolled .reg-btn:hover {
+  background-color: #fff;
+  color: var(--primary-blue);
+}
+
+.navbar.scrolled .reg-btn {
+  background-color: var(--primary-blue);
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.reg-btn:hover,
+.reg-btn:focus {
+  background-color: var(--primary-blue);
+  color: #ffffff;
+  border-color: var(--primary-blue);
+  text-decoration: none;
+}
+
+/* Login Button Styles */
+.login-btn {
+  display: inline-block;
+  padding: 0.25rem 0.5rem; /* Reduced padding for smaller size */
+  font-family: "Raleway", sans-serif;
+  font-size: 0.9rem; /* Keeps text size consistent */
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  border-radius: 9999px; /* Makes the button pill-shaped */
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+  background-color: var(--primary-orange);
+  border-color: var(--primary-orange);
+  text-decoration: none;
+}
+
+/* Accessibility Enhancements */
+.reg-btn:focus,
+.login-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.5); /* Custom focus outline */
+}
+
+/* Responsive Adjustments for Buttons */
+@media (max-width: 576px) {
+  .reg-btn,
+  .login-btn {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .d-flex {
+    flex-direction: column;
+  }
+}
