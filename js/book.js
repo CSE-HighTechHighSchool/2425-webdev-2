@@ -13,83 +13,83 @@ document.getElementById("setButton").onclick = function () {
 
   const userRef = ref(db, "users/" + user.uid + "/tours");
 
-  set(userRef, {date: date})
-    .then(()=> {
-        const newRef = ref(db, "users/" + user.uid + "/tours/" + date)
-        set(newRef, {
-            length: length,
-            size: size,
-            vip: vip,
-            number: number,
-            first: first,
-            second: second,
-            third: third
+  set(userRef, { date: date })
+    .then(() => {
+      const newRef = ref(db, "users/" + user.uid + "/tours/" + date);
+      set(newRef, {
+        length: length,
+        size: size,
+        vip: vip,
+        number: number,
+        first: first,
+        second: second,
+        third: third,
+      })
+        .then(() => {
+          alert("Tour successfully added!");
         })
-        .then(()=> {
-            alert("Tour successfully added!")
-        })
-        .catch((error)=> {
-            alert("Error: " + error.message)
+        .catch((error) => {
+          alert("Error: " + error.message);
         });
     })
-    .catch((error)=> {
-        alert("Error: " + error.message)
+    .catch((error) => {
+      alert("Error: " + error.message);
     });
-}
+};
 
 document.getElementById("getButton").onclick = function () {
-    const date = document.getElementById("getDate").value.trim();
-    const userRef = ref(db, "users/" + user.uid + "/tours/" + date)
+  const date = document.getElementById("getDate").value.trim();
+  const userRef = ref(db, "users/" + user.uid + "/tours/" + date);
 
-    get(userRef)
+  get(userRef)
     .then((snapshot) => {
-        if (snapshot.exists()) {
-            addHeader("getTable");
-            getTour(snapshot.val(), "getTable");
-        } else {
-            alert("User data not found.");
-        }
+      if (snapshot.exists()) {
+        addHeader("getTable");
+        getTour(snapshot.val(), "getTable");
+      } else {
+        alert("User data not found.");
+      }
     })
     .catch((error) => {
-    alert("Error: " + error.message);
+      alert("Error: " + error.message);
     });
-}
+};
 
 document.getElementById("listButton").onclick = function () {
-    const userRef = ref(db, "users/" + user.uid + "/tours")
+  const userRef = ref(db, "users/" + user.uid + "/tours");
 
-    get(userRef)
+  get(userRef)
     .then((snapshot) => {
-        if (snapshot.exists()) {
-            addHeader("getList");
-            snapshot.forEach((child) => {
-                addTour(child, "getList")
-            })
-        } else {
-            alert("User data not found.");
-        }
+      if (snapshot.exists()) {
+        addHeader("getList");
+        snapshot.forEach((child) => {
+          addTour(child, "getList");
+        });
+      } else {
+        alert("User data not found.");
+      }
     })
     .catch((error) => {
-    alert("Error: " + error.message);
+      alert("Error: " + error.message);
     });
-}
+};
 
 document.getElementById("removeButton").onclick = function () {
-    const date = document.getElementById("removeDate").value.trim();
-    const userRef = ref(db, "users/" + user.uid + "/tours/" + date);
-    remove(userRef)
+  const date = document.getElementById("removeDate").value.trim();
+  const userRef = ref(db, "users/" + user.uid + "/tours/" + date);
+  remove(userRef)
     .then(() => {
-        alert("Tour removed successfully.");
+      alert("Tour removed successfully.");
     })
     .catch((error) => {
-        alert("Error: " + error);
-    })
-}
+      alert("Error: " + error);
+    });
+};
 
 function addTour(value, table) {
-    //add rows dynamically to id="table"
+  //add rows dynamically to id="table"
 }
 
 function addHeader(table) {
-    //add header row to id="table"
+  //add header row to id="table"
 }

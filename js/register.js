@@ -1,6 +1,6 @@
 // register.js
 
-import { auth, db, createUserWithEmailAndPassword, ref, set } from "./firebase.js";
+import { auth, db, createUserWithEmailAndPassword, ref, set, get } from "./firebase.js";
 
 // Function to handle registration
 document.getElementById("submitData").onclick = function () {
@@ -17,7 +17,7 @@ document.getElementById("submitData").onclick = function () {
   // Create new user with email and password
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // User successfully created
+      // User successfully created and automatically signed in
       const user = userCredential.user;
 
       // Encrypt the password before storing (optional and not recommended for actual password handling)
@@ -30,15 +30,25 @@ document.getElementById("submitData").onclick = function () {
         lastname: lastName,
         email: email,
         password: encryptedPassword,
+        created_at: new Date().toISOString(),
+        last_login: new Date().toISOString(),
       })
         .then(() => {
           // Data saved successfully
-          alert("Account created successfully!");
-          // Redirect to login page or home page
-          window.location.href = "login.html";
+          // Fetch the user data to store in session storage
+          const userRef = ref(db, "users/" + user.uid + "/accountInfo");
+          return get(userRef);
+        })
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            const userInfo = snapshot.val();
+            logIn(userInfo);
+          } else {
+            alert("User data not found.");
+          }
         })
         .catch((error) => {
-          // Error saving data
+          // Error saving or fetching data
           alert("Error saving user data: " + error.message);
         });
     })
@@ -48,6 +58,18 @@ document.getElementById("submitData").onclick = function () {
     });
 };
 
+// Function to log in the user by storing user info in session storage
+function logIn(userInfo) {
+  sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
+
+  alert(
+    "Account created successfully. You are now logged in and will be redirected to the home page."
+  );
+
+  // Redirect to the home page or dashboard
+  window.location.href = "home.html";
+}
+
 // Function to check for null, empty, or all spaces
 function isEmptyOrSpaces(str) {
   return !str || str.trim().length === 0;
@@ -56,7 +78,7 @@ function isEmptyOrSpaces(str) {
 // Function to validate registration data
 function validation(firstName, lastName, email, password) {
   const nameRegex = /^[a-zA-Z]+$/;
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@ctemc\.org$/; // Adjust the email regex as needed
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   if (
     isEmptyOrSpaces(firstName) ||
