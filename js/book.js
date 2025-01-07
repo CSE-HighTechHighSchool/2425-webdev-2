@@ -11,11 +11,11 @@ document.getElementById("setButton").onclick = function () {
   const third = document.getElementById("setThird").value.trim();
   const date = document.getElementById("setDate").value.trim();
 
-  const userRef = ref(db, "users/" + user.uid + "/tours");
+  const userRef = ref(db, "users/" + auth.currentUser.uid + "/tours");
 
   set(userRef, { date: date })
     .then(() => {
-      const newRef = ref(db, "users/" + user.uid + "/tours/" + date);
+      const newRef = ref(db, "users/" + auth.currentUser.uid + "/tours/" + date);
       set(newRef, {
         length: length,
         size: size,
@@ -39,7 +39,7 @@ document.getElementById("setButton").onclick = function () {
 
 document.getElementById("getButton").onclick = function () {
   const date = document.getElementById("getDate").value.trim();
-  const userRef = ref(db, "users/" + user.uid + "/tours/" + date);
+  const userRef = ref(db, "users/" + auth.currentUser.uid + "/tours/" + date);
 
   get(userRef)
     .then((snapshot) => {
@@ -56,7 +56,7 @@ document.getElementById("getButton").onclick = function () {
 };
 
 document.getElementById("listButton").onclick = function () {
-  const userRef = ref(db, "users/" + user.uid + "/tours");
+  const userRef = ref(db, "users/" + auth.currentUser.uid + "/tours");
 
   get(userRef)
     .then((snapshot) => {
@@ -76,7 +76,7 @@ document.getElementById("listButton").onclick = function () {
 
 document.getElementById("removeButton").onclick = function () {
   const date = document.getElementById("removeDate").value.trim();
-  const userRef = ref(db, "users/" + user.uid + "/tours/" + date);
+  const userRef = ref(db, "users/" + auth.currentUser.uid + "/tours/" + date);
   remove(userRef)
     .then(() => {
       alert("Tour removed successfully.");
@@ -99,13 +99,12 @@ function addTour(value, table) {
 function addHeader(table) {
   //add header row to id="table"
   const row = document.createElement("tr");
-  row.innerHTML =
-    `<td>Date</td>
+  row.innerHTML = `<td>Date</td>
     <td>Max Group Size</td>
     <td>VIP</td>
     <td>Number of Sites</td>
     <td>First Choice Site</td>
     <td>Second Choice Site</td>
-    <td>Third Choice Site</td>`
+    <td>Third Choice Site</td>`;
   document.getElementById(table).appendChild(row);
 }
