@@ -37,42 +37,6 @@ document.getElementById("setButton").onclick = function () {
     });
 };
 
-document.getElementById("getButton").onclick = function () {
-  const date = document.getElementById("getDate").value.trim();
-  const userRef = ref(db, "users/" + user.uid + "/tours/" + date);
-
-  get(userRef)
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        addHeader("getTable");
-        getTour(snapshot.val(), "getTable");
-      } else {
-        alert("User data not found.");
-      }
-    })
-    .catch((error) => {
-      alert("Error: " + error.message);
-    });
-};
-
-document.getElementById("listButton").onclick = function () {
-  const userRef = ref(db, "users/" + user.uid + "/tours");
-
-  get(userRef)
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        addHeader("getList");
-        snapshot.forEach((child) => {
-          addTour(child, "getList");
-        });
-      } else {
-        alert("User data not found.");
-      }
-    })
-    .catch((error) => {
-      alert("Error: " + error.message);
-    });
-};
 
 document.getElementById("removeButton").onclick = function () {
   const date = document.getElementById("removeDate").value.trim();
@@ -86,26 +50,3 @@ document.getElementById("removeButton").onclick = function () {
     });
 };
 
-function addTour(value, table) {
-  //add rows dynamically to id="table"
-  let row = document.createElement("tr");
-  row.innerHTML = ``;
-  snapshot.forEach((child) => {
-    row.innerHTML = row.innerHTML + `<td>${child}</td>\n`;
-  });
-  document.getElementById(table).appendChild(row);
-}
-
-function addHeader(table) {
-  //add header row to id="table"
-  const row = document.createElement("tr");
-  row.innerHTML =
-    `<td>Date</td>
-    <td>Max Group Size</td>
-    <td>VIP</td>
-    <td>Number of Sites</td>
-    <td>First Choice Site</td>
-    <td>Second Choice Site</td>
-    <td>Third Choice Site</td>`
-  document.getElementById(table).appendChild(row);
-}
