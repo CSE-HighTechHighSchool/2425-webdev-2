@@ -1,29 +1,29 @@
 import { auth, db, signInWithEmailAndPassword, ref, update, get } from "./firebase.js";
 
-// Function to handle login
-document.getElementById("setButton").onclick = function () {
-  const length = document.getElementById("setLength").value.trim();
-  const size = document.getElementById("setSize").value.trim();
-  const vip = document.getElementById("setVIP").value.trim();
-  const number = document.getElementById("setNumber").value.trim();
-  const first = document.getElementById("setFirst").value.trim();
-  const second = document.getElementById("setSecond").value.trim();
-  const third = document.getElementById("setThird").value.trim();
-  const date = document.getElementById("setDate").value.trim();
-
-  const userRef = ref(db, "users/" + user.uid + "/tours");
-
-  set(userRef, { date: date })
-    .then(() => {
-      const newRef = ref(db, "users/" + user.uid + "/tours/" + date);
-      set(newRef, {
-        length: length,
-        size: size,
-        vip: vip,
-        number: number,
-        first: first,
-        second: second,
-        third: third,
+// Booking steps configuration
+const bookingSteps = [
+    {
+        title: "Step 1 of 4",
+        items: [
+            "Choose your preferred tour date and time",
+            "Select the number of participants",
+            "Review availability for your selected date",
+            "Confirm your initial booking preferences"
+        ]
+    },
+    {
+        title: "Step 2 of 4",
+        items: [
+            "Select your tour package type",
+            "Choose your must-see locations",
+            "Review included attractions",
+            "Confirm tour duration"
+        ]
+    },
+    {
+        title: "Step 3 of 4",
+        items: [
+            "Review your booking details",
       })
         .then(() => {
           alert("Tour successfully added!");
@@ -109,3 +109,24 @@ function addHeader(table) {
     <td>Third Choice Site</td>`
   document.getElementById(table).appendChild(row);
 }
+
+let myCarousel;
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the carousel
+    myCarousel = new bootstrap.Carousel(document.getElementById('bookingCarousel'), {
+        interval: false,
+        keyboard: false,
+        wrap: false,
+        touch: false
+    });
+});
+
+// Make functions available globally
+window.nextSlide = function() {
+    myCarousel.next();
+};
+
+window.submitBooking = function() {
+    alert('Booking completed successfully!');
+};
