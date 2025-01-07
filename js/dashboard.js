@@ -101,7 +101,7 @@ function fetchUserTours(uid) {
           const row = document.createElement("tr");
           row.innerHTML = `
               <td>${tour.name}</td>
-              <td>${new Date(tour.date).toLocaleDateString()}</td>
+              <td>${new Date(tour.date).toLocaleDateString('en-US', {timeZone: 'UTC'})}</td>
               <td>${tour.status}</td>
               <td>
                 <button class="btn btn-sm btn-primary me-2 edit-tour-btn" data-id="${tourId}"><i class="bi bi-pencil"></i> Edit</button>
