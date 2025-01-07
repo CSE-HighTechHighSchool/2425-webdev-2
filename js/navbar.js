@@ -59,6 +59,9 @@ window.onload = function(){
       signOutLink.innerText = 'Login';
       signOutLink.classList.add('btn-success');
       signOutLink.href = 'login.html';
+      
+      const dashboardLink = document.getElementById("dashboardLink")
+      dashboardLink.parentElement.removeChild(dashboardLink);
     } else {
       userLink.innerText = 'Create/Delete Tour';
       if(welcome != null) { // Only edit the welcome screen if it exists
