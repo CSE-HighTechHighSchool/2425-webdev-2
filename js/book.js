@@ -1,5 +1,14 @@
 import { auth, db, signInWithEmailAndPassword, ref, update, get, set, remove } from "./firebase.js";
-
+if(sessionStorage.tourCustomization) {
+  let tArray = JSON.parse(sessionStorage.tourCustomization);
+  document.getElementById("setLength").value = tArray[0];
+  document.getElementById("setSize").value = tArray[1];
+  document.getElementById("setVIP").value = tArray[2];
+  document.getElementById("setNumber").value = tArray[3];
+  document.getElementById("setFirst").value = tArray[4];
+  document.getElementById("setSecond").value = tArray[5];
+  document.getElementById("setThird").value = tArray[6];
+}
 
 document.getElementById("setButton").onclick = function () {
   const length = document.getElementById("setLength").value.trim();

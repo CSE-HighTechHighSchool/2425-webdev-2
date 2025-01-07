@@ -1,51 +1,21 @@
 import { auth, db, signInWithEmailAndPassword, ref, update, get, set, remove } from "./firebase.js";
+let tourArray = []
 
-
-document.getElementById("setButton").onclick = function () {
-  const length = document.getElementById("setLength").value.trim();
-  const size = document.getElementById("setSize").value.trim();
-  const vip = document.getElementById("setVIP").value.trim();
-  const number = document.getElementById("setNumber").value.trim();
-  const first = document.getElementById("setFirst").value.trim();
-  const second = document.getElementById("setSecond").value.trim();
-  const third = document.getElementById("setThird").value.trim();
-  const date = document.getElementById("setDate").value.trim();
-
-  const userRef = ref(db, "users/" + auth.currentUser.uid + "/tours");
-
-  set(userRef, { date: date })
-    .then(() => {
-      const newRef = ref(db, "users/" + auth.currentUser.uid + "/tours/" + date);
-      set(newRef, {
-        length: length,
-        size: size,
-        vip: vip,
-        number: number,
-        first: first,
-        second: second,
-        third: third,
-      })
-        .then(() => {
-          alert("Tour successfully added!");
-        })
-        .catch((error) => {
-          alert("Error: " + error.message);
-        });
-    })
-    .catch((error) => {
-      alert("Error: " + error.message);
-    });
+document.getElementById("premiumBtn").onclick = function () {
+  tourArray = [8, 'Private', 'Yes', 7, 'Scuola Grande di San Rocco', 'Academia Gallery', 'St. Mark\'s Basilica']
+  sessionStorage.setItem('tourCustomization', JSON.stringify(tourArray))
+  window.location.href = "book.html";
 };
 
-document.getElementById("removeButton").onclick = function () {
-  const date = document.getElementById("removeDate").value.trim();
-  const userRef = ref(db, "users/" + auth.currentUser.uid + "/tours/" + date);
-  remove(userRef)
-    .then(() => {
-      alert("Tour removed successfully.");
-    })
-    .catch((error) => {
-      alert("Error: " + error);
-    });
-};
+document.getElementById("standardBtn").onclick = function () {
+  tourArray = [5, 10, 'No', 5, 'Peggy Guggenheim Collection', 'Doge\'s Palace', 'La Fenice Opera House']
+  sessionStorage.setItem('tourCustomization', JSON.stringify(tourArray))
+  window.location.href = "book.html";
+}
+
+document.getElementById("basicBtn").onclick = function () {
+  tourArray = [3, 15, 'No', 3, 'Basilica di Santa Maria della Salute', 'Doge\'s Palace', 'St. Mark\'s Basilica']
+  sessionStorage.setItem('tourCustomization', JSON.stringify(tourArray))
+  window.location.href = "book.html";
+}
 
