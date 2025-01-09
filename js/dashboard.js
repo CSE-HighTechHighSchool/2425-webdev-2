@@ -22,11 +22,79 @@ const addTourBtn = document.getElementById("addTourBtn");
 const settingsForm = document.getElementById("settingsForm");
 const darkModeToggle = document.getElementById("darkModeToggle");
 
+// Add tab switching functionality
+function setupTabNavigation() {
+  const navLinks = document.querySelectorAll('.nav-link[data-tab]');
+  const sections = document.querySelectorAll('.dashboard-section');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Remove active class from all links
+      navLinks.forEach(l => l.classList.remove('active'));
+      
+      // Add active class to clicked link
+      link.classList.add('active');
+      
+      // Hide all sections
+      sections.forEach(section => section.classList.add('d-none'));
+      
+      // Show selected section
+      const targetTab = link.getAttribute('data-tab');
+      document.getElementById(targetTab).classList.remove('d-none');
+    });
+  });
+}
+
+// Function to handle tab switching
+function switchTab(tabId) {
+    // Only hide/show sections if we're on a larger screen
+    if (window.innerWidth > 992) {
+        // Hide all dashboard sections
+        document.querySelectorAll('.dashboard-section').forEach(section => {
+            section.classList.add('d-none');
+        });
+        
+        // Show selected section
+        document.getElementById(tabId).classList.remove('d-none');
+    }
+    
+    // Always update active state of nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    document.querySelector(`.nav-link[data-tab="${tabId}"]`).classList.add('active');
+    
+    // Scroll handling
+    if (window.innerWidth <= 992) {
+        // Scroll to the section on mobile
+        document.getElementById(tabId).scrollIntoView({ behavior: 'smooth' });
+    } else {
+        // Scroll to top on desktop
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Add click event listeners to nav links
+document.querySelectorAll('.nav-link[data-tab]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const tabId = link.getAttribute('data-tab');
+        switchTab(tabId);
+    });
+});
+
 // Initialize Dashboard
 onAuthStateChanged(auth, (user) => {
   if (user) {
     fetchUserData(user.uid);
     fetchUserTours(user.uid);
+    fetchUserSettings(user.uid);
+    setupTabNavigation();
   } else {
     // Redirect to login if not authenticated
     window.location.href = "login.html";
@@ -296,3 +364,58 @@ onAuthStateChanged(auth, (user) => {
 function encryptPassword(password) {
   return CryptoJS.AES.encrypt(password, password).toString();
 }
+
+// Book Tour functionality
+window.saveTourBooking = function() {
+    const tourData = {
+        tourLength: document.getElementById('tourLength').value,
+        groupSize: document.getElementById('groupSize').value,
+        vipTour: document.getElementById('vipTour').value,
+        numSites: document.getElementById('numSites').value,
+        firstSite: document.getElementById('firstSite').value,
+        secondSite: document.getElementById('secondSite').value,
+        thirdSite: document.getElementById('thirdSite').value,
+        tourDate: document.getElementById('tourDate').value,
+        notes: document.getElementById('tourNotes').value,
+        status: 'Upcoming',
+        created_at: new Date().toISOString()
+    };
+
+    // Validate required fields
+    if (!tourData.tourLength || !tourData.groupSize || !tourData.tourDate) {
+        alert('Please fill in all required fields');
+        return;
+    }
+
+    const uid = auth.currentUser.uid;
+    const tourId = generateUniqueId();
+    const tourRef = ref(db, `users/${uid}/tours/${tourId}`);
+
+    set(tourRef, tourData)
+        .then(() => {
+            // Data was successfully written to Firebase
+            document.getElementById('tourOverviewForm').reset();
+            document.getElementById('tourSitesForm').reset();
+            document.getElementById('tourDateNotesForm').reset();
+            
+            // Only now show the confirmation modal
+            const modal = new bootstrap.Modal(document.getElementById('bookingConfirmationModal'));
+            modal.show();
+            
+            // Refresh tours list
+            fetchUserTours(uid);
+        })
+        .catch((error) => {
+            alert('Error booking tour: ' + error.message);
+        });
+};
+
+// Function to view My Tours section
+window.viewMyTours = function() {
+    // Hide modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('bookingConfirmationModal'));
+    modal.hide();
+    
+    // Switch to My Tours tab
+    switchTab('myTours');
+};

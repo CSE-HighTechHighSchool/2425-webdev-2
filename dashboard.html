@@ -96,7 +96,7 @@
 
     <!-- Main Container -->
     <div class="container-fluid">
-      <div class="row">
+      <div class="row flex-nowrap"> <!-- Add flex-nowrap class -->
         <!-- Sidebar -->
         <nav
           id="sidebarMenu"
@@ -105,19 +105,28 @@
           <div class="position-sticky pt-3">
             <ul class="nav flex-column" id="sidebarLinks">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#profile">
+                <a class="nav-link active" data-tab="profile" href="#">
                   <i class="bi bi-person me-2"></i>Profile
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#myTours"> <i class="bi bi-map me-2"></i>My Tours </a>
+                <a class="nav-link" data-tab="myTours" href="#">
+                  <i class="bi bi-map me-2"></i>My Tours
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#settings"> <i class="bi bi-gear me-2"></i>Settings </a>
+                <a class="nav-link" data-tab="settings" href="#">
+                  <i class="bi bi-gear me-2"></i>Settings
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#support">
+                <a class="nav-link" data-tab="support" href="#">
                   <i class="bi bi-question-circle me-2"></i>Support
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-tab="bookTour" href="#">
+                  <i class="bi bi-geo-fill me-2"></i>Book a Tour
                 </a>
               </li>
             </ul>
@@ -127,7 +136,7 @@
         <!-- Main Content -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <!-- Profile Section -->
-          <section id="profile" class="pt-4">
+          <section id="profile" class="dashboard-section pt-4">
             <h2 class="heading-font">My Profile</h2>
             <div class="card mb-4">
               <div class="card-body">
@@ -162,7 +171,7 @@
           </section>
 
           <!-- My Tours Section -->
-          <section id="myTours" class="pt-4">
+          <section id="myTours" class="dashboard-section pt-4 d-none">
             <h2 class="heading-font">My Tours</h2>
             <div class="card mb-4">
               <div class="card-body">
@@ -189,7 +198,7 @@
           </section>
 
           <!-- Settings Section -->
-          <section id="settings" class="pt-4">
+          <section id="settings" class="dashboard-section pt-4 d-none">
             <h2 class="heading-font">Settings</h2>
             <div class="card mb-4">
               <div class="card-body">
@@ -215,7 +224,7 @@
           </section>
 
           <!-- Support Section -->
-          <section id="support" class="pt-4 pb-5">
+          <section id="support" class="dashboard-section pt-4 d-none pb-5">
             <h2 class="heading-font">Support</h2>
             <div class="card">
               <div class="card-body">
@@ -226,20 +235,129 @@
               </div>
             </div>
           </section>
+
+          <!-- Book a Tour Section -->
+          <section id="bookTour" class="dashboard-section pt-4 d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="heading-font mb-0">Book a Tour</h2>
+                    <p class="text-muted mb-0">Book your next Venice adventure here!</p>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="saveTourBooking()">
+                    <i class="bi bi-save me-2"></i>Book Tour
+                </button>
+            </div>
+
+            <div class="row">
+                <!-- Tour Overview Card -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">Tour Overview</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="tourOverviewForm">
+                                <div class="mb-3">
+                                    <label for="tourLength" class="form-label">Tour Length (hours)</label>
+                                    <input type="number" class="form-control" id="tourLength" required min="1" max="8">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="groupSize" class="form-label">Max Group Size</label>
+                                    <input type="number" class="form-control" id="groupSize" required min="1" max="20">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="vipTour" class="form-label">VIP Tour</label>
+                                    <select class="form-select" id="vipTour" required>
+                                        <option value="no">No</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Sites Card -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">Tour Sites</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="tourSitesForm">
+                                <div class="mb-3">
+                                    <label for="numSites" class="form-label">Number of Tour Sites</label>
+                                    <input type="number" class="form-control" id="numSites" required min="1" max="5">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="firstSite" class="form-label">First Must-See Site</label>
+                                    <input type="text" class="form-control" id="firstSite" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="secondSite" class="form-label">Second Must-See Site</label>
+                                    <input type="text" class="form-control" id="secondSite" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="thirdSite" class="form-label">Third Must-See Site</label>
+                                    <input type="text" class="form-control" id="thirdSite" required>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Date and Notes Card -->
+                <div class="col-12 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">Tour Date & Notes</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="tourDateNotesForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="tourDate" class="form-label">Tour Date</label>
+                                            <input type="date" class="form-control" id="tourDate" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="tourNotes" class="form-label">Additional Notes</label>
+                                            <textarea class="form-control" id="tourNotes" rows="3" placeholder="Any special requests or requirements?"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </section>
         </main>
+      </div>
+    </div> <!-- end of container-fluid -->
+
+    <!-- Booking Confirmation Modal -->
+    <div class="modal fade" id="bookingConfirmationModal" tabindex="-1" aria-labelledby="bookingConfirmationModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="bookingConfirmationModalLabel">Booking Confirmed!</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center py-4">
+            <i class="bi bi-check-circle text-success" style="font-size: 3rem;"></i>
+            <p class="mt-3 mb-0">Your tour has been successfully booked.</p>
+            <p class="text-muted">You can view and manage your booking in the My Tours section.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="viewMyTours()">View My Tours</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-      <p>
-        &copy; 2025 Tour Venice. All rights reserved. Disclaimer: This is a fictional website.
-        Please do not try to book a tour.
-      </p>
-      <p>
-        Contact us: <a href="mailto:info@venicetours.com">info@venicetours.com</a> | +39 XXX XXX
-        XXXX
-      </p>
-    </footer>
   </body>
 </html>

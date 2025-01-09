@@ -29,7 +29,7 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.svg" />
 
     <!-- Custom CSS  -->
-    <link rel="stylesheet" href="css/tour.css" />
+    <link rel="stylesheet" href="css/book.css" />
 
     <!-- Bootstrap JS  -->
     <script
@@ -101,78 +101,50 @@
         </div>
       </nav>
 
-      <!-- Hero Section with Promotional Content -->
-      <section id="hero" class="hero">
-        <div class="hero-content animate-on-scroll">
-          <h1 class="animate-on-scroll">Booking</h1>
-          <p class="animate-on-scroll">
-            Book your tour today and turn your Venice dream into reality.
-          </p>
+      <div id="bookingCarousel" class="carousel slide booking-carousel" data-bs-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="booking-card">
+                <i class="bi bi-check-circle step-icon"></i>
+                <h2 class="step-number">Step 1 of 3</h2>
+                <ul class="step-list">
+                    <li>Choose your preferred tour date and time</li>
+                    <li>Select the number of participants</li>
+                    <li>Review availability for your selected date</li>
+                </ul>
+                <button class="next-btn" type="button" onclick="nextSlide()">Next <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="booking-card">
+                <i class="bi bi-check-circle step-icon"></i>
+                <h2 class="step-number">Step 2 of 3</h2>
+                <ul class="step-list">
+                    <li>Select your tour package type</li>
+                    <li>Choose your must-see locations</li>
+                    <li>Review included attractions</li>
+                </ul>
+                <button class="next-btn" type="button" onclick="nextSlide()">Next <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="booking-card">
+                <i class="bi bi-check-circle step-icon"></i>
+                <h2 class="step-number">Step 3 of 3</h2>
+                <ul class="step-list">
+                    <li>Review your booking details</li>
+                    <li>Confirm payment method</li>
+                    <li>Complete your reservation</li>
+                </ul>
+                <button class="next-btn" type="button" onclick="submitBooking()">Complete Booking <i class="bi bi-check-lg"></i></button>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+    </div>
 
-      <!-- Tour Destinations Section -->
-      <section id="customization" class="customization">
-        <div class="container">
-          <h2 class="animate-on-scroll">Add or Update a Tour</h2>
-          <form>
-            <h6>Length (Hours)</h6>
-            <input
-              type="text"
-              id="setLength"
-              class="form-control mb-3"
-            />
-            <h6>Max Group Size</h6>
-            <input
-              type="text"
-              id="setSize"
-              class="form-control mb-3"
-            />
-            <h6>VIP (Yes/No)</h6>
-            <input type="text" id="setVIP" class="form-control mb-3" />
-            <h6>Number of Tourist Sites</h6>
-            <input
-              type="text"
-              id="setNumber"
-              class="form-control mb-3"
-            />
-            <h6>First Must-See Site</h6>
-            <input
-              type="text"
-              id="setFirst"
-              class="form-control mb-3"
-            />
-            <h6>Second Must-See Site</h6>
-            <input
-              type="text"
-              id="setSecond"
-              class="form-control mb-3"
-            />
-            <h6>Third Must-See Site</h6>
-            <input
-              type="text"
-              id="setThird"
-              class="form-control mb-3"
-            />
-            <h6>Date</h6>
-            <input type="text" id="setDate" class="form-control mb-3" />
-          </form>
-          <button class="btn btn-primary mb-3 w-20" id="setButton">Add/Update Tour</button>
-        </div>
-      </section>
-
-      <section id="remove" class="remove">
-        <div class="container">
-          <h2 class="animate-on-scroll">Remove a Tour</h2>
-          <form>
-            <input type="text" placeholder="Date" id="removeDate" class="form-control mb-3" />
-          </form>
-          <button class="btn btn-primary mb-3 w-20" id="removeButton">Remove</button>
-        </div>
-      </section>
-
-      <!-- Footer Section -->
-      <footer class="animate-on-scroll">
+    <!-- Footer -->
+    <footer>
         <p>
           &copy; 2025 Tour Venice. All rights reserved. Disclaimer: This is a fictional website.
           Please do not try to book a tour.
@@ -181,7 +153,7 @@
           Contact us: <a href="mailto:info@venicetours.com">info@venicetours.com</a> | +39 XXX XXX
           XXXX
         </p>
-      </footer>
+    </footer>
     </div>
   </body>
 </html>
