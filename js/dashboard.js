@@ -18,9 +18,27 @@ const userNameElem = document.getElementById("userName");
 const logoutBtn = document.getElementById("logoutBtn");
 const profileForm = document.getElementById("profileForm");
 const toursTableBody = document.getElementById("toursTableBody");
+const removeTourBtn = document.getElementById("removeTourBtn");
 const addTourBtn = document.getElementById("addTourBtn");
 const settingsForm = document.getElementById("settingsForm");
 const darkModeToggle = document.getElementById("darkModeToggle");
+
+if(sessionStorage.getItem('tourPressed').exists) {
+  if(sessionStorage.getItem('tourPressed')) {
+    switchTab('bookTour');
+    sessionStorage.setItem('tourPressed', false);
+    if(sessionStorage.getItem('tourCustomization').exists) {
+      let tourData = sessionStorage.getItem('tourCustomization');
+      document.getElementById('tourLength').innerHTML = tourData[0]
+      document.getElementById('groupSize').innerHTML = tourData[1]
+      document.getElementById('vipTour').innerHTML = tourData[2]
+      document.getElementById('numSites').innerHTML = tourData[3]
+      document.getElementById('firstSite').innerHTML = tourData[4]
+      document.getElementById('secondSite').innerHTML = tourData[5]
+      document.getElementById('thirdSite').innerHTML = tourData[6]
+    }
+  }
+} 
 
 // Add tab switching functionality
 function setupTabNavigation() {
@@ -192,104 +210,25 @@ function fetchUserTours(uid) {
     });
 }
 
-// Attach Event Listeners to Tour Buttons
-function attachTourButtons() {
-  const editButtons = document.querySelectorAll(".edit-tour-btn");
-  const deleteButtons = document.querySelectorAll(".delete-tour-btn");
-
-  editButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const tourId = e.target.getAttribute("data-id");
-      editTour(tourId);
-    });
-  });
-
-  deleteButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const tourId = e.target.getAttribute("data-id");
-      deleteTour(tourId);
-    });
-  });
-}
-
 // Add New Tour
+removeTourBtn.addEventListener("click", () => {
+  const date = prompt("Enter the date of the tour you would like to remove (MM-DD-YYYY): ")
+  const userRef = ref(db, "users/" + auth.currentUser.uid + "/tours/" + date);
+  if(userRef.exists) {
+    remove(userRef)
+      .then(() => {
+        alert("Tour removed successfully.");
+      })
+      .catch((error) => {
+        alert("Error: " + error);
+      });
+  } else {
+    alert("Please enter a date for which you have a tour booked.")
+  }
+})
 addTourBtn.addEventListener("click", () => {
-  // You can implement a modal form for adding a new tour
-  const tourName = prompt("Enter Tour Name:");
-  const tourDate = prompt("Enter Tour Date (YYYY-MM-DD):");
-
-  if (tourName && tourDate) {
-    const uid = auth.currentUser.uid;
-    const toursRef = ref(db, `users/${uid}/tours`);
-    const newTourRef = ref(db, `users/${uid}/tours/${generateUniqueId()}`);
-
-    set(newTourRef, {
-      name: tourName,
-      date: tourDate,
-      status: "Upcoming",
-      created_at: new Date().toISOString(),
-    })
-      .then(() => {
-        alert("New tour added successfully.");
-        fetchUserTours(uid);
-      })
-      .catch((error) => {
-        alert("Error adding tour: " + error.message);
-      });
-  } else {
-    alert("Tour name and date are required.");
-  }
+  switchTab('bookTour');
 });
-
-// Edit Tour
-function editTour(tourId) {
-  const newName = prompt("Enter new Tour Name:");
-  const newDate = prompt("Enter new Tour Date (YYYY-MM-DD):");
-  const newStatus = prompt("Enter Tour Status (Upcoming/Completed):");
-
-  if (newName && newDate && newStatus) {
-    const uid = auth.currentUser.uid;
-    const tourRef = ref(db, `users/${uid}/tours/${tourId}`);
-
-    update(tourRef, {
-      name: newName,
-      date: newDate,
-      status: newStatus,
-      updated_at: new Date().toISOString(),
-    })
-      .then(() => {
-        alert("Tour updated successfully.");
-        fetchUserTours(uid);
-      })
-      .catch((error) => {
-        alert("Error updating tour: " + error.message);
-      });
-  } else {
-    alert("All fields are required to update the tour.");
-  }
-}
-
-// Delete Tour
-function deleteTour(tourId) {
-  if (confirm("Are you sure you want to delete this tour?")) {
-    const uid = auth.currentUser.uid;
-    const tourRef = ref(db, `users/${uid}/tours/${tourId}`);
-
-    remove(tourRef)
-      .then(() => {
-        alert("Tour deleted successfully.");
-        fetchUserTours(uid);
-      })
-      .catch((error) => {
-        alert("Error deleting tour: " + error.message);
-      });
-  }
-}
-
-// Generate Unique ID for Tours
-function generateUniqueId() {
-  return "tour_" + Date.now() + "_" + Math.floor(Math.random() * 1000);
-}
 
 // Handle Settings Form Submission
 settingsForm.addEventListener("submit", (e) => {
@@ -388,7 +327,7 @@ window.saveTourBooking = function() {
     }
 
     const uid = auth.currentUser.uid;
-    const tourId = generateUniqueId();
+    const tourId = document.getElementById('tourDate').value;
     const tourRef = ref(db, `users/${uid}/tours/${tourId}`);
 
     set(tourRef, tourData)

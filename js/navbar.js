@@ -69,7 +69,7 @@ window.onload = function(){
       }
       userLink.classList.replace('btn', 'nav-link');
       userLink.classList.add('btn-primary');
-      userLink.href = 'book.html';
+      userLink.href = "dashboard.html";
   
       signOutLink.innerText = 'Sign Out';
       signOutLink.classList.replace('btn', 'nav-link');
@@ -78,5 +78,11 @@ window.onload = function(){
         signOutUser();
       }
     }
+}
+
+userLink.onclick = function() {
+  if(welcome != null) {
+    sessionStorage.setItem('tourPressed', true);
+  }
 }
 
