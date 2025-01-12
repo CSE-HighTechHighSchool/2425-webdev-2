@@ -1,3 +1,5 @@
+import { auth, signOut } from "./firebase.js";
+
 // Add an event listener for the scroll event on the window object
 window.addEventListener("scroll", function () {
   // Select the navbar element
