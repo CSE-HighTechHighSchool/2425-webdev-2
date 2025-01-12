@@ -62,13 +62,13 @@ document.getElementById('sendMessage').onclick = function() {
       message: message,
       email: email
   })
-  .then((snapshot) => {
-    // Data saved successfully!
-    alert('Message sent. We will get back to you in 2-3 business days.');
-  })
-  .catch((error) => {
-    // Data write failed...
-    alert(error);
+  .then(() => {
+    // Data was successfully written to Firebase
+    document.getElementById("contactForm").reset();
+
+    // Show the confirmation modal
+    const modal = new bootstrap.Modal(document.getElementById("contactConfirmationModal"));
+    modal.show();
   })
   .catch((error) => {
     const errorCode = error.code;
