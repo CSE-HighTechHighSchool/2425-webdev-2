@@ -318,11 +318,10 @@ function fetchUserTours(uid) {
           const row = document.createElement("tr");
           row.innerHTML = `
               <td>${tour.name || "Unnamed Tour"}</td>
-              <td>${
-                tour.tourDate
-                  ? new Date(tour.tourDate).toLocaleDateString("en-US", { timeZone: "UTC" })
-                  : "No Date"
-              }</td>
+              <td>${tour.tourLength || "Unknown"}</td>
+              <td>${tour.groupSize || "Unknown"}</td>
+              <td>${tour.vipTour || "Unknown"}</td>
+              <td>${tour.firstSite || "Unknown"}</td>
               <td>${tour.status || "Unknown"}</td>
               <td>
                 <button class="btn btn-sm btn-danger delete-tour-btn" data-id="${tourId}"><i class="bi bi-trash"></i> Delete</button>
