@@ -16,6 +16,7 @@ import {
   update,
   get,
   remove,
+  onValue,
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
 // Your web app's Firebase configuration
@@ -51,4 +52,5 @@ export {
   onAuthStateChanged,
   signOut,
   remove,
+  onValue,
 };

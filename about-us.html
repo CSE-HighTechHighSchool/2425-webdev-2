@@ -356,7 +356,11 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="button" id="sendMessage" class="btn btn-primary btn-lg animate-on-scroll">
+                  <button
+                    type="button"
+                    id="sendMessage"
+                    class="btn btn-primary btn-lg animate-on-scroll"
+                  >
                     Send Message
                   </button>
                 </div>
@@ -405,25 +409,37 @@
     </div>
 
     <!-- Contact Confirmation Modal -->
-    <div class="modal fade" id="contactConfirmationModal" tabindex="-1" aria-labelledby="bookingConfirmationModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="contactConfirmationModal"
+      tabindex="-1"
+      aria-labelledby="bookingConfirmationModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header bg-primary text-white">
             <h5 class="modal-title" id="bookingConfirmationModalLabel">Message Recieved!</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body text-center py-4">
-            <i class="bi bi-check-circle text-success" style="font-size: 3rem;"></i>
+            <i class="bi bi-check-circle text-success" style="font-size: 3rem"></i>
             <p class="mt-3 mb-0">We will get back to you in 2-3 business days.</p>
             <p class="text-muted">Feel free to view our tours while you wait.</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="window.location='tours.html';">View Tours</button>
+            <button type="button" class="btn btn-primary" onclick="window.location='tours.html';">
+              View Tours
+            </button>
           </div>
         </div>
       </div>
     </div>
-    
   </body>
 </html>
