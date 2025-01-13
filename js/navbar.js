@@ -1,31 +1,53 @@
 import { auth, signOut } from "./firebase.js";
 
-// Add an event listener for the scroll event on the window object
-window.addEventListener("scroll", function () {
-  // Select the navbar element
-  const navbar = document.querySelector(".navbar");
-  // Select the navbar toggle button element
-  const navToggle = document.querySelector(".navbar-toggler");
+document.addEventListener("DOMContentLoaded", (event) => {
+  // Add an event listener for the scroll event on the window object
+  window.addEventListener("scroll", function () {
+    // Select the navbar element
+    const navbar = document.querySelector(".navbar");
+    // Select the navbar toggle button element
+    const navToggle = document.querySelector(".navbar-toggler");
 
-  // Check if the page has been scrolled more than 50 pixels vertically
-  if (window.scrollY > 30) {
-    // Add the "scrolled" class to the navbar and toggle button if scrolled more than 50 pixels
-    navbar.classList.add("scrolled");
-    navToggle.classList.add("scrolled");
-  } else {
-    // Remove the "scrolled" class from the navbar and toggle button if scrolled less than 50 pixels
-    navbar.classList.remove("scrolled");
-    navToggle.classList.remove("scrolled");
+    // Check if the page has been scrolled more than 50 pixels vertically
+    if (window.scrollY > 30) {
+      // Add the "scrolled" class to the navbar and toggle button if scrolled more than 50 pixels
+      navbar.classList.add("scrolled");
+      navToggle.classList.add("scrolled");
+    } else {
+      // Remove the "scrolled" class from the navbar and toggle button if scrolled less than 50 pixels
+      navbar.classList.remove("scrolled");
+      navToggle.classList.remove("scrolled");
+    }
+  });
+
+  // Change navbar items on login
+
+  // --------------------- Get reference values -----------------------------
+  let userLink = document.getElementById("userLink"); // User name for navbar
+  let signOutLink = document.getElementById("signOut"); // Sign in/out link
+  let welcome = document.getElementById("welcome"); // Welcome header (null if it does not exist)
+  let userBar = document.getElementById("userBar"); // User bar (null if it does not exist)
+  let currentUser = null; // Initialize current user to null
+
+  // ----------------------- Get Username ------------------------------
+  function getUserName() {
+    currentUser = JSON.parse(sessionStorage.getItem("userInfo"));
   }
-});
 
-// Change navbar items on login
+  // Sign-out function that will remove user info from local/session storage and
+  // sign-out from FRD
+  function signOutUser() {
+    sessionStorage.removeItem("userInfo");
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("keepLoggedIn");
 
-// --------------------- Get reference values -----------------------------
-let userLink = document.getElementById("userLink"); // User name for navbar
-let signOutLink = document.getElementById("signOut"); // Sign in/out link
-let welcome = document.getElementById("welcome"); // Welcome header (null if it does not exist)
-let currentUser = null; // Initialize current user to null
+    signOut(auth)
+      .then(() => {
+        console.log("User signed out successfully.");
+      })
+      .catch((error) => {
+        console.error("Error signing out: ", error);
+      });
 
 // ----------------------- Get Username ------------------------------
 function getUserName() {
@@ -36,25 +58,6 @@ function getUserName() {
   }
 }
 
-// Sign-out function that will remove user info from local/session storage and
-// sign-out from FRD
-function signOutUser() {
-  sessionStorage.removeItem("userInfo");
-  localStorage.removeItem("userInfo");
-  localStorage.removeItem("keepLoggedIn");
-
-  signOut(auth)
-    .then(() => {
-      //Sign out successful
-    })
-    .catch((error) => {
-      // Error occured
-    });
-
-  window.location = "index.html";
-}
-
-window.onload = function () {
   // ------------------------- Set Welcome Message -------------------------
   getUserName(); // Get current user's first name
   if (currentUser == null) {
@@ -69,6 +72,7 @@ window.onload = function () {
     const dashboardLink = document.getElementById("dashboardLink");
     dashboardLink.parentElement.removeChild(dashboardLink);
   } else {
+    userBar.classList.remove("margin-left");
     userLink.innerText = "Create/Delete Tour";
     if (welcome != null) {
       // Only edit the welcome screen if it exists
@@ -85,10 +89,11 @@ window.onload = function () {
       signOutUser();
     };
   }
-};
 
-userLink.onclick = function () {
-  if (welcome != null) {
-    sessionStorage.setItem("tourPressed", true);
-  }
-};
+  // if Create/Delete Tour is clicked, set the 'tourPressed' key in session storage to be true so user is automatically directed to the Book Tour section of the dashboard
+  userLink.onclick = function () {
+    if (welcome != null) {
+      sessionStorage.setItem("tourPressed", true);
+    }
+  };
+});

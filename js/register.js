@@ -1,6 +1,7 @@
 // register.js
 
 import { auth, db, createUserWithEmailAndPassword, ref, set, get } from "./firebase.js";
+import { defaultProfilePic } from "./profilePic.js";
 
 // Function to handle registration
 document.getElementById("submitData").onclick = function () {
@@ -8,6 +9,7 @@ document.getElementById("submitData").onclick = function () {
   const lastName = document.getElementById("lastName").value.trim();
   const email = document.getElementById("userEmail").value.trim();
   const password = document.getElementById("userPass").value;
+  const profilePic = defaultProfilePic;
 
   // Validate user inputs
   if (!validation(firstName, lastName, email, password)) {
@@ -32,6 +34,7 @@ document.getElementById("submitData").onclick = function () {
         password: encryptedPassword,
         created_at: new Date().toISOString(),
         last_login: new Date().toISOString(),
+        profilePicture: profilePic,
       })
         .then(() => {
           // Data saved successfully

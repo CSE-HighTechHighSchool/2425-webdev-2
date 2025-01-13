@@ -1,5 +1,3 @@
-// dashboard.js
-
 import {
   auth,
   db,
@@ -11,11 +9,8 @@ import {
   signOut,
   remove,
   set,
+  onValue,
 } from "./firebase.js";
-
-// **Removed Elements Not Present in HTML**
-// const userNameElem = document.getElementById("userName");
-// const logoutBtn = document.getElementById("logoutBtn");
 
 // **Retained Elements**
 const profileForm = document.getElementById("profileForm");
@@ -23,13 +18,20 @@ const toursTableBody = document.getElementById("toursTableBody");
 const removeTourBtn = document.getElementById("removeTourBtn");
 const addTourBtn = document.getElementById("addTourBtn");
 const settingsForm = document.getElementById("settingsForm");
-const darkModeToggle = document.getElementById("darkModeToggle");
+
+// New Elements for Profile Picture and Name
+const sidebarProfilePic = document.getElementById("sidebarProfilePic");
+const sidebarUserName = document.getElementById("sidebarUserName");
+const currentProfilePic = document.getElementById("currentProfilePic");
+const profilePictureInput = document.getElementById("profilePicture");
+const changeProfilePicBtn = document.getElementById("changeProfilePicBtn");
+const imageError = document.getElementById("imageError"); // Error Message Container
 
 // **Session Storage Handling for Tour Booking**
 if (sessionStorage.getItem("tourPressed")) {
   switchTab("bookTour");
   sessionStorage.setItem("tourPressed", false);
-
+  // if tour preferences are loaded (premade tour), auto-populate the boxes in the Book Tour page
   const tourCustomization = sessionStorage.getItem("tourCustomization");
   if (tourCustomization) {
     try {
@@ -122,6 +124,7 @@ onAuthStateChanged(auth, (user) => {
     fetchUserTours(user.uid);
     fetchUserSettings(user.uid);
     setupTabNavigation();
+    listenToProfileChanges(user.uid); // Listen for real-time profile updates
   } else {
     // User is signed out
     // Redirect to login if trying to access dashboard
@@ -136,17 +139,29 @@ function fetchUserData(uid) {
     .then((snapshot) => {
       if (snapshot.exists()) {
         const userData = snapshot.val();
-        // **Removed userNameElem.textContent assignment**
-        // userNameElem.textContent = `${userData.firstname} ${userData.lastname}`;
+
+        // Display user's name in the sidebar
+        sidebarUserName.textContent = `${userData.firstname} ${userData.lastname}`;
+
+        // Display user's profile picture in the sidebar
+        if (userData.profilePicture) {
+          sidebarProfilePic.src = userData.profilePicture;
+        } else {
+          sidebarProfilePic.src = "https://via.placeholder.com/100";
+        }
 
         // Populate Profile Form
         const profileFirstName = document.getElementById("profileFirstName");
         const profileLastName = document.getElementById("profileLastName");
         const profileEmail = document.getElementById("profileEmail");
+        const currentProfilePicElem = document.getElementById("currentProfilePic");
 
         if (profileFirstName) profileFirstName.value = userData.firstname || "";
         if (profileLastName) profileLastName.value = userData.lastname || "";
         if (profileEmail) profileEmail.value = userData.email || "";
+        if (currentProfilePicElem && userData.profilePicture) {
+          currentProfilePicElem.src = userData.profilePicture;
+        }
       } else {
         alert("User data not found.");
       }
@@ -154,6 +169,31 @@ function fetchUserData(uid) {
     .catch((error) => {
       console.error("Error fetching user data:", error);
     });
+}
+
+// **Listen for Real-Time Profile Changes**
+function listenToProfileChanges(uid) {
+  const profileRef = ref(db, `users/${uid}/accountInfo`);
+  onValue(profileRef, (snapshot) => {
+    if (snapshot.exists()) {
+      const userData = snapshot.val();
+
+      // Update sidebar user name
+      sidebarUserName.textContent = `${userData.firstname} ${userData.lastname}`;
+
+      // Update sidebar profile picture
+      if (userData.profilePicture) {
+        sidebarProfilePic.src = userData.profilePicture;
+      } else {
+        sidebarProfilePic.src = "https://via.placeholder.com/100";
+      }
+
+      // Update current profile picture in profile form
+      if (currentProfilePic) {
+        currentProfilePic.src = userData.profilePicture || "https://via.placeholder.com/150";
+      }
+    }
+  });
 }
 
 // **Update Profile Information**
@@ -165,6 +205,7 @@ profileForm.addEventListener("submit", (e) => {
   const lastName = document.getElementById("profileLastName").value.trim();
   const email = document.getElementById("profileEmail").value.trim();
   const password = document.getElementById("profilePassword").value;
+  const profilePicFile = profilePictureInput.files[0];
 
   const updates = {
     firstname: firstName,
@@ -178,17 +219,90 @@ profileForm.addEventListener("submit", (e) => {
     updates.password = encryptPassword(password);
   }
 
-  update(ref(db, `users/${uid}/accountInfo`), updates)
-    .then(() => {
-      alert("Profile updated successfully.");
-      if (password) {
-        // Optionally, reauthenticate the user if password changed
-      }
-      fetchUserData(uid);
-    })
-    .catch((error) => {
-      alert("Error updating profile: " + error.message);
-    });
+  // Handle profile picture upload if a new file is selected
+  if (profilePicFile) {
+    // Clear any existing error messages
+    imageError.textContent = "";
+
+    // Check if the file size exceeds 500KB
+    if (profilePicFile.size > 512000) {
+      // 500KB = 500 * 1024 bytes = 512000 bytes
+      imageError.textContent = "Image size exceeds 500KB. Please choose a smaller file.";
+      // Reset the file input and preview image
+      profilePictureInput.value = "";
+      currentProfilePic.src = "https://via.placeholder.com/150";
+      return; // Prevent further execution
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      const base64String = event.target.result;
+      updates.profilePicture = base64String;
+
+      // Update the database with the new profile picture and other info
+      update(ref(db, `users/${uid}/accountInfo`), updates)
+        .then(() => {
+          alert("Profile updated successfully.");
+          if (password) {
+            // Optionally, reauthenticate the user if password changed
+          }
+          fetchUserData(uid);
+          // Reset the file input
+          profilePictureInput.value = "";
+        })
+        .catch((error) => {
+          alert("Error updating profile: " + error.message);
+        });
+    };
+    reader.readAsDataURL(profilePicFile);
+  } else {
+    // Update the database without changing the profile picture
+    update(ref(db, `users/${uid}/accountInfo`), updates)
+      .then(() => {
+        alert("Profile updated successfully.");
+        if (password) {
+          // Optionally, reauthenticate the user if password changed
+        }
+        fetchUserData(uid);
+      })
+      .catch((error) => {
+        alert("Error updating profile: " + error.message);
+      });
+  }
+});
+
+// **Handle Profile Picture Preview via Change Image Button**
+changeProfilePicBtn.addEventListener("click", () => {
+  profilePictureInput.click();
+});
+
+// **Handle Profile Picture Preview on File Selection**
+profilePictureInput.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    // Clear any existing error messages
+    imageError.textContent = "";
+
+    // Check if the file size exceeds 500KB
+    if (file.size > 512000) {
+      // 500KB = 500 * 1024 bytes = 512000 bytes
+      imageError.textContent = "Image size exceeds 500KB. Please choose a smaller file.";
+      // Reset the file input and preview image
+      profilePictureInput.value = "";
+      currentProfilePic.src = "https://via.placeholder.com/150";
+      return; // Prevent further execution
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      currentProfilePic.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  } else {
+    // If no file is selected, reset the preview image
+    currentProfilePic.src = "https://via.placeholder.com/150";
+    imageError.textContent = "";
+  }
 });
 
 // **Fetch and Display User Tours**
@@ -204,14 +318,12 @@ function fetchUserTours(uid) {
           const row = document.createElement("tr");
           row.innerHTML = `
               <td>${tour.name || "Unnamed Tour"}</td>
-              <td>${
-                tour.tourDate
-                  ? new Date(tour.tourDate).toLocaleDateString("en-US", { timeZone: "UTC" })
-                  : "No Date"
-              }</td>
+              <td>${tour.tourLength || "Unknown"}</td>
+              <td>${tour.groupSize || "Unknown"}</td>
+              <td>${tour.vipTour || "Unknown"}</td>
+              <td>${tour.firstSite || "Unknown"}</td>
               <td>${tour.status || "Unknown"}</td>
               <td>
-                <button class="btn btn-sm btn-primary me-2 edit-tour-btn" data-id="${tourId}"><i class="bi bi-pencil"></i> Edit</button>
                 <button class="btn btn-sm btn-danger delete-tour-btn" data-id="${tourId}"><i class="bi bi-trash"></i> Delete</button>
               </td>
             `;
@@ -233,15 +345,6 @@ function fetchUserTours(uid) {
 
 // **Attach Event Listeners to Tour Buttons**
 function attachTourButtons() {
-  // Edit Tour Buttons
-  document.querySelectorAll(".edit-tour-btn").forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const tourId = e.currentTarget.getAttribute("data-id");
-      // Implement tour editing functionality here
-      alert(`Edit tour with ID: ${tourId}`);
-    });
-  });
-
   // Delete Tour Buttons
   document.querySelectorAll(".delete-tour-btn").forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -264,12 +367,14 @@ function attachTourButtons() {
 }
 
 // **Add New Tour**
+// Redirect to Book Tour page if button is pressed
 addTourBtn.addEventListener("click", () => {
   switchTab("bookTour");
 });
 
 // **Remove Tour**
 removeTourBtn.addEventListener("click", () => {
+  // pop-up window to prompt date of removed tour
   const date = prompt("Enter the date of the tour you would like to remove (YYYY-MM-DD): ");
   if (!date) {
     alert("No date entered.");
@@ -279,6 +384,7 @@ removeTourBtn.addEventListener("click", () => {
   const uid = auth.currentUser.uid;
   const tourRef = ref(db, `users/${uid}/tours/${date}`);
 
+  // get tour at reference and remove
   get(tourRef)
     .then((snapshot) => {
       if (snapshot.exists()) {
@@ -303,12 +409,42 @@ removeTourBtn.addEventListener("click", () => {
 settingsForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const uid = auth.currentUser.uid;
-  const notificationPref = document.getElementById("notificationSettings").value;
-  const darkMode = darkModeToggle.checked;
+
+  // Notification Preferences
+  const notifyEmail = document.getElementById("notifyEmail").checked;
+  const notifySMS = document.getElementById("notifySMS").checked;
+  const notifyPush = document.getElementById("notifyPush").checked;
+
+  // Privacy Settings
+  const privacyOptions = document.getElementsByName("privacyOptions");
+  let privacySetting = "public"; // default
+  privacyOptions.forEach((option) => {
+    if (option.checked) {
+      privacySetting = option.value;
+    }
+  });
+
+  // Language Preferences
+  const languagePref = document.getElementById("languageSettings").value;
+
+  // Email Visibility
+  const emailVisibilityOptions = document.getElementsByName("emailVisibility");
+  let emailVisibility = "show"; // default
+  emailVisibilityOptions.forEach((option) => {
+    if (option.checked) {
+      emailVisibility = option.value;
+    }
+  });
 
   const updates = {
-    notification_preferences: notificationPref,
-    dark_mode: darkMode,
+    notification_preferences: {
+      email: notifyEmail,
+      sms: notifySMS,
+      push: notifyPush,
+    },
+    privacy_settings: privacySetting,
+    language_preferences: languagePref,
+    email_visibility: emailVisibility,
     updated_at: new Date().toISOString(),
   };
 
@@ -322,12 +458,32 @@ settingsForm.addEventListener("submit", (e) => {
     });
 });
 
-// **Apply Settings (e.g., Dark Mode)**
+// **Apply Settings (e.g., Language, Privacy, Email Visibility)**
 function applySettings(settings) {
-  if (settings.dark_mode) {
-    document.body.classList.add("dark-mode");
-  } else {
-    document.body.classList.remove("dark-mode");
+  // Apply Notification Preferences
+  if (settings.notification_preferences) {
+    console.log("Notification Preferences:", settings.notification_preferences);
+    // Implement notification preferences functionality here
+  }
+
+  // Apply Privacy Settings
+  if (settings.privacy_settings) {
+    console.log("Privacy Settings:", settings.privacy_settings);
+    // Implement privacy settings functionality here
+  }
+
+  // Apply Language Preferences
+  if (settings.language_preferences) {
+    console.log(`Language set to: ${settings.language_preferences}`);
+    // Implement language change functionality here
+    // Example: Reload page or integrate with a localization library
+  }
+
+  // Apply Email Visibility
+  if (settings.email_visibility) {
+    console.log(`Email Visibility: ${settings.email_visibility}`);
+    // Implement email visibility functionality here
+    // Example: Hide or show email on the user's profile
   }
 }
 
@@ -338,13 +494,38 @@ function fetchUserSettings(uid) {
     .then((snapshot) => {
       if (snapshot.exists()) {
         const settings = snapshot.val();
-        const notificationSettings = document.getElementById("notificationSettings");
-        if (notificationSettings) {
-          notificationSettings.value = settings.notification_preferences || "all";
+
+        // Notification Preferences
+        if (settings.notification_preferences) {
+          document.getElementById("notifyEmail").checked =
+            settings.notification_preferences.email || false;
+          document.getElementById("notifySMS").checked =
+            settings.notification_preferences.sms || false;
+          document.getElementById("notifyPush").checked =
+            settings.notification_preferences.push || false;
         }
-        if (darkModeToggle) {
-          darkModeToggle.checked = settings.dark_mode || false;
+
+        // Privacy Settings
+        if (settings.privacy_settings) {
+          const privacyOption = document.querySelector(
+            `input[name="privacyOptions"][value="${settings.privacy_settings}"]`
+          );
+          if (privacyOption) privacyOption.checked = true;
         }
+
+        // Language Preferences
+        if (settings.language_preferences) {
+          document.getElementById("languageSettings").value = settings.language_preferences || "en";
+        }
+
+        // Email Visibility
+        if (settings.email_visibility) {
+          const emailOption = document.querySelector(
+            `input[name="emailVisibility"][value="${settings.email_visibility}"]`
+          );
+          if (emailOption) emailOption.checked = true;
+        }
+
         applySettings(settings);
       }
     })
@@ -415,10 +596,3 @@ window.viewMyTours = function () {
   // Switch to My Tours tab
   switchTab("myTours");
 };
-
-// **Initialize User Settings on Auth State Change**
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    fetchUserSettings(user.uid);
-  }
-});
