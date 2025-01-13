@@ -66,10 +66,37 @@ body {
 }
 
 .nav-link {
-  color: var(--text-color) !important; /* Link color */
+  color: var(--text-color) !important;
   font-weight: 500;
-  transition: color 0s;
   font-size: 1.1em;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--primary-orange);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar.scrolled .nav-link::after {
+  background-color: #ff794d;
+}
+
+.nav-link:hover {
+  color: var(--primary-orange) !important;
+  font-weight: bold !important;
+  transition: color 0.3s ease;
 }
 
 .navbar.scrolled .nav-link {
@@ -81,14 +108,6 @@ body {
   text-decoration: solid underline #ff794d !important; /* Underline on hover */
 }
 
-.nav-link:hover {
-  color: var(--primary-orange) !important; /* Hover color */
-  text-decoration: solid underline var(--primary-orange) !important; /* Underline on hover */
-  text-underline-offset: 3px !important; /* Offset for underline */
-  font-weight: bold !important; /* Bold text on hover */
-}
-
-/* Hero Section Styles */
 .hero {
   height: 60vh; /* Height of hero section */
   background: url("../img/hero-image.webp") center center/cover no-repeat; /* Background image settings */
@@ -619,22 +638,4 @@ footer a:hover {
 }
 
 /* Accessibility Enhancements */
-.reg-btn:focus,
-.login-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.5); /* Custom focus outline */
-}
-
-/* Responsive Adjustments for Buttons */
-@media (max-width: 576px) {
-  .reg-btn,
-  .login-btn {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 0.5rem;
-  }
-
-  .d-flex {
-    flex-direction: column;
-  }
-}
+.reg-btn:focus,.login-btn:focus {  outline: none;  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.5); /* Custom focus outline */}/* Responsive Adjustments for Buttons */@media (max-width: 576px) {  .reg-btn,  .login-btn {    width: 100%;    text-align: center;    margin-bottom: 0.5rem;  }  .d-flex {    flex-direction: column;  }}/* Custom Tour Link Styles */#customTour {  color: var(--primary-blue);  text-decoration: none;  cursor: pointer;  transition: color 0.3s ease;}#customTour:hover {  color: var(--primary-orange);  text-decoration: underline;}
