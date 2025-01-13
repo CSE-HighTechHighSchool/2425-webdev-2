@@ -31,7 +31,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   // ----------------------- Get Username ------------------------------
   function getUserName() {
-    currentUser = JSON.parse(sessionStorage.getItem("userInfo"));
+    if (localStorage.getItem('keepLoggedIn') == "yes") {
+      currentUser = JSON.parse(localStorage.getItem("userInfo"));
+    } else {
+      currentUser = JSON.parse(sessionStorage.getItem("userInfo"));
+    }
   }
 
   // Sign-out function that will remove user info from local/session storage and
@@ -49,14 +53,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         console.error("Error signing out: ", error);
       });
 
-// ----------------------- Get Username ------------------------------
-function getUserName() {
-  if (localStorage.getItem('keepLoggedIn') == "yes") {
-    currentUser = JSON.parse(localStorage.getItem("userInfo"));
-  } else {
-    currentUser = JSON.parse(sessionStorage.getItem("userInfo"));
+    window.location = "index.html";
   }
-}
 
   // ------------------------- Set Welcome Message -------------------------
   getUserName(); // Get current user's first name
