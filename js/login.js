@@ -43,8 +43,21 @@ document.getElementById("signIn").onclick = function () {
 
 // Function to keep the user logged in
 function logIn(userInfo) {
-  sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
+  let keepLoggedIn = document.getElementById('keepLoggedInSwitch').ariaChecked;
 
-  // Redirect to the home page or dashboard
-  window.location.href = "home.html";
+    // Session storage is temporary (only while session is active)
+    // Information saved as a string (must convert JS object to a string)
+    // Session storage will be cleared with a signOut() function in home.js
+    if(!keepLoggedIn){
+        sessionStorage.setItem('userInfo', JSON.stringify(userInfo));
+        window.location='home.html';    // Redirect browser to home.html
+    }
+
+    // Local storage is permanent (keep user logged in even if browser is closed)
+    // Local storage will be cleared with a signOut() function in home.js
+    else {
+        localStorage.setItem('keepLoggedIn', 'yes');
+        localStorage.setItem('userInfo', JSON.stringify(userInfo));
+        window.location = 'home.html';
+    }
 }

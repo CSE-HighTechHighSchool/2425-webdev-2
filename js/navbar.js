@@ -29,7 +29,11 @@ let currentUser = null; // Initialize current user to null
 
 // ----------------------- Get Username ------------------------------
 function getUserName() {
-  currentUser = JSON.parse(sessionStorage.getItem("userInfo"));
+  if (localStorage.getItem('keepLoggedIn') == "yes") {
+    currentUser = JSON.parse(localStorage.getItem("userInfo"));
+  } else {
+    currentUser = JSON.parse(sessionStorage.getItem("userInfo"));
+  }
 }
 
 // Sign-out function that will remove user info from local/session storage and
