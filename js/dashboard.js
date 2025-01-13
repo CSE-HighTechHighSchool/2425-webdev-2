@@ -29,7 +29,7 @@ const darkModeToggle = document.getElementById("darkModeToggle");
 if (sessionStorage.getItem("tourPressed")) {
   switchTab("bookTour");
   sessionStorage.setItem("tourPressed", false);
-
+  // if tour preferences are loaded (premade tour), auto-populate the boxes in the Book Tour page
   const tourCustomization = sessionStorage.getItem("tourCustomization");
   if (tourCustomization) {
     try {
@@ -264,12 +264,14 @@ function attachTourButtons() {
 }
 
 // **Add New Tour**
+// Redirect to Book Tour page if button is pressed
 addTourBtn.addEventListener("click", () => {
   switchTab("bookTour");
 });
 
 // **Remove Tour**
 removeTourBtn.addEventListener("click", () => {
+  // pop-up window to prompt date of removed tour
   const date = prompt("Enter the date of the tour you would like to remove (YYYY-MM-DD): ");
   if (!date) {
     alert("No date entered.");
@@ -279,6 +281,7 @@ removeTourBtn.addEventListener("click", () => {
   const uid = auth.currentUser.uid;
   const tourRef = ref(db, `users/${uid}/tours/${date}`);
 
+  // get tour at reference and remove
   get(tourRef)
     .then((snapshot) => {
       if (snapshot.exists()) {

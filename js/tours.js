@@ -1,6 +1,9 @@
 import { auth, db, signInWithEmailAndPassword, ref, update, get, set, remove } from "./firebase.js";
 let tourArray = []
 
+// functions run if a premade tour is selected or custom tour link is clicked
+// tour array is populated and saved in session storage
+// 'tourPressed' key changed to true so user is automatically directed to Book Tour section of dashboard.html
 document.getElementById("premiumBtn").onclick = function () {
   tourArray = [8, 'Private', 'Yes', 7, 'Scuola Grande di San Rocco', 'Academia Gallery', 'St. Mark\'s Basilica']
   sessionStorage.setItem('tourCustomization', JSON.stringify(tourArray))

@@ -83,6 +83,7 @@ window.onload = function () {
   }
 };
 
+// if Create/Delete Tour is clicked, set the 'tourPressed' key in session storage to be true so user is automatically directed to the Book Tour section of the dashboard
 userLink.onclick = function () {
   if (welcome != null) {
     sessionStorage.setItem("tourPressed", true);
