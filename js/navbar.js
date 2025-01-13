@@ -41,10 +41,10 @@ function signOutUser() {
 
   signOut(auth)
     .then(() => {
-      //Sign out successful
+      console.log("User signed out successfully.");
     })
     .catch((error) => {
-      // Error occured
+      console.error("Error signing out: ", error);
     });
 
   window.location = "index.html";

@@ -1,6 +1,7 @@
 import { db, ref, get } from "./firebase.js";
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Get the context of the chart element
   const ctx = document.getElementById("myChart").getContext("2d");
 
   // Fetch labels and data from Firebase
@@ -9,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (snapshot.exists()) {
         const chartData = snapshot.val();
 
+        // Create a new bar chart with the fetched data
         new Chart(ctx, {
           type: "bar",
           data: {
@@ -74,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const counters = document.querySelectorAll(".stat-number");
   const speed = 2000; // Duration in milliseconds
 
+  // Function to animate the counters
   const animateCounters = () => {
     counters.forEach((counter) => {
       const updateCount = () => {
@@ -93,11 +96,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
+  // Intersection Observer options
   const observerOptions = {
     root: null,
     threshold: 0.7,
   };
 
+  // Create an Intersection Observer to trigger animation when stats section is in view
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -107,5 +112,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }, observerOptions);
 
+  // Observe the stats section
   observer.observe(statsSection);
 });

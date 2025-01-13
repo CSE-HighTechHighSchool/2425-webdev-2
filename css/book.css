@@ -1,216 +1,210 @@
 /* Navbar Styles */
 .navbar {
-    background: rgba(255, 255, 255, 1); /* Solid white background */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: background 0.3s, box-shadow 0.3s; /* Smooth transition on scroll */
-    z-index: 1000; /* Ensure navbar stays on top */
-  }
-  
-  .navbar.scrolled {
-    background: var(--primary-blue); /* Change background on scroll */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on scroll */
-  }
-  
-  /* Navbar Brand */
-  .navbar-brand {
-    font-family: var(--heading-font);
-    font-size: 1.8rem;
-    color: var(--primary-blue) !important; /* Primary color for brand */
-    transition: color 0.3s; /* Smooth color transition */
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar.scrolled .navbar-brand {
-    color: #fff !important; /* White color when scrolled */
-  }
-  
-  /* Navbar Brand Icon */
-  .navbar-brand .bi {
-    margin-right: 0.5rem;
-    font-size: 1.5rem;
-    color: var(--primary-orange); /* Icon color */
-    transition: color 0.3s; /* Smooth color transition */
-  }
-  
-  .navbar.scrolled .navbar-brand .bi {
-    color: #fff; /* White icon on scroll */
-  }
-  
-  /* Navigation Links */
-  .nav-link {
-    color: var(--text-color) !important; /* Default link color */
-    font-weight: 500;
-    transition: color 0s; /* Instant color change */
-    font-size: 1.1em;
-  }
-  
-  .navbar.scrolled .nav-link {
-    color: #fff !important; /* White links when scrolled */
-  }
-  
-  /* Navbar Toggler for Mobile */
-  .navbar-toggler.scrolled {
-    filter: invert(1) !important; /* Invert colors on scroll */
-  }
-  
-  /* Hover Effects for Links */
-  .navbar.scrolled .nav-link:hover {
-    color: #ff794d !important;
-    text-decoration: solid underline #ff794d !important;
-  }
-  
-  .nav-link:hover {
-    color: var(--primary-orange) !important;
-    text-decoration: solid underline var(--primary-orange) !important;
-    text-underline-offset: 3px !important;
-    font-weight: bold !important;
-  }
+  background: rgba(255, 255, 255, 1); /* Solid white background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: background 0.3s, box-shadow 0.3s; /* Smooth transition on scroll */
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+
+.navbar.scrolled {
+  background: var(--primary-blue); /* Change background on scroll */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on scroll */
+}
+
+/* Navbar Brand */
+.navbar-brand {
+  font-family: var(--heading-font);
+  font-size: 1.8rem;
+  color: var(--primary-blue) !important; /* Primary color for brand */
+  transition: color 0.3s; /* Smooth color transition */
+  display: flex;
+  align-items: center;
+}
+
+.navbar.scrolled .navbar-brand {
+  color: #fff !important; /* White color when scrolled */
+}
+
+/* Navbar Brand Icon */
+.navbar-brand .bi {
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--primary-orange); /* Icon color */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+.navbar.scrolled .navbar-brand .bi {
+  color: #fff; /* White icon on scroll */
+}
+
+/* Navigation Links */
+.nav-link {
+  color: var(--text-color) !important; /* Default link color */
+  font-weight: 500;
+  transition: color 0s; /* Instant color change */
+  font-size: 1.1em;
+}
+
+.navbar.scrolled .nav-link {
+  color: #fff !important; /* White links when scrolled */
+}
+
+/* Navbar Toggler for Mobile */
+.navbar-toggler.scrolled {
+  filter: invert(1) !important; /* Invert colors on scroll */
+}
+
+/* Hover Effects for Links */
+.navbar.scrolled .nav-link:hover {
+  color: #ff794d !important;
+  text-decoration: solid underline #ff794d !important;
+}
+
+.nav-link:hover {
+  color: var(--primary-orange) !important;
+  text-decoration: solid underline var(--primary-orange) !important;
+  text-underline-offset: 3px !important;
+  font-weight: bold !important;
+}
 
 /* Color Variables */
 :root {
-    --primary-blue: #0056b3; /* Darker blue for better contrast */
-    --primary-orange: #e64a19; /* Darker orange for better contrast */
-    --secondary-light: #f8f9fa; /* Light background color */
-    --secondary-dark: #343a40; /* Dark background color */
-    --text-color: #2b2b2b; /* Darker text color for better readability */
-    --heading-font: "Domine", serif; /* Font for headings */
-    --body-font: "Raleway", sans-serif; /* Font for body text */
-  }
-  
-  /* Body Styling */
-  body {
-    font-family: var(--body-font);
-    color: var(--text-color);
-    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
-  }
+  --primary-blue: #0056b3; /* Darker blue for better contrast */
+  --primary-orange: #e64a19; /* Darker orange for better contrast */
+  --secondary-light: #f8f9fa; /* Light background color */
+  --secondary-dark: #343a40; /* Dark background color */
+  --text-color: #2b2b2b; /* Darker text color for better readability */
+  --heading-font: "Domine", serif; /* Font for headings */
+  --body-font: "Raleway", sans-serif; /* Font for body text */
+}
+
+/* Body Styling */
+body {
+  font-family: var(--body-font);
+  color: var(--text-color);
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
 
 .booking-container {
-    margin-top: 76px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: calc(100vh - 76px);
+  margin-top: 76px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 76px);
 }
 
 .step-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 400px;
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-    padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
 }
 
 .step-icon {
-    color: var(--primary-blue);
-    font-size: 3rem;
-    margin-bottom: 1rem;
+  color: var(--primary-blue);
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 .step-number {
-    color: var(--text-color);
-    font-family: var(--heading-font);
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+  color: var(--text-color);
+  font-family: var(--heading-font);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .step-list {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    margin-bottom: 2rem;
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-bottom: 2rem;
 }
 
 .step-list li {
-    margin-bottom: 1rem;
-    padding-left: 2rem;
-    position: relative;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  position: relative;
 }
 
 .step-list li::before {
-    content: "✓";
-    color: var(--primary-blue);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
+  content: "✓";
+  color: var(--primary-blue);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
 }
 
 .next-btn {
-    background-color: var(--primary-blue);
-    color: white;
-    border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 50px;
-    font-family: var(--body-font);
-    font-size: 1.1rem;
-    transition: transform 0.3s, background-color 0.3s;
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-family: var(--body-font);
+  font-size: 1.1rem;
+  transition: transform 0.3s, background-color 0.3s;
 }
 
 .next-btn:hover {
-    background-color: var(--primary-orange);
-    transform: translateX(5px);
+  background-color: var(--primary-orange);
+  transform: translateX(5px);
 }
 
 /* Hide inactive steps */
 .booking-step {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .booking-step.active {
-    display: block;
-    animation: fadeIn 0.5s ease-out;
+  display: block;
+  animation: fadeIn 0.5s ease-out;
 }
 
 .booking-step[style*="display: block"] {
-    opacity: 1;
+  opacity: 1;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-/* ...existing styles... */
-
 .booking-carousel {
-    margin-top: 76px;
-    min-height: calc(100vh - 76px);
-    background-color: var(--secondary-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin-top: 76px;
+  min-height: calc(100vh - 76px);
+  background-color: var(--secondary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-inner {
-    width: 90%;
-    max-width: 600px;
+  width: 90%;
+  max-width: 600px;
 }
 
 .carousel-item {
-    transition: transform .6s ease-in-out;
+  transition: transform 0.6s ease-in-out;
 }
 
 .booking-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
 }
-
-/* Remove carousel control styles */
-
-/* ...rest of existing styles... */
