@@ -56,6 +56,8 @@ function isEmptyorSpaces(str) {
 function validation(name, email, subject, message) {
   const nameRegex = /^[a-zA-Z]+$/;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const subjectRegex = /^[a-zA-Z]+$/;
+  const messageRegex = /^[a-zA-Z]+$/;
 
   if (
     isEmptyorSpaces(name) ||
